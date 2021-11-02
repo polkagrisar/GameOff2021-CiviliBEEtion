@@ -8,9 +8,7 @@
   <sprites name="sprites"/>
   <backgrounds name="background"/>
   <paths name="paths"/>
-  <scripts name="scripts">
-    <script>scripts\scr_test.gml</script>
-  </scripts>
+  <scripts name="scripts"/>
   <help>
     <rtf>help.rtf</rtf>
   </help>

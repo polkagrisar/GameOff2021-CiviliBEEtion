@@ -186,6 +186,7 @@
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
+<<<<<<< Updated upstream
     <sprites name="htme_demo">
       <sprite>sprites\htme_spr_wall</sprite>
       <sprite>sprites\htme_spr_player</sprite>
@@ -195,10 +196,16 @@
     <sprites name="Lobby">
       <sprite>sprites\spr_TextFitBox</sprite>
     </sprites>
+=======
+    <sprite>sprites\spr_mouse</sprite>
+    <sprite>sprites\spr_hive</sprite>
+    <sprite>sprites\spr_space</sprite>
+>>>>>>> Stashed changes
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+<<<<<<< Updated upstream
     <scripts name="Gmnet">
       <scripts name="Lobby">
         <script>scripts\scr_Text_Fit_Box_Common.gml</script>
@@ -564,6 +571,20 @@
       <room>rooms\rm_online_lobby</room>
       <room>rooms\rm_lan_lobby</room>
     </rooms>
+=======
+    <script>scripts\best_sript_ever.gml</script>
+    <script>scripts\scr_test.gml</script>
+  </scripts>
+  <objects name="objects">
+    <object>objects\obj_mouse</object>
+    <object>objects\obj_hive</object>
+    <object>objects\obj_space</object>
+    <object>objects\obj_order</object>
+    <object>objects\obj_handler</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_map</room>
+>>>>>>> Stashed changes
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

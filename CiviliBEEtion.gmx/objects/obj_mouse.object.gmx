@@ -79,39 +79,36 @@ y = mouse_y
             <kind>1</kind>
             <string>///Left Click
 if (mouse_check_button_pressed(mb_left)) {
-
-
-if (hover != "none") {
-
-//If space
-if (hover.type == "space") { 
-target = hover
-state = "orders"
-
-    with hover {
-    if (order == "none") {
-    user = other.id
-    order = instance_create(x,y,obj_order)
-    with order {creator = other.id
-    user = other.user}
-    }
+    if (hover != "none") {
+        
+        //If space
+        if (hover.type == "space") { 
+            target = hover
+            state = "orders"
+        
+            with hover {
+                if (order == "none") {
+                    user = other.id
+                    order = instance_create(x,y,obj_order)
+                    with order {creator = other.id
+                    user = other.user}
+                }
+            }
+        }
+        
+        // if order
+        if (hover.type == "order") {with hover {scr_order("add")} }
     
     }
 
 }
 
-// if order
-if (hover.type == "order") {with hover {scr_order("add")} }
-
-}
-
-
-}
-
 //Press Empty
-if (mouse_check_button_pressed(mb_left) &amp;&amp; hover == "none") { state = "orders"
-target = "none"
-state = "none"}
+if (mouse_check_button_pressed(mb_left) &amp;&amp; hover == "none") {
+    state = "orders"
+    target = "none"
+    state = "none"
+}
 </string>
           </argument>
         </arguments>
@@ -134,13 +131,21 @@ state = "none"}
             <kind>1</kind>
             <string>///Right Click
 if (mouse_check_button_pressed(mb_right)) {
-
-if (hover != "none") {
-// if order
-if (hover.type == "order") {with hover {scr_order("remove")} }
-
-}
-
+    if hover == "none" {
+        state = "orders"
+        target = "none"
+        state = "none"
+    }
+    if (hover != "none") {
+        // if order
+        if (hover.type == "order") {with hover {scr_order("remove")} }
+        // If anything else
+        if (hover.type != "order") {
+            state = "orders"
+            target = "none"
+            state = "none"
+        }
+    }
 }
 
 </string>
@@ -166,7 +171,7 @@ if (hover.type == "order") {with hover {scr_order("remove")} }
             <string>///Remove Collision
 
 if (hover != "none") {
-if (!instance_place(x,y,hover)) {hover = "none"}
+    if (!instance_place(x,y,hover)) {hover = "none"}
 }
 </string>
           </argument>

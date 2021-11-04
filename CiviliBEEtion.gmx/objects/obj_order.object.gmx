@@ -62,15 +62,15 @@ total_order = 0
             <string>///Create Actions
 if (box[0] == "none") {
 
-for (var i = 0; i &lt; available_actions; i++) {
-
-box[i] = instance_create(x-32+i*32, y-64,obj_orderbox) 
-
-with box[i] {index = i
-creator = other.id}
-
-}
-
+    for (var i = 0; i &lt; available_actions; i++) {
+        box[i] = instance_create(x-32+i*32, y-64,obj_orderbox) 
+    
+        with box[i] {
+            index = i
+            creator = other.id
+            image_index = index
+        }
+    }
 }
 
 </string>
@@ -96,17 +96,20 @@ creator = other.id}
             <string>total_order = gatherer + patrol + escort + attack
 
 if (escort &gt; 0 &amp;&amp; gatherer == 0) {
-creator.user.owner.workers += escort
-escort = 0}
+    creator.user.owner.workers += escort
+    escort = 0
+}
 
 if (user.target != creator) {
-for (var i = 0; i &lt; available_actions; i++) {
-instance_destroy(box[i])
-box[i] = "none"}
+    for (var i = 0; i &lt; available_actions; i++) {
+        instance_destroy(box[i])
+        box[i] = "none"
+    }
 }
+
 if (user.target != creator &amp;&amp; total_order == 0) {
-creator.order = "none"
-instance_destroy()
+    creator.order = "none"
+    instance_destroy()
 }
 </string>
           </argument>

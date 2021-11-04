@@ -487,6 +487,10 @@
     <scripts name="Marcus">
       <script>scripts\scr_order.gml</script>
     </scripts>
+    <scripts name="RPC">
+      <script>scripts\scr_rpc_goto.gml</script>
+      <script>scripts\scr_rpg_research.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
@@ -502,6 +506,14 @@
         <object>objects\htme_obj_time</object>
         <object>objects\htme_obj_door</object>
       </objects>
+    </objects>
+    <objects name="Admin">
+      <object>objects\obj_admin</object>
+      <object>objects\obj_player_assigner</object>
+      <object>objects\obj_p1</object>
+      <object>objects\obj_p2</object>
+      <object>objects\obj_p3</object>
+      <object>objects\obj_p4</object>
     </objects>
     <object>objects\obj_dual_instance</object>
     <objects name="Gmnet">
@@ -572,6 +584,9 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_map</room>
+    <room>rooms\rm_menu</room>
+    <room>rooms\rm_connecting</room>
+    <room>rooms\rm_lobby</room>
     <rooms name="htme_demo">
       <room>rooms\htme_rom_menu</room>
       <room>rooms\htme_rom_connecting</room>

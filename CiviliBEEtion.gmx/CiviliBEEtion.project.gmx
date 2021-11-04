@@ -199,6 +199,7 @@
       <sprite>sprites\spr_hive</sprite>
       <sprite>sprites\spr_mouse</sprite>
       <sprite>sprites\spr_space</sprite>
+      <sprite>sprites\spr_nospace</sprite>
       <sprite>sprites\spr_orderbox</sprite>
     </sprites>
   </sprites>
@@ -575,6 +576,7 @@
     </objects>
     <objects name="Marcus">
       <object>objects\obj_space</object>
+      <object>objects\obj_nospace</object>
       <object>objects\obj_handler</object>
       <object>objects\obj_hive</object>
       <object>objects\obj_mouse</object>

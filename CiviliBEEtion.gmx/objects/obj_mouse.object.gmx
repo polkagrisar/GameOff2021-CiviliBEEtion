@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-owner = obj_hive
+owner = ""
+p_id = 0
 
 state = "none"
 target = "none"
@@ -57,6 +58,18 @@ hover = "none"
             <string>///Update
 x = mouse_x
 y = mouse_y
+
+if (instance_exists(obj_p1))
+p_id = 1
+
+if (instance_exists(obj_p2))
+p_id = 2
+
+if (instance_exists(obj_p3))
+p_id = 3
+
+if (instance_exists(obj_p4))
+p_id = 4
 </string>
           </argument>
         </arguments>
@@ -193,7 +206,7 @@ if (hover != "none") {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_nospace">
+    <event eventtype="4" ename="obj_orderbox">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -217,7 +230,7 @@ hover = other.id
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_orderbox">
+    <event eventtype="4" ename="obj_nospace">
       <action>
         <libid>1</libid>
         <id>603</id>

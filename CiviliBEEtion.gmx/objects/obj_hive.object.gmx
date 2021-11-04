@@ -27,6 +27,60 @@
             <kind>1</kind>
             <string>workers = 10
 av_workers = 10
+setup = true
+mouse = ""
+p_id = 0
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Setup
+if (setup) {
+setup = false
+
+if (!instance_exists(obj_mouse)) {
+
+if (instance_exists(obj_p1) &amp;&amp; p_id == 1)
+mouse = instance_create(x,y,obj_mouse) 
+with mouse {p_id = other.p_id
+owner = other.id}
+
+if (instance_exists(obj_p2) &amp;&amp; p_id == 2)
+mouse = instance_create(x,y,obj_mouse) 
+with mouse {p_id = other.p_id
+owner = other.id}
+
+if (instance_exists(obj_p3) &amp;&amp; p_id == 3)
+mouse = instance_create(x,y,obj_mouse) 
+with mouse {p_id = other.p_id
+owner = other.id}
+
+if (instance_exists(obj_p4) &amp;&amp; p_id == 4)
+mouse = instance_create(x,y,obj_mouse) 
+with mouse {p_id = other.p_id
+owner = other.id}
+
+}
+
+}
 </string>
           </argument>
         </arguments>
@@ -51,6 +105,8 @@ av_workers = 10
             <kind>1</kind>
             <string>draw_self()
 draw_text(x,y,workers)
+draw_text(x-16,y-16,p_id)
+draw_text(x,y,mouse)
 </string>
           </argument>
         </arguments>

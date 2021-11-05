@@ -490,7 +490,7 @@
     </scripts>
     <scripts name="RPC">
       <script>scripts\scr_rpc_goto.gml</script>
-      <script>scripts\scr_rpg_research.gml</script>
+      <script>scripts\scr_rpc_research.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -515,6 +515,12 @@
       <object>objects\obj_p2</object>
       <object>objects\obj_p3</object>
       <object>objects\obj_p4</object>
+    </objects>
+    <objects name="Terrain Generation">
+      <object>objects\obj_terraingenerator</object>
+    </objects>
+    <objects name="Martin">
+      <object>objects\obj_endturn</object>
     </objects>
     <object>objects\obj_dual_instance</object>
     <objects name="Gmnet">

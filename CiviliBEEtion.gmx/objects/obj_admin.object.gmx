@@ -58,6 +58,8 @@ p4_royal = 0
 
 p1_hive_drones = 0 // How many drones are in the hive
 p1_hive_workers = 0 // How many workers are in the hive (those not out on orders)
+p1_queen_hp = 0 // The health of the queen
+p1_focus = "none" // What the player is focusing on this turn
 </string>
           </argument>
         </arguments>
@@ -82,9 +84,10 @@ p1_hive_workers = 0 // How many workers are in the hive (those not out on orders
 
 p1_upgrade_distance = 0
 p1_upgrade_speed = 0
-p1_upgrade_atack = 0
+p1_upgrade_attack = 0
 p1_upgrade_honey = 0
 p1_upgrade_queen = 0
+p1_upgrade_patrol = 0
 
 p1_upgrade_focus_pollen = false
 p1_upgrade_focus_nectar = false
@@ -93,6 +96,54 @@ p1_upgrade_focus_pollination = false
 p1_upgrade_action_attack = false
 p1_upgrade_action_royal = false
 p1_upgrade_action_heal = false
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Visuals
+
+p1_art_bee = "none"
+p1_art_hive = "none"
+p1_art_emblem = "none"
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Other
+
+seed = 0
 </string>
           </argument>
         </arguments>

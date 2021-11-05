@@ -522,6 +522,9 @@
     <objects name="Martin">
       <object>objects\obj_endturn</object>
     </objects>
+    <objects name="Bots">
+      <object>objects\obj_bot1</object>
+    </objects>
     <object>objects\obj_dual_instance</object>
     <objects name="Gmnet">
       <objects name="Lobby">

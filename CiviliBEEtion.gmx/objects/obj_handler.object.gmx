@@ -48,15 +48,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (room == rm_map) {
-
-for (var i = 0; i &lt; 4; i++) {with instance_create(64+i*128,64,obj_hive) {
-p_id = i+1
+            <string>/*if (room == rm_map) {
+    for (var i = 0; i &lt; 4; i++) {
+        with instance_create(64+i*128,64,obj_hive) {
+            p_id = i+1
+        }
+    }
 }
-
-}
-}
-
+*/
 </string>
           </argument>
         </arguments>

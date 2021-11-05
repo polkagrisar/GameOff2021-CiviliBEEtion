@@ -51,6 +51,9 @@
             <kind>1</kind>
             <string>/// Stats
 
+no_players = 2 // The amount of players
+no_bots = 4 // The amount of bots
+
 p1_royal = 0 // How much Royal Jelly this player has amassed
 p2_royal = 0
 p3_royal = 0

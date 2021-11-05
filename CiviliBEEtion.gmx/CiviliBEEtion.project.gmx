@@ -202,6 +202,9 @@
       <sprite>sprites\spr_nospace</sprite>
       <sprite>sprites\spr_orderbox</sprite>
     </sprites>
+    <sprites name="Masks">
+      <sprite>sprites\spr_mask_bee</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -521,6 +524,7 @@
     </objects>
     <objects name="Martin">
       <object>objects\obj_endturn</object>
+      <object>objects\obj_bee_group</object>
     </objects>
     <objects name="Bots">
       <object>objects\obj_bot1</object>

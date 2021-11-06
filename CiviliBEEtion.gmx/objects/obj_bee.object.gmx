@@ -103,8 +103,9 @@ order_state = "attack"}
 }
 
 //When they return to Hive
-if (x &gt; go_x -8 &amp;&amp; x &lt; go_x +8 &amp; y &gt; go_y -8 &amp;&amp; y &lt; go_y+8 &amp;&amp; state == "return") {
+if (x &gt; home_x -8 &amp;&amp; x &lt; home_x +8 &amp;&amp; y &gt; home_y -8 &amp;&amp; y &lt; home_y+8 &amp;&amp; state == "return") {
 //die
+instance_destroy()
 }
 </string>
           </argument>

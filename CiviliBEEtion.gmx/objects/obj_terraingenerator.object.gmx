@@ -66,12 +66,12 @@ list_hive = ds_list_create()
 
 with obj_hive {ds_list_add(other.list_hive,id)}
 
-for (i = 1; i &lt; obj_admin.no_players; i++) {
+for (i = 1; i &lt; obj_admin.no_players+1; i++) {
     ds_list_add(list_hive_players,i)
 }
 
 if obj_admin.no_bots &gt; 0 {
-    for (i = 101; i &lt; obj_admin.no_players; i++) {
+    for (i = 101; i &lt; obj_admin.no_bots+1; i++) {
         ds_list_add(list_hive_players,i)
     }
 }

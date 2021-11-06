@@ -57,9 +57,9 @@
     <instance objName="obj_space" x="512" y="480" name="inst_6B47B7ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_space" x="512" y="160" name="inst_89F95D7A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_handler" x="64" y="32" name="inst_481FCF2F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_p2" x="96" y="32" name="inst_D54FAD0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_admin" x="32" y="-64" name="inst_22632B76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_terraingenerator" x="192" y="160" name="inst_4F83125A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_p1" x="96" y="32" name="inst_26951E52" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

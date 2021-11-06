@@ -32,9 +32,11 @@ type = "space"
 
 pollen = 0
 nectar = 0
+honey = 0
 
 pollen_max = 0
 nectar_max = 0
+honey = 0
 </string>
           </argument>
         </arguments>

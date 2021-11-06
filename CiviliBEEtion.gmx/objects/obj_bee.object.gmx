@@ -2,9 +2,9 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,10 +25,85 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// INFO
-/*
-    Keeps track of all stats between players, such as what everyone has researched.
-*/
+            <string>///Variables
+type = ""
+p_id = 0
+
+bees = 0 // How many bees in the stack, How much pollen/nectar you can gather is based on this amount
+escort = 0 
+
+gathered_pollen = 0
+gathered_nectar = 0
+gathered_honey = 0 // The multiplier
+
+home_x = 0 //Where they spawn, and where they will return
+home_y = 0
+
+go_x = 0  //Where they want to go
+go_y = 0 
+
+state = "go"       //What they are currently doing: go, return, gather/patrol/attack, combat
+order_state = "go" //What they want to do when able: go, return, gather/patrol/attack
+
+space = "none" //Space they take nectar or pollen from, or attack
+target = "none" //Target patroller chases
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Movement
+
+//Go towards objective
+if (state = "go") {
+//Code to move towards go_x and go_y
+}
+
+if (state = "return") {
+//Code to move towards home_x and home_y
+}
+
+
+//When they reach their objective
+if (x &gt; go_x -8 &amp;&amp; x &lt; go_x +8 &amp; y &gt; go_y -8 &amp;&amp; y &lt; go_y+8 &amp;&amp; state == "go") {
+
+if (type == "gatherer") {
+space = instance_position(x,y,obj_space)
+state = "gather"
+order_state = "gather"}
+
+if (type == "patrol") {
+state = "patrol"
+order_state = "patrol"}
+
+if (type == "attack") {
+space = instance_position(x,y,obj_hive)
+state = "attack"
+order_state = "attack"}
+
+}
+
+//When they return to Hive
+if (x &gt; go_x -8 &amp;&amp; x &lt; go_x +8 &amp; y &gt; go_y -8 &amp;&amp; y &lt; go_y+8 &amp;&amp; state == "return") {
+//die
+}
 </string>
           </argument>
         </arguments>
@@ -49,24 +124,28 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Stats
+            <string>///Do objective
 
-no_players = 4 // The amount of players
-no_bots = 4 // The amount of bots
+if (state == "gather") {
+//Code to take pollen and nectar from space
 
-p1_royal = 0 // How much Royal Jelly this player has amassed
-p2_royal = 0
-p3_royal = 0
-p4_royal = 0
 
-p1_hive_drones = 0 // How many drones are in the hive
-p1_hive_workers = 0 // How many workers are in the hive (those not out on orders)
-p1_queen_hp = 0 // The health of the queen
-p1_focus = "none" // What the player is focusing on this turn
+//When done
+
+
+// state = "return", order_state = "return"
+
+}
+
+if (state == "patrol") {
+
+}
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="4" ename="obj_bee">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -83,70 +162,11 @@ p1_focus = "none" // What the player is focusing on this turn
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Research
-
-p1_upgrade_distance = 0
-p1_upgrade_speed = 0
-p1_upgrade_attack = 0
-p1_upgrade_honey = 0
-p1_upgrade_queen = 0
-p1_upgrade_patrol = 0
-
-p1_upgrade_focus_pollen = false
-p1_upgrade_focus_nectar = false
-p1_upgrade_focus_pollination = false
-
-p1_upgrade_action_attack = false
-p1_upgrade_action_royal = false
-p1_upgrade_action_heal = false
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Visuals
-
-p1_art_bee = "none"
-p1_art_hive = "none"
-p1_art_emblem = "none"
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Other
-
-seed = 0
+            <string>///Collision with other Bee
+if (p_id != other.p_id &amp;&amp; type != "gatherer") {
+    state = "combat"
+    other.state = "combat"
+}
 </string>
           </argument>
         </arguments>

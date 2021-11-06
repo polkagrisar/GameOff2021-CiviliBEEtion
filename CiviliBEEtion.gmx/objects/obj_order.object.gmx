@@ -69,7 +69,7 @@ goal_y = y
 
 //Create all actions on a normal space
 if (creator.type == "space"){
-available_actions = 4
+available_actions = 3
 if (box[0] == "none") {
 
     for (var i = 0; i &lt; available_actions; i++) {
@@ -138,6 +138,41 @@ if (user.target != creator) {
 if (user.target != creator &amp;&amp; total_order == 0) {
     creator.order = "none"
     instance_destroy()
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Send this to all players
+
+//Create gatherer
+if (gatherer &gt; 0) {
+with instance_create(spawn_x, spawn_y,obj_bee) {
+type = "gatherer"
+p_id = other.p_id
+bees = other.gatherer
+escort = other.escort
+home_x = other.spawn_x
+home_y = other.spawn_y
+go_x = other.creator.x
+go_y = other.creator.y
+    }
 }
 </string>
           </argument>

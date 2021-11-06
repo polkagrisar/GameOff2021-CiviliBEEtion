@@ -201,6 +201,7 @@
       <sprite>sprites\spr_space</sprite>
       <sprite>sprites\spr_nospace</sprite>
       <sprite>sprites\spr_orderbox</sprite>
+      <sprite>sprites\spr_bee</sprite>
     </sprites>
     <sprites name="Masks">
       <sprite>sprites\spr_mask_bee</sprite>

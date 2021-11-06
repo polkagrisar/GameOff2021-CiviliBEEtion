@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -29,6 +29,7 @@
 creator = "none"
 user = "none"
 box[0] = "none"
+p_id = 0
 
 gatherer = 0
 patrol = 0
@@ -67,7 +68,7 @@ goal_y = y
             <kind>1</kind>
             <string>///Create Actions
 
-//Create all actions on a normal space
+//Create all actions (except attack) on a normal space
 if (creator.type == "space"){
 available_actions = 3
 if (box[0] == "none") {
@@ -82,6 +83,21 @@ if (box[0] == "none") {
         }
     }
 }
+}
+
+//Create attack action on a hive
+if (creator.type == "hive"){
+
+if (box[0] == "none") {
+available_actions = 1
+        box[0] = instance_create(x-32, y-64,obj_orderbox) 
+    
+        with box[0] {
+            index = 3
+            creator = other.id
+            image_index = index
+         }
+    }
 }
 
 //Create only Patrol on an empty space
@@ -159,7 +175,8 @@ if (user.target != creator &amp;&amp; total_order == 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Send this to all players
+            <string>///Create Bee
+if (keyboard_check_pressed(vk_control)) {
 
 //Create gatherer
 if (gatherer &gt; 0) {
@@ -173,6 +190,17 @@ home_y = other.spawn_y
 go_x = other.creator.x
 go_y = other.creator.y
     }
+}
+
+for (var i = 0; i &lt; available_actions; i++) {
+        instance_destroy(box[i])
+        box[i] = "none"
+    }
+    
+    creator.order = "none"
+    instance_destroy()
+
+
 }
 </string>
           </argument>
@@ -196,13 +224,14 @@ go_y = other.creator.y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(x-64,y+32,user.target)
+            <string>///DEBUG
+//draw_text(x-64,y+32,user.target)
 
 
-draw_text(x+32,y,"G: " + string(gatherer))
-draw_text(x+32,y+16,"P: " + string(patrol))
-draw_text(x+32,y+32,"E: " + string(escort))
-draw_text(x+32,y+48,"A: " + string(attack))
+draw_text(x-32,y,"G:" + string(gatherer))
+draw_text(x,y," P:" + string(patrol))
+draw_text(x-32,y+16,"E:" + string(escort))
+draw_text(x,y+16," A:" + string(attack))
 </string>
           </argument>
         </arguments>

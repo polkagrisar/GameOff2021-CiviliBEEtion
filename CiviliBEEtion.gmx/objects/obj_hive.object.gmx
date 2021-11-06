@@ -28,8 +28,15 @@
             <string>workers = 10
 av_workers = 10
 setup = true
-mouse = ""
+mouse = "none"
 p_id = 0
+
+
+type = "hive"
+order = "none"
+user = "none"
+
+info = ""
 </string>
           </argument>
         </arguments>
@@ -104,9 +111,13 @@ owner = other.id}
           <argument>
             <kind>1</kind>
             <string>draw_self()
-draw_text(x,y,workers)
-draw_text(x-16,y-16,p_id)
-draw_text(x,y,mouse)
+draw_text(x-32,y-32,"W: " + string(workers))
+draw_text(x-32,y-16,"ID: "+ string (p_id))
+
+if (mouse != "none")
+draw_text(x-32,y, "You")
+else
+draw_text (x-32,y, "Other")
 </string>
           </argument>
         </arguments>

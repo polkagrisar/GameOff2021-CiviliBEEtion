@@ -25,18 +25,76 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///INFO
+
+/*
+This is any space that is not a Hive
+
+
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Variables
 order = "none"
 user = "none"
 type = "space"
+space_type = ""
 
-pollen = 0
-nectar = 0
+spawn_x = 0
+spawn_y = 0
+
+pollen = 50  //Resources the space has
+nectar = 50
 honey = 0
 
-pollen_max = 0
-nectar_max = 0
+pollen_max = 100 //What it start with / How much it can have
+nectar_max = 100
 honey = 0
+
+
+info = ""
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set info box
+info = "P: " + string(pollen) + " / " + string(pollen_max) + "#N: " + string(nectar) + " / " + string(nectar_max)
 </string>
           </argument>
         </arguments>
@@ -59,9 +117,10 @@ honey = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
+            <string>///DEBUG
+draw_self()
 
-draw_text(x,y-48,order)
+draw_text(x-32,y+32,order)
 </string>
           </argument>
         </arguments>

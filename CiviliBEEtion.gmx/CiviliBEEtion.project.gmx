@@ -598,9 +598,12 @@
       <object>objects\obj_order</object>
       <object>objects\obj_orderbox</object>
       <object>objects\obj_bee</object>
+      <object>objects\obj_camera</object>
+      <object>objects\obj_display_manager</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_display_keep_on_top</room>
     <room>rooms\rm_map</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_connecting</room>

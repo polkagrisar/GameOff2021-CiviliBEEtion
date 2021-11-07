@@ -29,8 +29,8 @@
 c_width = 1024
 c_height = 768
 c_speed = 10
-c_zoom = 1
-c_max_zoom = 3
+c_zoom = 3
+c_max_zoom = 4
 </string>
           </argument>
         </arguments>
@@ -91,8 +91,8 @@ c_zoom--
 
 c_zoom = clamp(c_zoom,1,c_max_zoom)
 
-view_wview=obj_display_manager.ideal_width/c_zoom
-view_hview=obj_display_manager.ideal_height/c_zoom
+view_wview=(obj_display_manager.ideal_width*2)/c_zoom
+view_hview=(obj_display_manager.ideal_height*2)/c_zoom
 
 //Follow Camera
 view_xview=x-view_wview/2-10

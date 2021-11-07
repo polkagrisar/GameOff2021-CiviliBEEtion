@@ -189,6 +189,22 @@ home_x = other.spawn_x
 home_y = other.spawn_y
 go_x = other.creator.x
 go_y = other.creator.y
+move_speed = 5
+    }
+}
+
+//Create patroller
+if (patrol &gt; 0) {
+with instance_create(spawn_x, spawn_y,obj_bee) {
+type = "patrol"
+p_id = other.p_id
+bees = other.patrol
+escort = other.escort
+home_x = other.spawn_x
+home_y = other.spawn_y
+go_x = other.creator.x
+go_y = other.creator.y
+move_speed = 8
     }
 }
 

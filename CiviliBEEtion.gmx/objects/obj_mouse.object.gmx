@@ -144,9 +144,14 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; hover == "none") {
     with hover {
                 if (order == "none") {
                     user = other.id
+                    spawn_x = other.owner.x
+                    spawn_y = other.owner.y
                     order = instance_create(x,y,obj_order)
                     with order {creator = other.id
-                    user = other.user}
+                    user = other.user
+                    spawn_x = other.spawn_x
+                    spawn_y = other.spawn_y
+                    p_id = user.p_id}
                 }
             }
 }

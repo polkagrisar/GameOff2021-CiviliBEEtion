@@ -31,6 +31,7 @@ p_id = 0
 
 bees = 0 // How many bees in the stack, How much pollen/nectar you can gather is based on this amount
 escort = 0 
+move_speed = 0
 
 gathered_pollen = 0
 gathered_nectar = 0
@@ -74,12 +75,12 @@ target = "none" //Target patroller chases
 //Go towards objective
 if (state = "go") {
 //Code to move towards go_x and go_y
-move_towards_point(go_x,go_y,5)
+move_towards_point(go_x,go_y,move_speed)
 }
 
 if (state = "return") {
 //Code to move towards home_x and home_y
-move_towards_point(home_x,home_y,5)
+move_towards_point(home_x,home_y,move_speed)
 }
 
 
@@ -141,6 +142,8 @@ order_state = "return"
 }
 
 if (state == "patrol") {
+state = "return"
+order_state = "return"
 
 }
 </string>

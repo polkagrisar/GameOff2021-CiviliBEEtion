@@ -120,12 +120,12 @@ p1_focus = "none" // What the player is focusing on this turn
             <kind>1</kind>
             <string>/// Research
 
-p1_upgrade_distance = 0
-p1_upgrade_speed = 0
-p1_upgrade_attack = 0
-p1_upgrade_honey = 0
-p1_upgrade_queen = 0
-p1_upgrade_patrol = 0
+p1_upgrade_distance = 0 // How far the bees can travel out the hive
+p1_upgrade_speed = 0 // How fast the bees move
+p1_upgrade_attack = 0 // The attack power of bees
+p1_upgrade_honey = 0 // Bonus to honey making
+p1_upgrade_queen = 0 // The bonus health of the queen
+p1_upgrade_patrol = 0 // The patrol range of patrol bees
 
 p1_upgrade_focus_pollen = false
 p1_upgrade_focus_nectar = false
@@ -159,6 +159,26 @@ p1_upgrade_action_heal = false
 p1_art_bee = "none"
 p1_art_hive = "none"
 p1_art_emblem = "none"
+
+p2_art_bee = "none"
+p2_art_hive = "none"
+p2_art_emblem = "none"
+
+p3_art_bee = "none"
+p3_art_hive = "none"
+p3_art_emblem = "none"
+
+p4_art_bee = "none"
+p4_art_hive = "none"
+p4_art_emblem = "none"
+
+p5_art_bee = "none"
+p5_art_hive = "none"
+p5_art_emblem = "none"
+
+p6_art_bee = "none"
+p6_art_hive = "none"
+p6_art_emblem = "none"
 </string>
           </argument>
         </arguments>

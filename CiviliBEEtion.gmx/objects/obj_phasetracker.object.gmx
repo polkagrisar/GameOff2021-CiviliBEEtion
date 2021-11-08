@@ -26,6 +26,20 @@
           <argument>
             <kind>1</kind>
             <string>phase = "planning"
+
+p1_ready = false
+p2_ready = false
+p3_ready = false
+p4_ready = false
+p5_ready = false
+p6_ready = false
+
+bot1_ready = false
+bot2_ready = false
+bot3_ready = false
+bot4_ready = false
+bot5_ready = false
+bot6_ready = false
 </string>
           </argument>
         </arguments>

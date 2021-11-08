@@ -25,33 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>locked = false
+            <string>image_speed = 0
 
-image_speed = 0
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>x = view_xview[0]+view_wview[0]-32
-y = view_yview[0]+view_hview[0]-32
+botno = 1
+active = false
 </string>
           </argument>
         </arguments>
@@ -74,14 +51,18 @@ y = view_yview[0]+view_hview[0]-32
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = view_xview[0]+view_wview[0]-32
-y = view_yview[0]+view_hview[0]-32
+            <string>if botno == 1 {image_index = htme_globalGet("bot1")}
+if botno == 2 {image_index = htme_globalGet("bot2")}
+if botno == 3 {image_index = htme_globalGet("bot3")}
+if botno == 4 {image_index = htme_globalGet("bot4")}
+if botno == 5 {image_index = htme_globalGet("bot5")}
+if botno == 6 {image_index = htme_globalGet("bot6")}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="6" enumb="7">
+    <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -98,11 +79,25 @@ y = view_yview[0]+view_hview[0]-32
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// End the turn
-
-if locked == false {
-    locked = true
-    image_index = 1
+            <string>if instance_exists(obj_p1) {
+    if botno == 1 {
+        if active == false {htme_globalSet("bot1",1,buffer_bool) active = true} else {htme_globalSet("bot1",0,buffer_bool) active = false}
+    }
+    if botno == 2 {
+        if active == false {htme_globalSet("bot2",1,buffer_bool) active = true} else {htme_globalSet("bot2",0,buffer_bool) active = false}
+    }
+    if botno == 3 {
+        if active == false {htme_globalSet("bot3",1,buffer_bool) active = true} else {htme_globalSet("bot3",0,buffer_bool) active = false}
+    }
+    if botno == 4 {
+        if active == false {htme_globalSet("bot4",1,buffer_bool) active = true} else {htme_globalSet("bot4",0,buffer_bool) active = false}
+    }
+    if botno == 5 {
+        if active == false {htme_globalSet("bot5",1,buffer_bool) active = true} else {htme_globalSet("bot5",0,buffer_bool) active = false}
+    }
+    if botno == 6 {
+        if active == false {htme_globalSet("bot6",1,buffer_bool) active = true} else {htme_globalSet("bot6",0,buffer_bool) active = false}
+    }
 }
 </string>
           </argument>

@@ -33,6 +33,8 @@ state = "none"
 target = "none"
 hover = "none"
 
+view_x = 0
+view_y = 0
 </string>
           </argument>
         </arguments>
@@ -58,6 +60,9 @@ hover = "none"
             <string>///Update
 x = mouse_x
 y = mouse_y
+
+view_x = mouse_x - view_xview
+view_y = mouse_y - view_yview
 </string>
           </argument>
         </arguments>
@@ -345,6 +350,12 @@ hover = other.id
             <string>///DEBUG
 //draw_text(x,y,state)
 //draw_text(x,y+16,hover)
+
+
+draw_text(x,y-16,view_x)
+draw_text(x,y-32,view_y)
+draw_text(x,y-64,view_wview)
+draw_text(x,y-48,view_hview)
 </string>
           </argument>
         </arguments>

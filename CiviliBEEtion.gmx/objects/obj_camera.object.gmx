@@ -91,6 +91,12 @@ c_zoom--
 
 c_zoom = clamp(c_zoom,1,c_max_zoom)
 
+//Move camera with mose V.I.P
+if (instance_exists(obj_mouse)) {
+if (obj_mouse.view_x &gt; view_wview-80)
+x = mouse_x
+}
+
 view_wview=(obj_display_manager.ideal_width*2)/c_zoom
 view_hview=(obj_display_manager.ideal_height*2)/c_zoom
 

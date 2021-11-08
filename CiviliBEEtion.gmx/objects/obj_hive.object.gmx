@@ -30,6 +30,9 @@ av_workers = 10
 setup = true
 mouse = "none"
 
+spawn_x = 0 //Only used when attacked
+spawn_y = 0
+
 p_id = 0
 emblem = ""
 

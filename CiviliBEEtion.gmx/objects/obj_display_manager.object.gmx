@@ -50,6 +50,7 @@ for (var i = 1; i &lt;= room_last;i++) {
 }
 
 surface_resize(application_surface,ideal_width,ideal_height)
+display_set_gui_size(ideal_width,ideal_height)
 window_set_size(ideal_width,ideal_height)
 
 room_goto(room_next(room))
@@ -107,6 +108,38 @@ room_goto(room_next(room))
     window_set_size(ideal_width*zoom,ideal_height*zoom)
     surface_resize(application_surface,ideal_width*zoom,ideal_height*zoom)
     alarm[0] = 1
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="109">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (window_get_fullscreen()) {
+window_set_fullscreen(false)
+alarm[0]=1
+exit
+}
+
+if (!window_get_fullscreen()) {
+window_set_fullscreen(true)
+exit
 }
 </string>
           </argument>

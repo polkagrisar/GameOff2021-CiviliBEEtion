@@ -252,6 +252,78 @@ draw_text(x,y+16," A:" + string(attack))
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///User Feedback
+if (gatherer &gt; 0 || patrol &gt; 0 || attack &gt; 0)
+draw_line_colour(spawn_x,spawn_y,goal_x,goal_y,c_red,c_red)
+
+var g_exist = false
+var p_exist = false
+var e_exist = false
+var a_exist = false
+var all_orders = 0
+
+
+if (gatherer &gt; 0) {g_exist = true
+all_orders++}
+if (patrol &gt; 0) {p_exist = true
+all_orders++}
+if (escort &gt; 0) {e_exist = true
+all_orders++}
+if (attack &gt; 0) {a_exist = true
+all_orders++}
+
+if (all_orders == 1) {
+if (g_exist) {
+draw_sprite(spr_order_icon,0,x,y)
+draw_text(x,y-32,gatherer)}
+if (p_exist) {draw_sprite(spr_order_icon,1,x,y)
+draw_text(x,y-32,patrol)}
+if (a_exist) {draw_sprite(spr_order_icon,3,x,y)
+draw_text(x,y-32,attack)}
+}
+
+if (all_orders == 2) {
+if (g_exist &amp;&amp; p_exist) {
+draw_sprite(spr_order_icon,0,x-16,y)
+draw_text(x-16,y-32,gatherer)
+draw_sprite(spr_order_icon,1,x+16,y)
+draw_text(x+16,y-32,patrol)}
+if (g_exist &amp;&amp; e_exist) {
+draw_sprite(spr_order_icon,0,x-16,y)
+draw_text(x-16,y-32,gatherer)
+draw_sprite(spr_order_icon,2,x+16,y)
+draw_text(x+16,y-32,escort)}
+
+}
+
+if (all_orders == 3) {
+draw_sprite(spr_order_icon,0,x-32,y)
+draw_text(x-32,y-32,gatherer)
+draw_sprite(spr_order_icon,1,x,y)
+draw_text(x,y-32,patrol)
+draw_sprite(spr_order_icon,2,x+32,y)
+draw_text(x+32,y-32,escort)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>

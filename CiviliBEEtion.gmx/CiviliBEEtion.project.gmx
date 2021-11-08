@@ -496,6 +496,10 @@
     <scripts name="RPC">
       <script>scripts\scr_rpc_goto.gml</script>
       <script>scripts\scr_rpc_research.gml</script>
+      <script>scripts\scr_rpc_begin.gml</script>
+      <script>scripts\scr_rpc_player_join.gml</script>
+      <script>scripts\scr_rpc_player_ready.gml</script>
+      <script>scripts\scr_rpc_player_leave.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -520,6 +524,8 @@
       <object>objects\obj_p2</object>
       <object>objects\obj_p3</object>
       <object>objects\obj_p4</object>
+      <object>objects\obj_p5</object>
+      <object>objects\obj_p6</object>
     </objects>
     <objects name="Terrain Generation">
       <object>objects\obj_terraingenerator</object>
@@ -527,9 +533,19 @@
     <objects name="Martin">
       <object>objects\obj_endturn</object>
       <object>objects\obj_bee_group</object>
+      <object>objects\obj_roomchanger</object>
+      <object>objects\obj_phasetracker</object>
     </objects>
     <objects name="Bots">
       <object>objects\obj_bot1</object>
+    </objects>
+    <objects name="Menu">
+      <object>objects\obj_menu_create</object>
+      <object>objects\obj_menu_join</object>
+      <object>objects\obj_menu_connecting</object>
+      <objects name="Lobby">
+        <object>objects\obj_ready</object>
+      </objects>
     </objects>
     <object>objects\obj_dual_instance</object>
     <objects name="Gmnet">
@@ -592,7 +608,6 @@
     <objects name="Marcus">
       <object>objects\obj_space</object>
       <object>objects\obj_nospace</object>
-      <object>objects\obj_handler</object>
       <object>objects\obj_hive</object>
       <object>objects\obj_mouse</object>
       <object>objects\obj_order</object>
@@ -604,10 +619,10 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_display_keep_on_top</room>
-    <room>rooms\rm_map</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_connecting</room>
     <room>rooms\rm_lobby</room>
+    <room>rooms\rm_map</room>
     <rooms name="htme_demo">
       <room>rooms\htme_rom_menu</room>
       <room>rooms\htme_rom_connecting</room>

@@ -29,6 +29,19 @@
 
 x = round(room_width/2)
 y = round(room_height/2)
+
+player_amount = 1
+if obj_admin.player2 == true {player_amount++}
+if obj_admin.player3 == true {player_amount++}
+if obj_admin.player4 == true {player_amount++}
+if obj_admin.player5 == true {player_amount++}
+if obj_admin.player6 == true {player_amount++}
+if obj_admin.bot1 == true {player_amount++}
+if obj_admin.bot2 == true {player_amount++}
+if obj_admin.bot3 == true {player_amount++}
+if obj_admin.bot4 == true {player_amount++}
+if obj_admin.bot5 == true {player_amount++}
+if obj_admin.bot6 == true {player_amount++}
 </string>
           </argument>
         </arguments>
@@ -51,11 +64,11 @@ y = round(room_height/2)
             <kind>1</kind>
             <string>/// Place hives
 
-var placement_angle = 360/(obj_admin.no_players+obj_admin.no_bots)
-var radius = (obj_admin.no_players+obj_admin.no_bots)*8
+var placement_angle = 360/(player_amount)
+var radius = (player_amount)*8
 var offset = irandom(360)
 
-for (i = 0; i &lt; (obj_admin.no_players+obj_admin.no_bots); i++) {
+for (i = 0; i &lt; (player_amount); i++) {
     instance_create(x+lengthdir_x(200+radius,placement_angle*i+offset), y+lengthdir_y(200+radius,placement_angle*i+offset), obj_hive)
 }
 
@@ -89,6 +102,34 @@ while !ds_list_empty(list_hive) {
 
 ds_list_destroy(list_hive_players)
 ds_list_destroy(list_hive)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set bot seeds
+
+with obj_bot1 {event_user(0)}
+//with obj_bot2 {event_user(0)}
+//with obj_bot3 {event_user(0)}
+//with obj_bot4 {event_user(0)}
+//with obj_bot5 {event_user(0)}
+//with obj_bot6 {event_user(0)}
 </string>
           </argument>
         </arguments>

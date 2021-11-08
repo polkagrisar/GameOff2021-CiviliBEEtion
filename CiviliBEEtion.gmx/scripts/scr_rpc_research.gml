@@ -61,6 +61,36 @@ if argument0 == 4 && !instance_exists(obj_p4) {
     if argument1 == "actheal" {p4_upgrade_action_heal = true}
 }
 
+if argument0 == 5 && !instance_exists(obj_p5) {
+    if argument1 == "distance" {p5_upgrade_distance++}
+    if argument1 == "speed" {p5_upgrade_speed++}
+    if argument1 == "attack" {p5_upgrade_attack++}
+    if argument1 == "honey" {p5_upgrade_honey++}
+    if argument1 == "queen" {p5_upgrade_queen++}
+    if argument1 == "patrol" {p5_upgrade_patrol++}
+    if argument1 == "pollen" {p5_upgrade_focus_pollen = true}
+    if argument1 == "nectar" {p5_upgrade_focus_nectar = true}
+    if argument1 == "pollination" {p5_upgrade_focus_pollination = true}
+    if argument1 == "actattack" {p5_upgrade_action_attack = true}
+    if argument1 == "actroyal" {p5_upgrade_action_royal = true}
+    if argument1 == "actheal" {p5_upgrade_action_heal = true}
+}
+
+if argument0 == 6 && !instance_exists(obj_p6) {
+    if argument1 == "distance" {p6_upgrade_distance++}
+    if argument1 == "speed" {p6_upgrade_speed++}
+    if argument1 == "attack" {p6_upgrade_attack++}
+    if argument1 == "honey" {p6_upgrade_honey++}
+    if argument1 == "queen" {p6_upgrade_queen++}
+    if argument1 == "patrol" {p6_upgrade_patrol++}
+    if argument1 == "pollen" {p6_upgrade_focus_pollen = true}
+    if argument1 == "nectar" {p6_upgrade_focus_nectar = true}
+    if argument1 == "pollination" {p6_upgrade_focus_pollination = true}
+    if argument1 == "actattack" {p6_upgrade_action_attack = true}
+    if argument1 == "actroyal" {p6_upgrade_action_royal = true}
+    if argument1 == "actheal" {p6_upgrade_action_heal = true}
+}
+
 // Bots
 
 if argument0 == 101 {

@@ -49,9 +49,44 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Players &amp; bots
+
+player1 = true
+player2 = false
+player3 = false
+player4 = false
+player5 = false
+player6 = false
+
+bot1 = false
+bot2 = false
+bot3 = false
+bot4 = false
+bot5 = false
+bot6 = false
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Stats
 
-no_players = 4 // The amount of players
+no_players = 2 // The amount of players
 no_bots = 4 // The amount of bots
 
 p1_royal = 0 // How much Royal Jelly this player has amassed
@@ -147,6 +182,46 @@ p1_art_emblem = "none"
             <string>/// Other
 
 seed = 0
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set new player amounts
+
+no_players = 0
+no_bots = 0
+
+if player1 == true{no_players++}
+if player2 == true{no_players++}
+if player3 == true{no_players++}
+if player4 == true{no_players++}
+if player5 == true{no_players++}
+if player6 == true{no_players++}
+
+if bot1 == true {no_bots++}
+if bot2 == true {no_bots++}
+if bot3 == true {no_bots++}
+if bot4 == true {no_bots++}
+if bot5 == true {no_bots++}
+if bot6 == true {no_bots++}
 </string>
           </argument>
         </arguments>

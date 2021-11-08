@@ -58,14 +58,32 @@
 
 if htme_getPlayerNumber(global.htme_object.playerhash) == 2 {
     instance_create(x,y,obj_p2)
+    htme_globalSet("player2",1,buffer_bool)
+    htme_globalSet("p2_ready",0,buffer_bool)
 }
 
 if htme_getPlayerNumber(global.htme_object.playerhash) == 3 {
     instance_create(x,y,obj_p3)
+    htme_globalSet("player3",1,buffer_bool)
+    htme_globalSet("p3_ready",0,buffer_bool)
 }
 
 if htme_getPlayerNumber(global.htme_object.playerhash) == 4 {
     instance_create(x,y,obj_p4)
+    htme_globalSet("player4",1,buffer_bool)
+    htme_globalSet("p4_ready",0,buffer_bool)
+}
+
+if htme_getPlayerNumber(global.htme_object.playerhash) == 5 {
+    instance_create(x,y,obj_p5)
+    htme_globalSet("player5",1,buffer_bool)
+    htme_globalSet("p5_ready",0,buffer_bool)
+}
+
+if htme_getPlayerNumber(global.htme_object.playerhash) == 6 {
+    instance_create(x,y,obj_p6)
+    htme_globalSet("player6",1,buffer_bool)
+    htme_globalSet("p6_ready",0,buffer_bool)
 }
 
 instance_destroy()

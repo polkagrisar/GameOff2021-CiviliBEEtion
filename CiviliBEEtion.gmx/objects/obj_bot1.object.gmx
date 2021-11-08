@@ -35,6 +35,40 @@
 */
 
 seed = 0
+
+// Tendenices increase the chance the AI will pick a specific action
+tendecy_hoard = 0   // Create workers and gather as much as possible
+tendency_attack = 0 // Send patrols and attack other hives
+tendency_research = 0 // Upgrade
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Begin game
+
+seed = irandom(9999999999)
+
+tendecy_hoard = irandom(10)
+tendency_attack = irandom(10)
+tendency_research = irandom(10)
 </string>
           </argument>
         </arguments>

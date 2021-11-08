@@ -1,0 +1,3 @@
+On main menu: top button is create game, the hive is join game.
+
+In the lobby: hive starts the game for all players.

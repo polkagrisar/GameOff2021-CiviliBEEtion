@@ -100,6 +100,49 @@ info = "P: " + string(pollen) + " / " + string(pollen_max) + "#N: " + string(nec
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="22">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Send data to other players
+
+if gatherer &gt; 0 || patrol &gt; 0 || escort &gt; 0 || attack &gt; 0 {
+    var send_player = 0
+    if instance_exists(obj_p1) {send_player = 1}
+    if instance_exists(obj_p2) {send_player = 2}
+    if instance_exists(obj_p3) {send_player = 3}
+    if instance_exists(obj_p4) {send_player = 4}
+    if instance_exists(obj_p5) {send_player = 5}
+    if instance_exists(obj_p6) {send_player = 6}
+    
+    // send data
+    self.rpc_id = htme_hash()
+    var playerlist = htme_getPlayers()
+    list_p1 = ds_list_create()
+    ds_list_add(list_p1,x,y,300,400)
+    for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
+        var player = ds_list_find_value(playerlist,i)
+        htmerpc_send(self.rpc_id,scr_rpc_order,player,x,y,send_player,gatherer,patrol,escort,attack)
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>

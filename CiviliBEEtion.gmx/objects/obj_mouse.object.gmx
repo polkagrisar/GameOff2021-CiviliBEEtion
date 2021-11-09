@@ -88,6 +88,8 @@ view_y = mouse_y - view_yview
 //Check range 
 //if (within range of hive + range upgrade) (Encompass the whole left-click script)
 
+if (obj_phasetracker.phase != "planning" || obj_endturn.locked == true) {exit}
+
 if (mouse_check_button_pressed(mb_left)) {
     if (hover != "none") {
         

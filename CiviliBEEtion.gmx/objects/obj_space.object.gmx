@@ -71,6 +71,11 @@ honey = 0
 
 
 info = ""
+
+gatherer = 0
+patrol = 0
+escort = 0
+attack = 0
 </string>
           </argument>
         </arguments>

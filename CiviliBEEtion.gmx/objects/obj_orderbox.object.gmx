@@ -28,6 +28,7 @@
             <string>image_speed = 0
 creator = "none"
 index = 0
+p_id = scr_get_data("p_id",0)
 type = "order"
 
 info = ""

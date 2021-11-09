@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Variables
 owner = ""
-p_id = 0
+p_id = scr_get_data("p_id",0)
 
 state = "none"
 target = "none"
@@ -92,79 +92,36 @@ if (obj_phasetracker.phase != "planning" || obj_endturn.locked == true) {exit}
 
 if (mouse_check_button_pressed(mb_left)) {
     if (hover != "none") {
+        if (target == hover) {exit}
         
-        //If space
-        if (hover.type == "space") { 
+        //If Flower / Rock / Anything on the space-object
+        if (hover.type == "flower" || hover.type == "rock") { 
             target = hover
             state = "orders"
-        
-            with hover {
-                if (order == "none") {
-                    spawn_x = other.owner.x
-                    spawn_y = other.owner.y
-                    user = other.id
-                    order = instance_create(x,y,obj_order)
-                    with order {creator = other.id
-                    user = other.user
-                    spawn_x = other.spawn_x
-                    spawn_y = other.spawn_y
-                    p_id = user.p_id}
-                }
+            with hover { scr_create_objectboxes() }
             }
-        }
         
+       
         //If opponent hive
         if (hover.type == "hive" &amp;&amp; hover.p_id != p_id) {
         target = hover
         state = "orders"
         
-        with hover {
-                if (order == "none") {
-                    spawn_x = other.owner.x
-                    spawn_y = other.owner.y
-                    user = other.id
-                    order = instance_create(x,y,obj_order)
-                    with order {creator = other.id
-                    user = other.user
-                    spawn_x = other.spawn_x
-                    spawn_y = other.spawn_y}
+        with hover {scr_create_objectboxes()}
                 }
-            }
         
-        }
-        
-        //If empty space
-        if (hover.type == "nospace") { 
-         target = hover
-         state = "orders"}
         
         // if order
         if (hover.type == "order") {with hover {scr_order("add")} }
-    
     }
-
 }
 
 //Press Empty
 if (mouse_check_button_pressed(mb_left) &amp;&amp; hover == "none") {
 
-    //Send patrol to empty area
-    hover = instance_create(x,y,obj_nospace)
-    target = hover
-    state = "orders"
-    with hover {
-                if (order == "none") {
-                    user = other.id
-                    spawn_x = other.owner.x
-                    spawn_y = other.owner.y
-                    order = instance_create(x,y,obj_order)
-                    with order {creator = other.id
-                    user = other.user
-                    spawn_x = other.spawn_x
-                    spawn_y = other.spawn_y
-                    p_id = user.p_id}
-                }
-            }
+    hover = "none"
+    target = "none"
+    state = "none"
 }
 </string>
           </argument>
@@ -284,30 +241,6 @@ hover = other.id
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_nospace">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Mouse Collision
-hover = other.id
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="obj_space">
       <action>
         <libid>1</libid>
@@ -351,13 +284,14 @@ hover = other.id
             <kind>1</kind>
             <string>///DEBUG
 //draw_text(x,y,state)
-//draw_text(x,y+16,hover)
+draw_text(x,y+16,hover)
 
-
+/*
 draw_text(x,y-16,view_x)
 draw_text(x,y-32,view_y)
 draw_text(x,y-64,view_wview)
 draw_text(x,y-48,view_hview)
+*/
 </string>
           </argument>
         </arguments>

@@ -496,6 +496,8 @@
     </scripts>
     <scripts name="Marcus">
       <script>scripts\scr_order.gml</script>
+      <script>scripts\scr_get_data.gml</script>
+      <script>scripts\scr_create_objectboxes.gml</script>
     </scripts>
     <scripts name="RPC">
       <script>scripts\scr_rpc_goto.gml</script>
@@ -613,7 +615,6 @@
     </objects>
     <objects name="Marcus">
       <object>objects\obj_space</object>
-      <object>objects\obj_nospace</object>
       <object>objects\obj_hive</object>
       <object>objects\obj_mouse</object>
       <object>objects\obj_order</object>

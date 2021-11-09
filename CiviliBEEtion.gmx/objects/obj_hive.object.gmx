@@ -26,21 +26,16 @@
           <argument>
             <kind>1</kind>
             <string>workers = 10
-av_workers = 10
+drones = 10
+
 setup = true
 mouse = "none"
 
-spawn_x = 0 //Only used when attacked
-spawn_y = 0
-
 p_id = 0
-emblem = ""
-
 
 type = "hive"
-order = "none"
-user = "none"
-
+box = "none" //Holds the orderbox
+attack = 0 //Bees sent to attack
 info = ""
 </string>
           </argument>
@@ -98,6 +93,33 @@ owner = other.id}
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy Order-boxes
+if (obj_mouse.target != id) {
+        instance_destroy(box)
+        box = "none"
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -125,6 +147,36 @@ else
 draw_text (x-32,y, "Other")
 
 draw_sprite(spr_emblem,0,x,y-32)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///User Feedback
+var player_id = scr_get_data("p_id",0)
+var spawn_x = scr_get_data("spawn_x",player_id)
+var spawn_y = scr_get_data("spawn_y",player_id)
+
+if (attack &gt; 0){
+draw_line_colour(spawn_x,spawn_y,x,y,c_red,c_red)
+draw_sprite(spr_order_icon,3,x,y)
+draw_text(x,y-32,attack)
+}
 </string>
           </argument>
         </arguments>

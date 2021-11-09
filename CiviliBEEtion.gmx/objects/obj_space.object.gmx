@@ -53,13 +53,16 @@ This is any space that is not a Hive
           <argument>
             <kind>1</kind>
             <string>///Variables
-order = "none"
-user = "none"
-type = "space"
-space_type = ""
+image_speed = 0
+type = choose("flower","rock") //What space it is
+available_actions = 0
+box[0] = "none" //Holds the orderboxes
+if (type == "flower") {available_actions = 3
+image_index = 0}
+if (type == "rock") {available_actions = 1
+image_index = 1}
 
-spawn_x = 0
-spawn_y = 0
+
 
 pollen = 50  //Resources the space has
 nectar = 50
@@ -67,7 +70,6 @@ honey = 0
 
 pollen_max = 100 //What it start with / How much it can have
 nectar_max = 100
-honey = 0
 
 
 info = ""
@@ -100,6 +102,36 @@ attack = 0
             <kind>1</kind>
             <string>///Set info box
 info = "P: " + string(pollen) + " / " + string(pollen_max) + "#N: " + string(nectar) + " / " + string(nectar_max)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy Order-boxes
+if (box[0] == "none")
+exit 
+
+if (obj_mouse.target != id) {
+    for (var i = 0; i &lt; available_actions; i++) {
+        instance_destroy(box[i])
+        box[i] = "none"
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -167,8 +199,82 @@ if gatherer &gt; 0 || patrol &gt; 0 || escort &gt; 0 || attack &gt; 0 {
             <kind>1</kind>
             <string>///DEBUG
 draw_self()
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///User Feedback
+var player_id = scr_get_data("p_id",0)
+var spawn_x = scr_get_data("spawn_x",player_id)
+var spawn_y = scr_get_data("spawn_y",player_id)
 
-draw_text(x-32,y+32,order)
+if (gatherer &gt; 0 || patrol &gt; 0 || attack &gt; 0)
+draw_line_colour(spawn_x,spawn_y,x,y,c_red,c_red)
+
+var g_exist = false
+var p_exist = false
+var e_exist = false
+var a_exist = false
+var all_orders = 0
+
+
+if (gatherer &gt; 0) {g_exist = true
+all_orders++}
+if (patrol &gt; 0) {p_exist = true
+all_orders++}
+if (escort &gt; 0) {e_exist = true
+all_orders++}
+if (attack &gt; 0) {a_exist = true
+all_orders++}
+
+if (all_orders == 1) {
+if (g_exist) {
+draw_sprite(spr_order_icon,0,x,y)
+draw_text(x,y-32,gatherer)}
+if (p_exist) {draw_sprite(spr_order_icon,1,x,y)
+draw_text(x,y-32,patrol)}
+if (a_exist) {draw_sprite(spr_order_icon,3,x,y)
+draw_text(x,y-32,attack)}
+}
+
+if (all_orders == 2) {
+if (g_exist &amp;&amp; p_exist) {
+draw_sprite(spr_order_icon,0,x-16,y)
+draw_text(x-16,y-32,gatherer)
+draw_sprite(spr_order_icon,1,x+16,y)
+draw_text(x+16,y-32,patrol)}
+if (g_exist &amp;&amp; e_exist) {
+draw_sprite(spr_order_icon,0,x-16,y)
+draw_text(x-16,y-32,gatherer)
+draw_sprite(spr_order_icon,2,x+16,y)
+draw_text(x+16,y-32,escort)}
+
+}
+
+if (all_orders == 3) {
+draw_sprite(spr_order_icon,0,x-32,y)
+draw_text(x-32,y-32,gatherer)
+draw_sprite(spr_order_icon,1,x,y)
+draw_text(x,y-32,patrol)
+draw_sprite(spr_order_icon,2,x+32,y)
+draw_text(x+32,y-32,escort)
+}
 </string>
           </argument>
         </arguments>

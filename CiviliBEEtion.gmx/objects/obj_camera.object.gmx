@@ -26,11 +26,46 @@
           <argument>
             <kind>1</kind>
             <string>///Camera variables
+owner = "none"
+p_id = 0
+
 c_width = 1024
 c_height = 768
 c_speed = 10
 c_zoom = 3
 c_max_zoom = 4
+
+setup = true
+//Start position
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///SETUP
+if (setup){
+setup = false
+view_xview=x-view_wview/2-10
+view_yview=y-view_hview/2-10
+}
 </string>
           </argument>
         </arguments>
@@ -63,10 +98,21 @@ y -= c_speed
 if (keyboard_check(ord('S')))
 y += c_speed
 
-if (mouse_wheel_up())
-c_zoom++
-if (mouse_wheel_down())
-c_zoom--
+//Jump to Hive
+if (keyboard_check(vk_space)) {
+x = owner.x
+y = owner.y}
+
+if (c_zoom == 1) {
+x = mouse_x
+y = mouse_y}
+
+//Zoom 
+if (mouse_wheel_up()) {
+c_zoom++}
+
+if (mouse_wheel_down()) {
+c_zoom--}
 </string>
           </argument>
         </arguments>
@@ -95,11 +141,35 @@ view_wview=(obj_display_manager.ideal_width*2)/c_zoom
 view_hview=(obj_display_manager.ideal_height*2)/c_zoom
 
 //Follow Camera
+
 view_xview=x-view_wview/2-10
 view_yview=y-view_hview/2-10
 
 view_xview=clamp(view_xview,0,room_width-view_wview)
 view_yview=clamp(view_yview,0,room_height-view_hview)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self()
 </string>
           </argument>
         </arguments>

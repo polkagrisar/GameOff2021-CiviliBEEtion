@@ -28,8 +28,10 @@
             <string>workers = 10
 drones = 10
 
+//For debugging
 setup = true
 mouse = "none"
+camera = "none"
 
 p_id = 0
 
@@ -63,6 +65,7 @@ info = ""
 if (setup) {
 setup = false
 
+//Mouse
 if (!instance_exists(obj_mouse)) {
 
 if (instance_exists(obj_p1) &amp;&amp; p_id == 1)
@@ -83,6 +86,31 @@ owner = other.id}
 if (instance_exists(obj_p4) &amp;&amp; p_id == 4)
 mouse = instance_create(x,y,obj_mouse) 
 with mouse {p_id = other.p_id
+owner = other.id}
+
+}
+
+//Camera
+if (!instance_exists(obj_camera)) {
+
+if (instance_exists(obj_p1) &amp;&amp; p_id == 1)
+camera = instance_create(x,y,obj_camera) 
+with camera {p_id = other.p_id
+owner = other.id}
+
+if (instance_exists(obj_p2) &amp;&amp; p_id == 2)
+camera = instance_create(x,y,obj_camera) 
+with camera {p_id = other.p_id
+owner = other.id}
+
+if (instance_exists(obj_p3) &amp;&amp; p_id == 3)
+camera = instance_create(x,y,obj_camera) 
+with camera {p_id = other.p_id
+owner = other.id}
+
+if (instance_exists(obj_p4) &amp;&amp; p_id == 4)
+camera = instance_create(x,y,obj_camera) 
+with camera {p_id = other.p_id
 owner = other.id}
 
 }

@@ -90,6 +90,7 @@ owner = other.id}
 
 }
 
+/*
 //Camera
 if (!instance_exists(obj_camera)) {
 
@@ -113,7 +114,7 @@ camera = instance_create(x,y,obj_camera)
 with camera {p_id = other.p_id
 owner = other.id}
 
-}
+}*/
 
 }
 </string>

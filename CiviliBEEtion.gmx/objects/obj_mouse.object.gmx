@@ -284,6 +284,7 @@ hover = other.id
             <kind>1</kind>
             <string>///DEBUG
 //draw_text(x,y,state)
+draw_self()
 draw_text(x,y+16,hover)
 
 /*

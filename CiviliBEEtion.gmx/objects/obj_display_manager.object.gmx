@@ -50,7 +50,7 @@ for (var i = 1; i &lt;= room_last;i++) {
 }
 
 surface_resize(application_surface,ideal_width,ideal_height)
-display_set_gui_size(ideal_width,ideal_height)
+//display_set_gui_size(ideal_width,ideal_height)
 window_set_size(ideal_width,ideal_height)
 
 room_goto(room_next(room))

@@ -15,7 +15,7 @@ if (argument[0] == "add") {
     creator.escort++}
     
     if (index == 3) {
-    creator.attack++}
+    creator.attacked_by++}
 
 }
 
@@ -34,7 +34,7 @@ if (argument[0] == "remove") {
     creator.escort--}
     
     if (index == 3 && creator.attack > 0) {
-    creator.attack--}
+    creator.attacked_by--}
 
 }
 

@@ -42,7 +42,7 @@ max_hp = 100
 
 type = "hive"
 box = "none" //Holds the orderbox
-attack = 0 //Bees sent to attack
+attacked_by = 0 //Bees sent to attack
 info = ""
 
 attack = 0
@@ -446,10 +446,10 @@ var player_id = scr_get_data("p_id",0)
 var spawn_x = scr_get_data("spawn_x",player_id)
 var spawn_y = scr_get_data("spawn_y",player_id)
 
-if (attack &gt; 0){
+if (attacked_by &gt; 0){
 draw_line_colour(spawn_x,spawn_y,x,y,c_red,c_red)
 draw_sprite(spr_order_icon,3,x,y)
-draw_text(x,y-32,attack)
+draw_text(x,y-32,attacked_by)
 }
 </string>
           </argument>

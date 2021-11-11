@@ -106,15 +106,29 @@ enemy_bee = ""
 
 //Go towards objective
 if (state = "go") {
-//Code to move towards go_x and go_y
-move_towards_point(go_x,go_y,move_speed)
+    //Code to move towards go_x and go_y
+    var dir = point_direction(x,y,go_x,go_y)
+    if point_distance(x,y,lengthdir_x(move_speed,dir),lengthdir_y(move_speed,dir)) &lt; move_speed {
+        x = go_x
+        y = go_y 
+    } else {
+        x += lengthdir_x(move_speed,dir)
+        y += lengthdir_y(move_speed,dir)
+    }
 }
 
 if (state = "return") {
-//Code to move towards home_x and home_y
-move_towards_point(home_x,home_y,move_speed)
+    //Code to move towards home_x and home_y
+    move_towards_point(home_x,home_y,move_speed)
+    var dir = point_direction(x,y,home_x,home_y)
+    if point_distance(x,y,lengthdir_x(move_speed,dir),lengthdir_y(move_speed,dir)) &lt; move_speed {
+        x = go_x
+        y = go_y 
+    } else {
+        x += lengthdir_x(move_speed,dir)
+        y += lengthdir_y(move_speed,dir)
+    }
 }
-
 
 //When they reach their objective
 if (x &gt; (go_x -8) &amp;&amp; x &lt; (go_x +8) &amp;&amp; y &gt; (go_y -8) &amp;&amp; y &lt; (go_y+8) &amp;&amp; state == "go") {

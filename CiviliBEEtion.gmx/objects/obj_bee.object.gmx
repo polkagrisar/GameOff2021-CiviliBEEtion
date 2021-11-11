@@ -175,7 +175,7 @@ order_state = "return"
             <string>///Combat Stats
 
 //Set attack
-if (type == "gatherer") {attack = (bees * 3) + escort }
+if (type == "gatherer") {attack = (bees * 3) + (escort * 5) }
 else
 {attack = bees * 5}
 

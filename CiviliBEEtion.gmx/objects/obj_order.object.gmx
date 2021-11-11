@@ -136,6 +136,7 @@ with obj_hive {
 // Create workers/escorts
 
 if gatherer &gt; 0 {
+    obj_admin.workers_roaming = true
     with instance_create(owner_x,owner_y,obj_bee) {
         type = "gatherer"
         p_id = other.owner

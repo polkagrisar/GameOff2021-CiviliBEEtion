@@ -141,8 +141,8 @@ if gatherer &gt; 0 {
         p_id = other.owner
         bees = other.gatherer
         escort = other.escort
-        go_x = other.creator.x
-        go_y = other.creator.y
+        go_x = other.x
+        go_y = other.y
         home_x = other.owner_x
         home_y = other.owner_y
     }
@@ -156,8 +156,8 @@ if patrol &gt; 0 {
         p_id = other.owner
         bees = other.patrol
         escort = 0
-        go_x = other.creator.x
-        go_y = other.creator.y
+        go_x = other.x
+        go_y = other.y
         home_x = other.owner_x
         home_y = other.owner_y
     }

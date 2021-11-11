@@ -307,6 +307,8 @@ p6_art_emblem = "none"
             <string>/// Other
 
 seed = 0
+
+workers_roaming = false
 </string>
           </argument>
         </arguments>

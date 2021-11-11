@@ -32,6 +32,8 @@ p_id = scr_get_data("p_id",0)
 type = "order"
 
 info = ""
+
+if y &lt; 16 {y += 112}
 </string>
           </argument>
         </arguments>

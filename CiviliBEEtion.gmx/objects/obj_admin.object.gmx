@@ -95,9 +95,34 @@ p3_royal = 0
 p4_royal = 0
 
 p1_hive_drones = 0 // How many drones are in the hive
-p1_hive_workers = 0 // How many workers are in the hive (those not out on orders)
-p1_queen_hp = 0 // The health of the queen
-p1_focus = "none" // What the player is focusing on this turn
+p1_hive_workers = 5 // How many workers are in the hive (those not out on orders)
+p1_queen_hp = 50 // The health of the queen
+p1_focus = "none" // What the player is focusing on this turn, if any
+
+p2_hive_drones = 0
+p2_hive_workers = 5
+p2_queen_hp = 50
+p2_focus = "none"
+
+p3_hive_drones = 0
+p3_hive_workers = 5
+p3_queen_hp = 50
+p3_focus = "none"
+
+p4_hive_drones = 0
+p4_hive_workers = 5
+p4_queen_hp = 50
+p4_focus = "none"
+
+p5_hive_drones = 0
+p5_hive_workers = 5
+p5_queen_hp = 50
+p5_focus = "none"
+
+p6_hive_drones = 0
+p6_hive_workers = 5
+p6_queen_hp = 50
+p6_focus = "none"
 </string>
           </argument>
         </arguments>

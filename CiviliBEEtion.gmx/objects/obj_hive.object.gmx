@@ -25,8 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>workers = 10
-drones = 10
+            <string>workers = 5
+drones = 0
+
+jelly_progress = 0
 
 //For debugging
 setup = true
@@ -34,6 +36,9 @@ mouse = "none"
 camera = "none"
 
 p_id = 0
+
+hp = 50
+max_hp = 100
 
 type = "hive"
 box = "none" //Holds the orderbox
@@ -144,6 +149,127 @@ if (obj_mouse.target != id) {
         instance_destroy(box)
         box = "none"
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Get HP
+
+if p_id == 1 {
+    hp = obj_admin.p1_queen_hp
+    max_hp = 100+(obj_admin.p1_upgrade_queen*10)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="39">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_admin.p1_queen_hp++
+jelly_progress++
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="5" enumb="37">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_admin.p1_queen_hp--
+jelly_progress--
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw GUI
+
+// Draw health
+
+draw_set_colour(c_black)
+draw_rectangle(0,0,200,24,false)
+draw_set_colour(c_maroon)
+draw_rectangle(2,2,(2+(hp/max_hp)*196),22,false)
+
+draw_set_colour(c_white)
+draw_set_halign(fa_left)
+draw_set_valign(fa_middle)
+draw_text(4,12,string(hp)+"/"+string(max_hp))
+
+// Draw royal jelly progress
+
+draw_set_colour(c_black)
+draw_rectangle(0,25,200,49,false)
+draw_set_colour(c_teal)
+draw_rectangle(2,27,(2+(jelly_progress/100)*196),47,false)
+
+draw_set_colour(c_white)
+draw_set_halign(fa_left)
+draw_set_valign(fa_middle)
+draw_text(4,36,string(floor(jelly_progress))+"%")
 </string>
           </argument>
         </arguments>

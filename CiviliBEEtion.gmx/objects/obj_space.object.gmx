@@ -61,8 +61,15 @@ if (type == "flower") {available_actions = 3
 image_index = 0}
 if (type == "rock") {available_actions = 1
 image_index = 1}
-
-
+is_bud = false // If true, provides no resources until grown
+/*
+    Types:
+    "rock" - You can fly to these, but they provide nothing
+    "stump" - Gives patrol bees a range boost when patroled
+    "balanced" - Has a balanced amount of pollen and nectar
+    "pollen" - Has more pollen than nectar
+    "nectar" - Has more nectar than pollen
+*/
 
 pollen = 50  //Resources the space has
 nectar = 50

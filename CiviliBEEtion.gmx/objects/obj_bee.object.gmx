@@ -54,6 +54,7 @@ target = "none" //Target patroller chases
 hp = 50
 damage = 0 //Damage taken
 attack = 10
+enemy_bee = ""
 </string>
           </argument>
         </arguments>
@@ -237,9 +238,18 @@ if (escort &gt; 0) {
           <argument>
             <kind>1</kind>
             <string>///Collision with other Bee
-if (p_id != other.p_id &amp;&amp; type != "gatherer" &amp;&amp; type != "attack") {
+if (p_id != other.p_id &amp;&amp; type != "gatherer" &amp;&amp; type != "attack" &amp;&amp; state != "combat") {
     state = "combat"
     other.state = "combat"
+    
+    enemy_bee = other.id
+    
+    if (p_id &gt; other.p_id) {
+    with instance_create(x,y,obj_combat)  {
+    users[0] = other.id
+    users[1] = other.enemy_bee }
+    } 
+    
 }
 </string>
           </argument>

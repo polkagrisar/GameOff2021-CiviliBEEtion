@@ -509,6 +509,7 @@
       <script>scripts\scr_rpc_player_ready.gml</script>
       <script>scripts\scr_rpc_player_leave.gml</script>
       <script>scripts\scr_rpc_order.gml</script>
+      <script>scripts\scr_rpc_hivestats.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

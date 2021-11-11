@@ -14,7 +14,7 @@ self.debuglevel = htme_debug.INFO;
  * Use htme_debugOverlayEnabled() to check if the overlay is on, to draw your own
  * debug information. 
 */
-self.debugoverlay = true;
+self.debugoverlay = false;
 
 /** 
  * Use different versions of Game Maker Studio

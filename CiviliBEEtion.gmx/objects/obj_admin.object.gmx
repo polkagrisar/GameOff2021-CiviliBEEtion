@@ -251,15 +251,21 @@ seed = 0
             <kind>1</kind>
             <string>/// Set new player amounts
 
+player2 = htme_globalGet("player2")
+player3 = htme_globalGet("player3")
+player4 = htme_globalGet("player4")
+player5 = htme_globalGet("player5")
+player6 = htme_globalGet("player6")
+
 no_players = 0
 no_bots = 0
 
-if player1 == true{no_players++}
-if player2 == true{no_players++}
-if player3 == true{no_players++}
-if player4 == true{no_players++}
-if player5 == true{no_players++}
-if player6 == true{no_players++}
+if player1 == true {no_players++}
+if player2 == true {no_players++}
+if player3 == true {no_players++}
+if player4 == true {no_players++}
+if player5 == true {no_players++}
+if player6 == true {no_players++}
 
 if bot1 == true {no_bots++}
 if bot2 == true {no_bots++}
@@ -267,6 +273,9 @@ if bot3 == true {no_bots++}
 if bot4 == true {no_bots++}
 if bot5 == true {no_bots++}
 if bot6 == true {no_bots++}
+
+show_debug_message(no_players)
+show_debug_message(no_bots)
 </string>
           </argument>
         </arguments>

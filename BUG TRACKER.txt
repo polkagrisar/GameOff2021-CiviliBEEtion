@@ -1,2 +1,1 @@
-Screen size isn't 1024x768. Is this correct?
-	*Changed aspect_ratio in obj_display_manager. Seems to have worked
+obj_phasetracker doesn't recognise players that aren't playing

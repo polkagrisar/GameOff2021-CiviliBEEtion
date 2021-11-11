@@ -104,18 +104,7 @@ if locked == false {
     locked = true
     image_index = 1
     with obj_space {event_user(12)}
-    //with obj_hive {event_user(12)}
-    
-    // Update readiness
-    /*
-    self.rpc_id = htme_hash()
-    var playerlist = htme_getPlayers()
-    list_p1 = ds_list_create()
-    ds_list_add(list_p1,x,y,300,400)
-    for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
-        var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_order,player,x,y,send_player,gatherer,patrol,escort,attack)
-    }*/
+    with obj_hive {event_user(12)}
 }
 </string>
           </argument>

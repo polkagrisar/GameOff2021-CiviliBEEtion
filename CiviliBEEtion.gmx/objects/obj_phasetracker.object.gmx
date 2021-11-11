@@ -27,6 +27,59 @@
             <kind>1</kind>
             <string>phase = "planning"
 
+p1_primed = false
+p2_primed = false
+p3_primed = false
+p4_primed = false
+p5_primed = false
+p6_primed = false
+
+bot1_primed = false
+bot2_primed = false
+bot3_primed = false
+bot4_primed = false
+bot5_primed = false
+bot6_primed = false
+
+// Ready those not playing
+
+if obj_admin.player1 == false {p1_primed = true}
+if obj_admin.player2 == false {p2_primed = true}
+if obj_admin.player3 == false {p3_primed = true}
+if obj_admin.player4 == false {p4_primed = true}
+if obj_admin.player5 == false {p5_primed = true}
+if obj_admin.player6 == false {p6_primed = true}
+
+if obj_admin.bot1 == false {bot1_primed = true}
+if obj_admin.bot2 == false {bot2_primed = true}
+if obj_admin.bot3 == false {bot3_primed = true}
+if obj_admin.bot4 == false {bot4_primed = true}
+if obj_admin.bot5 == false {bot5_primed = true}
+if obj_admin.bot6 == false {bot6_primed = true}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Release the bees!
+
 p1_ready = false
 p2_ready = false
 p3_ready = false
@@ -40,6 +93,102 @@ bot3_ready = false
 bot4_ready = false
 bot5_ready = false
 bot6_ready = false
+
+with obj_order {event_user(0)}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Planning &gt; Execution
+
+if obj_admin.player1 == false {p1_primed = true}
+if obj_admin.player2 == false {p2_primed = true}
+if obj_admin.player3 == false {p3_primed = true}
+if obj_admin.player4 == false {p4_primed = true}
+if obj_admin.player5 == false {p5_primed = true}
+if obj_admin.player6 == false {p6_primed = true}
+
+if obj_admin.bot1 == false {bot1_primed = true}
+if obj_admin.bot2 == false {bot2_primed = true}
+if obj_admin.bot3 == false {bot3_primed = true}
+if obj_admin.bot4 == false {bot4_primed = true}
+if obj_admin.bot5 == false {bot5_primed = true}
+if obj_admin.bot6 == false {bot6_primed = true}
+
+// Check if everyone is primed
+
+if phase == "planning" &amp;&amp;
+    p1_primed == true &amp;&amp;
+    p2_primed == true &amp;&amp;
+    p3_primed == true &amp;&amp;
+    p4_primed == true &amp;&amp;
+    p5_primed == true &amp;&amp;
+    p6_primed == true &amp;&amp;
+    bot1_primed == true &amp;&amp;
+    bot2_primed == true &amp;&amp;
+    bot3_primed == true &amp;&amp;
+    bot4_primed == true &amp;&amp;
+    bot5_primed == true &amp;&amp;
+    bot6_primed == true {
+       phase = "execute"
+       alarm[1] = 60
+       show_debug_message("BBBBBBB")
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_set_halign(fa_right)
+draw_set_valign(fa_top)
+
+if p1_primed == false {draw_text(room_width-8,0,"P1 not primed")}
+if p2_primed == false {draw_text(room_width-8,16,"P2 not primed")}
+if p3_primed == false {draw_text(room_width-8,32,"P3 not primed")}
+if p4_primed == false {draw_text(room_width-8,48,"P4 not primed")}
+if p5_primed == false {draw_text(room_width-8,64,"P5 not primed")}
+if p6_primed == false {draw_text(room_width-8,80,"P6 not primed")}
+if bot1_primed == false {draw_text(room_width-8,96,"BOT1 not primed")}
+if bot2_primed == false {draw_text(room_width-8,112,"BOT2 not primed")}
+if bot3_primed == false {draw_text(room_width-8,128,"BOT3 not primed")}
+if bot4_primed == false {draw_text(room_width-8,144,"BOT4 not primed")}
+if bot5_primed == false {draw_text(room_width-8,160,"BOT5 not primed")}
+if bot6_primed == false {draw_text(room_width-8,176,"BOT6 not primed")}
 </string>
           </argument>
         </arguments>

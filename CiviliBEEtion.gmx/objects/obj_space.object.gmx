@@ -61,7 +61,7 @@ if (type == "flower") {available_actions = 3
 image_index = 0}
 if (type == "rock") {available_actions = 1
 image_index = 1}
-is_bud = false // If true, provides no resources until grown
+growth = 100 // If less than 100, it's a bud and provides no resources
 /*
     Types:
     "rock" - You can fly to these, but they provide nothing
@@ -74,6 +74,7 @@ is_bud = false // If true, provides no resources until grown
 pollen = 50  //Resources the space has
 nectar = 50
 honey = 0
+resources = 100
 
 pollen_max = 100 //What it start with / How much it can have
 nectar_max = 100

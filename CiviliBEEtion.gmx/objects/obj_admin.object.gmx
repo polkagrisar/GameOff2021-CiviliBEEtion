@@ -159,6 +159,86 @@ p1_upgrade_focus_pollination = false
 p1_upgrade_action_attack = false
 p1_upgrade_action_royal = false
 p1_upgrade_action_heal = false
+
+
+p2_upgrade_distance = 0 // How far the bees can travel out the hive
+p2_upgrade_speed = 0 // How fast the bees move
+p2_upgrade_attack = 0 // The attack power of bees
+p2_upgrade_honey = 0 // Bonus to honey making
+p2_upgrade_queen = 0 // The bonus health of the queen
+p2_upgrade_patrol = 0 // The patrol range of patrol bees
+
+p2_upgrade_focus_pollen = false
+p2_upgrade_focus_nectar = false
+p2_upgrade_focus_pollination = false
+
+p2_upgrade_action_attack = false
+p2_upgrade_action_royal = false
+p2_upgrade_action_heal = false
+
+
+p3_upgrade_distance = 0 // How far the bees can travel out the hive
+p3_upgrade_speed = 0 // How fast the bees move
+p3_upgrade_attack = 0 // The attack power of bees
+p3_upgrade_honey = 0 // Bonus to honey making
+p3_upgrade_queen = 0 // The bonus health of the queen
+p3_upgrade_patrol = 0 // The patrol range of patrol bees
+
+p3_upgrade_focus_pollen = false
+p3_upgrade_focus_nectar = false
+p3_upgrade_focus_pollination = false
+
+p3_upgrade_action_attack = false
+p3_upgrade_action_royal = false
+p3_upgrade_action_heal = false
+
+
+p4_upgrade_distance = 0 // How far the bees can travel out the hive
+p4_upgrade_speed = 0 // How fast the bees move
+p4_upgrade_attack = 0 // The attack power of bees
+p4_upgrade_honey = 0 // Bonus to honey making
+p4_upgrade_queen = 0 // The bonus health of the queen
+p4_upgrade_patrol = 0 // The patrol range of patrol bees
+
+p4_upgrade_focus_pollen = false
+p4_upgrade_focus_nectar = false
+p4_upgrade_focus_pollination = false
+
+p4_upgrade_action_attack = false
+p4_upgrade_action_royal = false
+p4_upgrade_action_heal = false
+
+
+p5_upgrade_distance = 0 // How far the bees can travel out the hive
+p5_upgrade_speed = 0 // How fast the bees move
+p5_upgrade_attack = 0 // The attack power of bees
+p5_upgrade_honey = 0 // Bonus to honey making
+p5_upgrade_queen = 0 // The bonus health of the queen
+p5_upgrade_patrol = 0 // The patrol range of patrol bees
+
+p5_upgrade_focus_pollen = false
+p5_upgrade_focus_nectar = false
+p5_upgrade_focus_pollination = false
+
+p5_upgrade_action_attack = false
+p5_upgrade_action_royal = false
+p5_upgrade_action_heal = false
+
+
+p6_upgrade_distance = 0 // How far the bees can travel out the hive
+p6_upgrade_speed = 0 // How fast the bees move
+p6_upgrade_attack = 0 // The attack power of bees
+p6_upgrade_honey = 0 // Bonus to honey making
+p6_upgrade_queen = 0 // The bonus health of the queen
+p6_upgrade_patrol = 0 // The patrol range of patrol bees
+
+p6_upgrade_focus_pollen = false
+p6_upgrade_focus_nectar = false
+p6_upgrade_focus_pollination = false
+
+p6_upgrade_action_attack = false
+p6_upgrade_action_royal = false
+p6_upgrade_action_heal = false
 </string>
           </argument>
         </arguments>

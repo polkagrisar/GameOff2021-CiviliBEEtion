@@ -10,13 +10,13 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>draw_set_circle_precision(64)</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1016</w>
+    <w>1008</w>
     <h>600</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
@@ -26,9 +26,9 @@
     <showViews>0</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
-    <page>0</page>
-    <xoffset>-9</xoffset>
-    <yoffset>-12</yoffset>
+    <page>1</page>
+    <xoffset>153</xoffset>
+    <yoffset>200</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="bg_map" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>

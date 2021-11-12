@@ -93,6 +93,14 @@ p1_royal = 0 // How much Royal Jelly this player has amassed
 p2_royal = 0
 p3_royal = 0
 p4_royal = 0
+p5_royal = 0
+p6_royal = 0
+bot1_royal = 0
+bot2_royal = 0
+bot3_royal = 0
+bot4_royal = 0
+bot5_royal = 0
+bot6_royal = 0
 
 p1_hive_drones = 0 // How many drones are in the hive
 p1_hive_workers = 5 // How many workers are in the hive (those not out on orders)
@@ -284,6 +292,36 @@ p5_art_emblem = "none"
 p6_art_bee = "none"
 p6_art_hive = "none"
 p6_art_emblem = "none"
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Individual stats
+
+/*
+    These stats are used by everyone, but everyone has their own version of it.
+    These values are never synced with other players.
+*/
+
+resource_pollen = 0
+resource_nectar = 0
+resource_honey = 0
 </string>
           </argument>
         </arguments>

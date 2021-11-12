@@ -61,16 +61,15 @@ if (type == "flower") {available_actions = 3
 image_index = 0}
 if (type == "rock") {available_actions = 1
 image_index = 1}
-growth = 100 // If less than 100, it's a bud and provides no resources
+
 /*
     Types:
     "rock" - You can fly to these, but they provide nothing
     "stump" - Gives patrol bees a range boost when patroled
-    "balanced" - Has a balanced amount of pollen and nectar
-    "pollen" - Has more pollen than nectar
-    "nectar" - Has more nectar than pollen
+    "flower" - Provides its resources when grown
 */
 
+growth = 100 // If less than 100, it's a bud and provides no resources
 pollen = 50  //Resources the space has
 nectar = 50
 honey = 0
@@ -130,8 +129,8 @@ info = "P: " + string(pollen) + " / " + string(pollen_max) + "#N: " + string(nec
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> ///Limit
- if (gatherer == 0) {escort = 0} 
+            <string>///Limit
+if (gatherer == 0) {escort = 0} 
 </string>
           </argument>
         </arguments>

@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_orderbox</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>-10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -186,6 +186,17 @@ if patrol &gt; 0 {
         if p_id == 105 {move_speed = 4+obj_admin.bot5_upgrade_speed}
         if p_id == 106 {move_speed = 4+obj_admin.bot6_upgrade_speed}
     }
+}
+
+with obj_space {
+    gatherer = 0
+    patrol = 0
+    escort = 0
+    attack = 0
+}
+
+with obj_hive {
+    attack = 0
 }
 
 instance_destroy()

@@ -46,84 +46,8 @@ attacked_by = 0 //Bees sent to attack
 info = ""
 
 attack = 0
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Setup
-if (setup) {
-setup = false
 
-//Mouse
-if (!instance_exists(obj_mouse)) {
-
-if (instance_exists(obj_p1) &amp;&amp; p_id == 1)
-mouse = instance_create(x,y,obj_mouse) 
-with mouse {p_id = other.p_id
-owner = other.id}
-
-if (instance_exists(obj_p2) &amp;&amp; p_id == 2)
-mouse = instance_create(x,y,obj_mouse) 
-with mouse {p_id = other.p_id
-owner = other.id}
-
-if (instance_exists(obj_p3) &amp;&amp; p_id == 3)
-mouse = instance_create(x,y,obj_mouse) 
-with mouse {p_id = other.p_id
-owner = other.id}
-
-if (instance_exists(obj_p4) &amp;&amp; p_id == 4)
-mouse = instance_create(x,y,obj_mouse) 
-with mouse {p_id = other.p_id
-owner = other.id}
-
-}
-
-/*
-//Camera
-if (!instance_exists(obj_camera)) {
-
-if (instance_exists(obj_p1) &amp;&amp; p_id == 1)
-camera = instance_create(x,y,obj_camera) 
-with camera {p_id = other.p_id
-owner = other.id}
-
-if (instance_exists(obj_p2) &amp;&amp; p_id == 2)
-camera = instance_create(x,y,obj_camera) 
-with camera {p_id = other.p_id
-owner = other.id}
-
-if (instance_exists(obj_p3) &amp;&amp; p_id == 3)
-camera = instance_create(x,y,obj_camera) 
-with camera {p_id = other.p_id
-owner = other.id}
-
-if (instance_exists(obj_p4) &amp;&amp; p_id == 4)
-camera = instance_create(x,y,obj_camera) 
-with camera {p_id = other.p_id
-owner = other.id}
-
-}*/
-
-}
+reach = 0
 </string>
           </argument>
         </arguments>
@@ -181,8 +105,6 @@ if p_id == 1 {
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="5" enumb="39">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -199,8 +121,11 @@ if p_id == 1 {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_admin.p1_queen_hp++
-jelly_progress++
+            <string>/// Get distance
+
+if p_id == 1 {
+    reach = 216+(obj_admin.p1_upgrade_distance*22)
+}
 </string>
           </argument>
         </arguments>
@@ -347,6 +272,57 @@ if instance_exists(obj_p6) &amp;&amp; p_id == 6 {
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Gain Royal Jelly
+
+// Heal queen
+
+while (hp &lt; max_hp &amp;&amp; drones &gt; 0) {
+    drones--
+    hp += 5
+    if hp &gt; max_hp {hp = max_hp}
+}
+
+// Make jelly
+
+jelly_progress += ceil((hp/max_hp)*100)
+
+if jelly_progress &gt;= 100 {
+    // Increase jelly
+    self.rpc_id = htme_hash()
+    var playerlist = htme_getPlayers()
+    list_p1 = ds_list_create()
+    ds_list_add(list_p1,x,y,300,400)
+    for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
+        var player = ds_list_find_value(playerlist,i)
+        htmerpc_send(self.rpc_id,scr_rpc_royaljelly,player,p_id)
+    }
+    // Jelly carryover
+    jelly_progress -= 100
+    jelly_progress /= 4
+    jelly_progress = floor(jelly_progress)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -411,7 +387,17 @@ draw_text(4,36,string(floor(jelly_progress))+"%")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
+            <string>// Draw travel range
+if obj_endturn.locked == false {
+    draw_set_colour(c_white)
+    draw_set_alpha(0.25)
+    draw_circle(x,y,reach,false)
+    draw_set_alpha(1)
+}
+
+// Draw the rest
+
+draw_self()
 draw_text(x-32,y-32,"W: " + string(workers))
 draw_text(x-32,y-16,"ID: "+ string (p_id))
 
@@ -451,6 +437,29 @@ draw_line_colour(spawn_x,spawn_y,x,y,c_red,c_red)
 draw_sprite(spr_order_icon,3,x,y)
 draw_text(x,y-32,attacked_by)
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="39">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>obj_admin.p1_upgrade_distance++
 </string>
           </argument>
         </arguments>

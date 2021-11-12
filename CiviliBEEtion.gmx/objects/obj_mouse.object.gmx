@@ -33,8 +33,8 @@ state = "none"
 target = "none"
 hover = "none"
 
-view_x = 0
-view_y = 0
+home_x = 0
+home_y = 0
 </string>
           </argument>
         </arguments>
@@ -58,11 +58,11 @@ view_y = 0
           <argument>
             <kind>1</kind>
             <string>///Update
+
 x = mouse_x
 y = mouse_y
 
-view_x = mouse_x - view_xview
-view_y = mouse_y - view_yview
+if (obj_phasetracker.phase != "planning" || obj_endturn.locked == true) {exit}
 </string>
           </argument>
         </arguments>
@@ -85,40 +85,38 @@ view_y = mouse_y - view_yview
             <kind>1</kind>
             <string>///Left Click
 
-//Check range 
-//if (within range of hive + range upgrade) (Encompass the whole left-click script)
+if point_distance(x,y,home_x,home_y) &lt;= owner.reach {
 
-if (obj_phasetracker.phase != "planning" || obj_endturn.locked == true) {exit}
-
-if (mouse_check_button_pressed(mb_left)) {
-    if (hover != "none") {
-        if (target == hover) {exit}
-        
-        //If Flower / Rock / Anything on the space-object
-        if (hover.type == "flower" || hover.type == "rock") { 
-            target = hover
-            state = "orders"
-            with hover { scr_create_objectboxes() }
-            }
-        
-       
-        //If opponent hive
-        if (hover.type == "hive" &amp;&amp; hover.p_id != p_id) {
-        target = hover
-        state = "orders"
-        
-        with hover {scr_create_objectboxes()}
+    if (mouse_check_button_pressed(mb_left)) {
+        if (hover != "none") {
+            if (target == hover) {exit}
+            
+            //If Flower / Rock / Anything on the space-object
+            if (hover.type == "flower" || hover.type == "rock") { 
+                target = hover
+                state = "orders"
+                with hover {scr_create_objectboxes()}
                 }
-        
-        
-        // if order
-        if (hover.type == "order") {with hover {scr_order("add")} }
+           
+            //If opponent hive
+            if (hover.type == "hive" &amp;&amp; hover.p_id != p_id) {
+                target = hover
+                state = "orders"
+                
+                with hover {scr_create_objectboxes()}
+            }
+        }
     }
 }
 
-//Press Empty
-if (mouse_check_button_pressed(mb_left) &amp;&amp; hover == "none") {
+// Press order
 
+if (mouse_check_button_pressed(mb_left) &amp;&amp; hover != "none") {
+    if (target == hover) {exit}
+    if hover.type == "order" { with hover {scr_order("add")} }
+} else
+//Press Empty
+if (mouse_check_button_pressed(mb_left) &amp;&amp; hover == "none") || (mouse_check_button_pressed(mb_left) &amp;&amp; point_distance(x,y,home_x,home_y) &gt; owner.reach &amp;&amp; !place_meeting(x,y,obj_orderbox)) {
     hover = "none"
     target = "none"
     state = "none"
@@ -210,7 +208,8 @@ if (hover != "none") {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Mouse Collision
+            <string>/// Mouse Collision
+
 hover = other.id
 </string>
           </argument>
@@ -234,7 +233,8 @@ hover = other.id
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Mouse Collision
+            <string>/// Mouse Collision
+
 hover = other.id
 </string>
           </argument>
@@ -258,7 +258,8 @@ hover = other.id
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Mouse Collision
+            <string>/// Mouse Collision
+
 hover = other.id
 </string>
           </argument>

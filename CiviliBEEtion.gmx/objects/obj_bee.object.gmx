@@ -77,7 +77,12 @@ enemy_bee = ""
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with obj_bee {
+            <string>type = "dead"
+obj_phasetracker.alarm[2] = 2*60
+
+obj_admin.workers_roaming = false
+
+with obj_bee {
     if type == "gatherer" {obj_admin.workers_roaming = true}
 }
 </string>
@@ -102,57 +107,59 @@ enemy_bee = ""
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Movement
-
-//Go towards objective
-if (state = "go") {
-    //Code to move towards go_x and go_y
-    var dir = point_direction(x,y,go_x,go_y)
-    if point_distance(x,y,lengthdir_x(move_speed,dir),lengthdir_y(move_speed,dir)) &lt; move_speed {
-        x = go_x
-        y = go_y 
-    } else {
-        x += lengthdir_x(move_speed,dir)
-        y += lengthdir_y(move_speed,dir)
-    }
-}
-
-if (state = "return") {
-    //Code to move towards home_x and home_y
-    move_towards_point(home_x,home_y,move_speed)
-    var dir = point_direction(x,y,home_x,home_y)
-    if point_distance(x,y,lengthdir_x(move_speed,dir),lengthdir_y(move_speed,dir)) &lt; move_speed {
-        x = go_x
-        y = go_y 
-    } else {
-        x += lengthdir_x(move_speed,dir)
-        y += lengthdir_y(move_speed,dir)
-    }
-}
+            <string>/// Movement
 
 //When they reach their objective
-if (x &gt; (go_x -8) &amp;&amp; x &lt; (go_x +8) &amp;&amp; y &gt; (go_y -8) &amp;&amp; y &lt; (go_y+8) &amp;&amp; state == "go") {
+if (x == go_x &amp;&amp; y == go_y &amp;&amp; state == "go") {
+    if (type == "gatherer") {
+        space = instance_position(x,y,obj_space)
+        state = "gather"
+        order_state = "gather"
+    }
+    
+    if (type == "patrol") {
+        state = "patrol"
+        order_state = "patrol"
+    }
 
-if (type == "gatherer") {
-space = instance_position(x,y,obj_space)
-state = "gather"
-order_state = "gather"}
-
-if (type == "patrol") {
-state = "patrol"
-order_state = "patrol"}
-
-if (type == "attack") {
-space = instance_position(x,y,obj_hive)
-state = "attack"
-order_state = "attack"}
-
+    if (type == "attack") {
+        space = instance_position(x,y,obj_hive)
+        state = "attack"
+        order_state = "attack"
+    }
 }
 
 //When they return to Hive
-if (x &gt; home_x -8 &amp;&amp; x &lt; home_x +8 &amp;&amp; y &gt; home_y -8 &amp;&amp; y &lt; home_y+8 &amp;&amp; state == "return") {
-//die
-instance_destroy()
+if (x == home_x &amp;&amp; y == home_y &amp;&amp; state == "return") {
+    // Offload resources
+    
+    //die
+    instance_destroy()
+}
+
+//Go towards objective
+if (state == "go") {
+    //Code to move towards go_x and go_y
+    if point_distance(x,y,go_x,go_y) &lt;= move_speed {
+        x = go_x
+        y = go_y 
+    } else {
+        dir = point_direction(x,y,go_x,go_y)
+        x += lengthdir_x(move_speed,dir)
+        y += lengthdir_y(move_speed,dir)
+    }
+}
+
+if (state == "return") {
+    //Code to move towards home_x and home_y
+    if point_distance(x,y,home_x,home_y) &lt;= move_speed {
+        x = home_x
+        y = home_y 
+    } else {
+        dir = point_direction(x,y,home_x,home_y)
+        x += lengthdir_x(move_speed,dir)
+        y += lengthdir_y(move_speed,dir)
+    }
 }
 </string>
           </argument>

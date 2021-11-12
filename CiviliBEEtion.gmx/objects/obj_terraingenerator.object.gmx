@@ -105,6 +105,10 @@ while !ds_list_empty(list_hive) {
             home_y = other.temp_hive.y
             owner = other.temp_hive
         }
+        with instance_create(0,0,obj_radius) {
+            p_id = other.temp_hive.p_id
+            owner = other.temp_hive
+        }
     }
     ds_list_delete(list_hive_players,0)
     ds_list_delete(list_hive,0)

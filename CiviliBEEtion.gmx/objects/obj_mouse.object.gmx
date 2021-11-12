@@ -85,27 +85,22 @@ if (obj_phasetracker.phase != "planning" || obj_endturn.locked == true) {exit}
             <kind>1</kind>
             <string>///Left Click
 
-if point_distance(x,y,home_x,home_y) &lt;= owner.reach {
 
-    if (mouse_check_button_pressed(mb_left)) {
-        if (hover != "none") {
-            if (target == hover) {exit}
+if (mouse_check_button_pressed(mb_left) &amp;&amp; hover != "none") {
+    if (target == hover) {exit}
             
-            //If Flower / Rock / Anything on the space-object
-            if (hover.type == "flower" || hover.type == "rock") { 
-                target = hover
-                state = "orders"
-                with hover {scr_create_objectboxes()}
-                }
+    //If Flower / Rock / Anything on the space-object
+    if (hover.type == "flower" || hover.type == "rock") &amp;&amp; point_distance(hover.x,hover.y,home_x,home_y) &lt;= owner.reach+8 { 
+        target = hover
+        state = "orders"
+        with hover {scr_create_objectboxes()}
+    }
            
-            //If opponent hive
-            if (hover.type == "hive" &amp;&amp; hover.p_id != p_id) {
-                target = hover
-                state = "orders"
-                
-                with hover {scr_create_objectboxes()}
-            }
-        }
+    //If opponent hive
+    if (hover.type == "hive" &amp;&amp; hover.p_id != p_id &amp;&amp; point_distance(hover.x,hover.y,home_x,home_y) &lt;= owner.reach+16) {
+        target = hover
+        state = "orders"
+        with hover {scr_create_objectboxes()}
     }
 }
 

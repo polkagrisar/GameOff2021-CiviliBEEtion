@@ -207,6 +207,8 @@
     </sprites>
     <sprites name="Masks">
       <sprite>sprites\spr_mask_bee</sprite>
+      <sprite>sprites\spr_mask_space</sprite>
+      <sprite>sprites\spr_mask_hive</sprite>
     </sprites>
     <sprites name="CustomiBEEtion">
       <sprite>sprites\spr_bot_join</sprite>
@@ -547,6 +549,7 @@
       <object>objects\obj_bee_group</object>
       <object>objects\obj_roomchanger</object>
       <object>objects\obj_phasetracker</object>
+      <object>objects\obj_radius</object>
     </objects>
     <objects name="Bots">
       <object>objects\obj_bot1</object>

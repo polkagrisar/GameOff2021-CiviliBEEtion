@@ -6,7 +6,7 @@
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>spr_mask_hive</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -387,15 +387,7 @@ draw_text(4,36,string(floor(jelly_progress))+"%")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Draw travel range
-if obj_endturn.locked == false {
-    draw_set_colour(c_white)
-    draw_set_alpha(0.25)
-    draw_circle(x,y,reach,false)
-    draw_set_alpha(1)
-}
-
-// Draw the rest
+            <string>// Draw the rest
 
 draw_self()
 draw_text(x-32,y-32,"W: " + string(workers))
@@ -459,7 +451,7 @@ draw_text(x,y-32,attacked_by)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_admin.p1_upgrade_distance++
+            <string>if p_id == 1 {obj_admin.p1_upgrade_distance++}
 </string>
           </argument>
         </arguments>

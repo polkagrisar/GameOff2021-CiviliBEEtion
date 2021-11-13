@@ -3,7 +3,7 @@
   <spriteName>spr_combat</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-500</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,11 +27,44 @@
             <kind>1</kind>
             <string>units[0] = "none" //All the stacks of bees
 units_total = 0 //How many different stacks of bees that has joined.
-attack_turn = 0 //Who should be next to attack
-attacker = "none" //The stack that attacks
-target = "none" //The stack that takes damage
+targets = 0 //How many stacks you attack
 state = ""
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///END THE COMBAT
+if (state == "end") {
 
+for (var i = 0; i &lt; units_total; i++) {
+
+if (units[i] != "none") {
+units[i].state = units[i].order_state
+units[i] = "none"}
+
+}
+
+instance_destroy()
+
+}
 </string>
           </argument>
         </arguments>
@@ -55,47 +88,35 @@ state = ""
           <argument>
             <kind>1</kind>
             <string>///Deal the damage, and change back to next attack
-target.damage += attacker.attack
-attack_turn++
+for (var i = 0; i &lt; units_total; i++) {
+
+    if (units[i] != "none") {
+    
+    //Check if No bees left
+    if (units[i].bees == 0) {
+    instance_destroy(units[i])
+    units[i] = "none"}
+    }
+    
+    //Check if a bee dies
+    if (units[i] != "none") {
+    if (units[i].damage &gt; units[i].hp) {
+    
+    units[i].damage -= units[i].hp 
+    
+    if units[i].escort &gt; 0 {units[i].escort--}
+    else
+    units[i].bees--
+    
+    i--} //Check again to see if the stack dies or if you lose another bee
+    }
+    
+}
 
 state = "attack"
 
 
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Kills Bees
-for (var i = 0; i &lt; units_total; i++) {
-
-if (units[i] != "none") {
-
-if (units[i].bees == 0){
-instance_destroy(units[i])
-units[i] = "none"}
-
-
-}
-}
 </string>
           </argument>
         </arguments>
@@ -118,47 +139,49 @@ units[i] = "none"}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Attack Logic
+            <string>///ATTACK
 if (state == "attack") {
 
-//Check for next valid attacker
-for (var i = 0; i &lt; units_total;i++) {
-if (attack_turn &gt; units_total) {attack_turn = 0}
-
-
-if (units[attack_turn] != "none") {
-attacker = units[attack_turn]
-i = units_total}
-else
-{attack_turn++}
-
-}
-
-//Select a valid target
-var all_targets = ds_list_create()
-var temp_target = "none"
-
-for (var i = 0; i &lt; units_total;i++) {ds_list_add(all_targets,units[i])}
-ds_list_shuffle(all_targets)
-
+//For every stack of units
 for (var i = 0; i &lt; units_total;i++) {
 
-temp_target = ds_list_find_value(all_targets,i)
-if (temp_target != "none"){
-if (temp_target.p_id != attacker.p_id) {
-target = temp_target
-i = units_total}
+
+if (units[i] != "none") {
+
+//They check all other units to check how many targets they have
+for (var j = 0; j &lt; units_total; j++) {
+
+if (units[j] != "none") {
+    if (units[j].p_id != units[i].p_id) {
+    targets++
+    }
 }
+
 }
 
-ds_list_destroy(all_targets)
+//They then deal Damage to all targets divided between them
+for (var k = 0; k &lt; units_total; k++) {
+if (units[k] != "none") {
+    if (units[k].p_id != units[i].p_id) {
+    units[k].damage += ceil(units[i].attack / targets)}
+}
 
-//End combat if no valid targets
-if (temp_target == "none") {state = "end"}
+}
 
-//Damage and Reset if valid target
-if (temp_target != "none") {state = "damage"
-alarm[0] = 5}
+//If a stack doesn't have any targets = only their team has units, combat ends
+if (targets == 0) {state = "end"
+alarm[1] = 60}
+
+targets = 0
+
+}
+
+}
+
+if (state == "attack") {
+state = "deal_damage"
+alarm[0] = 60}
+
 }
 </string>
           </argument>
@@ -182,45 +205,36 @@ alarm[0] = 5}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Combat things
+draw_self()
 
-//if (instance_position(x,y,obj_mouse)) {}   //Only show if hovering over combat
+//if (position_meeting(x,y,obj_mouse)) { //Show combat if hovering over combat
+
+var temp_spriteindex = 4
 
 for (var i = 0; i &lt; units_total; i++) {
-if (units[i] != "none") {draw_text(x,((units_total-i)*16),units[i].p_id)}
-else
-draw_text(x,((units_total-i)*16),"Dead")
+if (units[i] != "none") {
 
-//Use to show who attack what target
-if (attacker != "none" &amp;&amp; target != "none") {
+    //Get sprite-index
+    if (units[i].type == "gatherer") {temp_spriteindex = 0}
+    if (units[i].type == "patrol") {temp_spriteindex = 1}
+    
+    
+    draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-32)
+    draw_text(x+(32*i)-(16*(units_total-1)+4),y-32,string(units[i].bees))
+    
+    if (units[i].escort &gt; 0) {temp_spriteindex = 2 
+    draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-48)
+    draw_text(x+(32*i)-(16*(units_total-1)+4),y-48,string(units[i].escort))}
+    
+    
 }
+temp_spriteindex = 4
+if (units[i] == "none") {draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-32)}
 
+}  
 
-
-
-
-}
+//}
 
 
 </string>

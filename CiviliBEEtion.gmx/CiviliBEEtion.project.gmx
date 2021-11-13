@@ -204,6 +204,7 @@
       <sprite>sprites\spr_bee</sprite>
       <sprite>sprites\spr_emblem</sprite>
       <sprite>sprites\spr_order_icon</sprite>
+      <sprite>sprites\spr_combat</sprite>
     </sprites>
     <sprites name="Masks">
       <sprite>sprites\spr_mask_bee</sprite>
@@ -216,7 +217,6 @@
     <sprites name="Upgrades">
       <sprite>sprites\spr_upgrade_blank</sprite>
     </sprites>
-    <sprite>sprites\spr_combat</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_map</background>

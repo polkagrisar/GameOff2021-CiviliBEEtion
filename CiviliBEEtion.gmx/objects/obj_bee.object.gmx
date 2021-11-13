@@ -265,6 +265,7 @@ if (type == "gatherer") {attack = (bees * 3) + (escort * 5) }
 else
 {attack = bees * 5}
 
+/*
 //Kills bees
 if (escort == 0) {
     if (damage &gt;= hp) {
@@ -277,6 +278,38 @@ if (escort &gt; 0) {
     if (damage &gt;= hp+20) {
     escort--
     damage = 0    }
+}
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_combat">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///ENTER ONGOING COMBAT
+if (state != "combat" &amp;&amp; type == "patrol") {
+state = "combat"
+
+with other {
+units_total++
+units[unit_total] = id}
+
 }
 </string>
           </argument>
@@ -300,19 +333,26 @@ if (escort &gt; 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Collision with other Bee
-if (p_id != other.p_id &amp;&amp; type != "gatherer" &amp;&amp; type != "attack" &amp;&amp; state != "combat") {
-    state = "combat"
-    other.state = "combat"
-    
-    enemy_bee = other.id
-    
-    if (p_id &gt; other.p_id) {
-    with instance_create(x,y,obj_combat)  {
-    users[0] = other.id
-    users[1] = other.enemy_bee }
-    } 
-    
+            <string>///Start new combat
+if (p_id == other.p_id) //DEBUG ONLY, Should be &lt; or &gt; instead of ==
+{ 
+
+//Only start combat if someone is a patol, AND none of them is in combat already
+if ((type == "patrol" || other.type == "patrol") &amp;&amp; state != "combat" &amp;&amp; other.state != "combat") {
+state = "combat"
+other.state = "combat"
+other.p_id = 2 //DEBUG ONLY
+enemy_bee = other.id
+
+with instance_create(x,y,obj_combat)  {
+units_total = 2
+units[0] = other.id
+units[1] = other.enemy_bee 
+state = "attack"
+}
+
+enemy_bee = "none"}
+
 }
 </string>
           </argument>

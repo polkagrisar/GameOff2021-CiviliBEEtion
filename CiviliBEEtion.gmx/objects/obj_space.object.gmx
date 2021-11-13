@@ -67,17 +67,14 @@ image_index = 1}
     "rock" - You can fly to these, but they provide nothing
     "stump" - Gives patrol bees a range boost when patroled
     "flower" - Provides its resources when grown
+    "bud" - Turns into a flower when grown
 */
 
 growth = 100 // If less than 100, it's a bud and provides no resources
-pollen = 50  //Resources the space has
-nectar = 50
-honey = 0
-resources = 100
-
-pollen_max = 100 //What it start with / How much it can have
-nectar_max = 100
-
+pollen = 1  // How much each unit of resource gives
+nectar = 1
+honey = 0.1
+resources = 10 // The units that can be taken. 10 is max
 
 info = ""
 
@@ -108,7 +105,9 @@ attack = 0
           <argument>
             <kind>1</kind>
             <string>///Set info box
-info = "P: " + string(pollen) + " / " + string(pollen_max) + "#N: " + string(nectar) + " / " + string(nectar_max)
+info = "P: " + string(pollen) + "#N: " + string(nectar) + "#H: " + string(honey) + "#TEMP: " + string(resources)
+
+if resources &lt; 0 {resources = 0}
 </string>
           </argument>
         </arguments>

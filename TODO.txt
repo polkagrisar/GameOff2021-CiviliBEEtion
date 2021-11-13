@@ -1,0 +1,16 @@
+MARTIN ======================================================================
+
+*Update info boxes?
+*The rest of the upgrades
+*Buy new bees
+
+*Bot AI (that's going to take effort)
+
+MARCUS ======================================================================
+
+
+
+WHOEVER =====================================================================
+
+*Buds gain growth based on the pollen of bees that passes over them.
+*Limit how many bees you can place.

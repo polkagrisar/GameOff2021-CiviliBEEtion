@@ -213,6 +213,9 @@
     <sprites name="CustomiBEEtion">
       <sprite>sprites\spr_bot_join</sprite>
     </sprites>
+    <sprites name="Upgrades">
+      <sprite>sprites\spr_upgrade_blank</sprite>
+    </sprites>
     <sprite>sprites\spr_combat</sprite>
   </sprites>
   <backgrounds name="background">
@@ -518,6 +521,8 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
+    <font>fonts\fnt_cost</font>
+    <font>fonts\fnt_upgrade</font>
   </fonts>
   <objects name="objects">
     <objects name="htme_demo">
@@ -562,6 +567,12 @@
         <object>objects\obj_ready</object>
         <object>objects\obj_botjoin</object>
       </objects>
+    </objects>
+    <objects name="Upgrades">
+      <object>objects\obj_upgrade_parent</object>
+      <object>objects\obj_upgrade_speed</object>
+      <object>objects\obj_upgrade_distance</object>
+      <object>objects\obj_upgrade_queen</object>
     </objects>
     <object>objects\obj_dual_instance</object>
     <objects name="Gmnet">

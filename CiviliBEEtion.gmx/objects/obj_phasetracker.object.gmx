@@ -34,7 +34,7 @@ bots_ready = 0
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="3">
+    <event eventtype="2" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -65,6 +65,44 @@ obj_endturn.image_index = 0
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Refresh flowers
+
+/* Also makes flowers bloom */
+
+with obj_space {
+    resources += 2.5
+    if resources &gt; 10 {resources = 10}
+    
+    if type == "bud" &amp;&amp; growth &gt;= 100 {
+        type = "flower"
+        image_index = 0
+        available_actions = 3
+    }
+}
+
+alarm[4] = 1*60
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
@@ -87,7 +125,7 @@ obj_endturn.image_index = 0
 if !instance_exists(obj_bee) {
     phase = "jelly"
     with obj_hive {event_user(0)}
-    alarm[3] = 3*60
+    alarm[3] = 2*60
 }
 </string>
           </argument>

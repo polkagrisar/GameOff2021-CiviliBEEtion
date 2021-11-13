@@ -319,9 +319,11 @@ p6_art_emblem = "none"
     These values are never synced with other players.
 */
 
-resource_pollen = 0
-resource_nectar = 0
-resource_honey = 0
+player = 0
+
+res_pollen = 0
+res_nectar = 0
+res_honey = 0
 </string>
           </argument>
         </arguments>

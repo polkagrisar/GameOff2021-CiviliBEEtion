@@ -36,6 +36,8 @@ move_speed = 0
 gathered_pollen = 0
 gathered_nectar = 0
 gathered_honey = 0 // The multiplier
+gathered_total = 0
+
 
 home_x = 0 //Where they spawn, and where they will return
 home_y = 0
@@ -90,6 +92,42 @@ with obj_bee {
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Return from gathering
+
+/*
+    Putting the return code here should make sure the creation order of bees don't matter, in order to not mess with potential randomness and desyncing between players.
+*/
+
+if gathered_total &gt; bees {gathered_total = bees}
+
+if (state == "gather") {
+    if (gathered_total &gt;= bees || space.resources &lt;= 0) {
+        state = "return"
+        order_state = "return"
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -132,7 +170,11 @@ if (x == go_x &amp;&amp; y == go_y &amp;&amp; state == "go") {
 //When they return to Hive
 if (x == home_x &amp;&amp; y == home_y &amp;&amp; state == "return") {
     // Offload resources
-    
+    if p_id == obj_admin.player {
+        obj_admin.res_pollen += gathered_pollen
+        obj_admin.res_nectar += gathered_nectar
+        obj_admin.res_honey += gathered_honey
+    }
     //die
     instance_destroy()
 }
@@ -185,12 +227,12 @@ if (state == "return") {
 
 if (state == "gather") {
     //Code to take pollen and nectar from space
-    
-    
-    //When full or space is empty
-    state = "return"
-    order_state = "return"
-    }
+    space.resources -= 0.1
+    gathered_pollen += space.pollen/10
+    gathered_nectar += space.nectar/10
+    gathered_honey += space.honey/10
+    gathered_total += 0.1
+}
 
 if (state == "patrol" &amp;&amp; obj_admin.workers_roaming == false) {
     state = "return"

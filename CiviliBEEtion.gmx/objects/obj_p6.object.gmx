@@ -30,6 +30,8 @@
     An object that only exists for player 1.
     This is used instead of having to pull the player list to figure out which player you are.
 */
+
+obj_admin.player = 6
 </string>
           </argument>
         </arguments>

@@ -342,6 +342,8 @@ if jelly_progress &gt;= 100 {
             <kind>1</kind>
             <string>/// Draw GUI
 
+if p_id != obj_admin.player {exit}
+
 // Draw health
 
 draw_set_colour(c_black)
@@ -365,6 +367,16 @@ draw_set_colour(c_white)
 draw_set_halign(fa_left)
 draw_set_valign(fa_middle)
 draw_text(4,36,string(floor(jelly_progress))+"%")
+
+// Draw resources
+
+draw_set_colour(c_orange)
+draw_set_halign(fa_center)
+draw_set_valign(fa_top)
+
+draw_text(33,54,obj_admin.res_pollen)
+draw_text(99,54,obj_admin.res_nectar)
+draw_text(165,54,obj_admin.res_honey)
 </string>
           </argument>
         </arguments>

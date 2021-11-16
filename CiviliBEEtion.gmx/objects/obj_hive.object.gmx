@@ -44,7 +44,7 @@ max_hp = 100
 
 type = "hive"
 box = "none" //Holds the orderbox
-attacked_by = 0 //Bees sent to attack
+attackers = 0 //Bees sent to attack
 info = ""
 
 //Combat
@@ -231,6 +231,31 @@ if p_id == 106 {
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Destroy Order-boxes
+if (obj_mouse.target != id) {
+        instance_destroy(box)
+        box = "none"
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///If a bee returns mid-combat
 if (state == "combat" &amp;&amp; workers &gt; 0) {
 
@@ -255,31 +280,6 @@ defender.bees++
 workers--
 }
 
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Destroy Order-boxes
-if (obj_mouse.target != id) {
-        instance_destroy(box)
-        box = "none"
 }
 </string>
           </argument>
@@ -589,10 +589,10 @@ var player_id = scr_get_data("p_id",0)
 var spawn_x = scr_get_data("spawn_x",player_id)
 var spawn_y = scr_get_data("spawn_y",player_id)
 
-if (attacked_by &gt; 0){
+if (attackers &gt; 0){
 draw_line_colour(spawn_x,spawn_y,x,y,c_red,c_red)
 draw_sprite(spr_order_icon,3,x,y)
-draw_text(x,y-32,attacked_by)
+draw_text(x,y-32,attackers)
 }
 </string>
           </argument>

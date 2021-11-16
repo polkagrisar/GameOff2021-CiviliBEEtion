@@ -8,7 +8,7 @@ if (argument[0] == "add") && owner.idle_workers > 0 {
     if (index == 0) {creator.gatherer++}
     if (index == 1) {creator.patrol++}
     if (index == 2 && creator.gatherer > 0) {creator.escort++}
-    if (index == 3) {creator.attack++}
+    if (index == 3) {creator.attackers++}
 }
 
 // Removing
@@ -31,8 +31,8 @@ if (argument[0] == "remove") {
         owner.idle_workers++
     }
     
-    if (index == 3 && creator.attack > 0) {
-        creator.attack--
+    if (index == 3 && creator.attackers > 0) {
+        creator.attackers--
         owner.idle_workers++
     }
 

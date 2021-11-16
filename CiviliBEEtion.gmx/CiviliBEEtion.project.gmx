@@ -645,6 +645,7 @@
       <object>objects\obj_camera</object>
       <object>objects\obj_display_manager</object>
       <object>objects\obj_combat</object>
+      <object>objects\obj_hive_combat</object>
       <object>objects\obj_combat_bee_fx</object>
     </objects>
   </objects>

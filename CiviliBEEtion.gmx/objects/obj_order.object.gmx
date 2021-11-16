@@ -127,6 +127,33 @@ if patrol &gt; 0 {
     }
 }
 
+// Create attackers
+
+if attack &gt; 0 {
+    with instance_create(owner_x,owner_y,obj_bee) {
+        type = "attack"
+        p_id = other.owner
+        bees = other.attack
+        escort = 0
+        go_x = other.x
+        go_y = other.y
+        home_x = other.owner_x
+        home_y = other.owner_y
+        if p_id == 1 {move_speed = 2+obj_admin.p1_upgrade_speed}
+        if p_id == 2 {move_speed = 2+obj_admin.p2_upgrade_speed}
+        if p_id == 3 {move_speed = 2+obj_admin.p3_upgrade_speed}
+        if p_id == 4 {move_speed = 2+obj_admin.p4_upgrade_speed}
+        if p_id == 5 {move_speed = 2+obj_admin.p5_upgrade_speed}
+        if p_id == 6 {move_speed = 2+obj_admin.p6_upgrade_speed}
+        if p_id == 101 {move_speed = 2+obj_admin.bot1_upgrade_speed}
+        if p_id == 102 {move_speed = 2+obj_admin.bot2_upgrade_speed}
+        if p_id == 103 {move_speed = 2+obj_admin.bot3_upgrade_speed}
+        if p_id == 104 {move_speed = 2+obj_admin.bot4_upgrade_speed}
+        if p_id == 105 {move_speed = 2+obj_admin.bot5_upgrade_speed}
+        if p_id == 106 {move_speed = 2+obj_admin.bot6_upgrade_speed}
+    }
+}
+
 with obj_space {
     gatherer = 0
     patrol = 0

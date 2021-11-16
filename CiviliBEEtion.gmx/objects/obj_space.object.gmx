@@ -70,7 +70,7 @@ image_index = 1}
     "bud" - Turns into a flower when grown
 */
 
-growth = 100 // If less than 100, it's a bud and provides no resources
+growth = 0 // For buds, grows into a flower when it reaches 100
 pollen = 1  // How much each unit of resource gives
 nectar = 1
 honey = 0.1
@@ -159,6 +159,32 @@ if (obj_mouse.target != id) {
         instance_destroy(box[i])
         box[i] = "none"
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_bee">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if type == "bud" {
+    growth += other.pollen*2
+    if growth &gt;= 100 {type = "flower"}
 }
 </string>
           </argument>

@@ -28,16 +28,11 @@
             <string>image_speed = 0
 
 upgrades = 0
-cost = 25
+cost = 15
 
-if instance_exists(obj_p1) {p_id = 1}
-if instance_exists(obj_p2) {p_id = 2}
-if instance_exists(obj_p3) {p_id = 3}
-if instance_exists(obj_p4) {p_id = 4}
-if instance_exists(obj_p5) {p_id = 5}
-if instance_exists(obj_p6) {p_id = 6}
+p_id = obj_admin.player
 
-info = "Increase your Queen's health."
+info = "Increase bee attack power."
 </string>
           </argument>
         </arguments>
@@ -62,10 +57,8 @@ info = "Increase your Queen's health."
             <kind>1</kind>
             <string>if obj_phasetracker.phase == "planning" &amp;&amp; obj_admin.res_pollen &gt;= cost {
     obj_admin.res_pollen -= cost
+    cost += 10
     upgrades++
-    with obj_hive {
-        if p_id == other.p_id {hp += 5}
-    }
 
     // send data
     self.rpc_id = htme_hash()
@@ -74,7 +67,7 @@ info = "Increase your Queen's health."
     ds_list_add(list_p1,x,y,300,400)
     for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
         var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_research,player,p_id,"queen")
+        htmerpc_send(self.rpc_id,scr_rpc_research,player,p_id,"attack")
     }
 }
 </string>

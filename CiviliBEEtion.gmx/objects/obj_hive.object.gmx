@@ -100,62 +100,62 @@ if (obj_mouse.target != id) {
             <string>/// Get HP
 
 if p_id == 1 {
-    hp = obj_admin.p1_queen_hp
+    //hp = obj_admin.p1_queen_hp
     max_hp = 100+(obj_admin.p1_upgrade_queen*10)
 }
 
 if p_id == 2 {
-    hp = obj_admin.p2_queen_hp
+    //hp = obj_admin.p2_queen_hp
     max_hp = 100+(obj_admin.p2_upgrade_queen*10)
 }
 
 if p_id == 3 {
-    hp = obj_admin.p3_queen_hp
+    //hp = obj_admin.p3_queen_hp
     max_hp = 100+(obj_admin.p3_upgrade_queen*10)
 }
 
 if p_id == 4 {
-    hp = obj_admin.p4_queen_hp
+    //hp = obj_admin.p4_queen_hp
     max_hp = 100+(obj_admin.p4_upgrade_queen*10)
 }
 
 if p_id == 5 {
-    hp = obj_admin.p5_queen_hp
+    //hp = obj_admin.p5_queen_hp
     max_hp = 100+(obj_admin.p5_upgrade_queen*10)
 }
 
 if p_id == 6 {
-    hp = obj_admin.p6_queen_hp
+    //hp = obj_admin.p6_queen_hp
     max_hp = 100+(obj_admin.p6_upgrade_queen*10)
 }
 
 if p_id == 101 {
-    hp = obj_admin.bot1_queen_hp
+    //hp = obj_admin.bot1_queen_hp
     max_hp = 100+(obj_admin.bot1_upgrade_queen*10)
 }
 
 if p_id == 102 {
-    hp = obj_admin.bot2_queen_hp
+    //hp = obj_admin.bot2_queen_hp
     max_hp = 100+(obj_admin.bot2_upgrade_queen*10)
 }
 
 if p_id == 103 {
-    hp = obj_admin.bot3_queen_hp
+    //hp = obj_admin.bot3_queen_hp
     max_hp = 100+(obj_admin.bot3_upgrade_queen*10)
 }
 
 if p_id == 104 {
-    hp = obj_admin.bot4_queen_hp
+    //hp = obj_admin.bot4_queen_hp
     max_hp = 100+(obj_admin.bot4_upgrade_queen*10)
 }
 
 if p_id == 105 {
-    hp = obj_admin.bot5_queen_hp
+    //hp = obj_admin.bot5_queen_hp
     max_hp = 100+(obj_admin.bot5_upgrade_queen*10)
 }
 
 if p_id == 106 {
-    hp = obj_admin.bot6_queen_hp
+    //hp = obj_admin.bot6_queen_hp
     max_hp = 100+(obj_admin.bot6_upgrade_queen*10)
 }
 </string>
@@ -305,7 +305,7 @@ if instance_exists(obj_p1) &amp;&amp; p_id == 1 {
     ds_list_add(list_p1,x,y,300,400)
     for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
         var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,1,drones,workers,obj_admin.p1_queen_hp,obj_admin.p1_focus)
+        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,1,drones,workers,hp,obj_admin.p1_focus)
     }
 }
 
@@ -317,7 +317,7 @@ if instance_exists(obj_p2) &amp;&amp; p_id == 2 {
     ds_list_add(list_p1,x,y,300,400)
     for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
         var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,2,drones,workers,obj_admin.p2_queen_hp,obj_admin.p2_focus)
+        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,2,drones,workers,hp,obj_admin.p2_focus)
     }
 }
 
@@ -329,7 +329,7 @@ if instance_exists(obj_p3) &amp;&amp; p_id == 3 {
     ds_list_add(list_p1,x,y,300,400)
     for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
         var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,3,drones,workers,obj_admin.p3_queen_hp,obj_admin.p3_focus)
+        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,3,drones,workers,hp,obj_admin.p3_focus)
     }
 }
 
@@ -341,7 +341,7 @@ if instance_exists(obj_p4) &amp;&amp; p_id == 4 {
     ds_list_add(list_p1,x,y,300,400)
     for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
         var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,4,drones,workers,obj_admin.p4_queen_hp,obj_admin.p4_focus)
+        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,4,drones,workers,hp,obj_admin.p4_focus)
     }
 }
 
@@ -353,7 +353,7 @@ if instance_exists(obj_p5) &amp;&amp; p_id == 5 {
     ds_list_add(list_p1,x,y,300,400)
     for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
         var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,5,drones,workers,obj_admin.p5_queen_hp,obj_admin.p5_focus)
+        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,5,drones,workers,hp,obj_admin.p5_focus)
     }
 }
 
@@ -365,7 +365,7 @@ if instance_exists(obj_p6) &amp;&amp; p_id == 6 {
     ds_list_add(list_p1,x,y,300,400)
     for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
         var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,6,drones,workers,obj_admin.p6_queen_hp,obj_admin.p6_focus)
+        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,6,drones,workers,hp,obj_admin.p6_focus)
     }
 }
 </string>
@@ -399,6 +399,10 @@ while (hp &lt; max_hp &amp;&amp; drones &gt; 0) {
     hp += 5
     if hp &gt; max_hp {hp = max_hp}
 }
+
+// Your remaining drones die
+
+drones = 0
 
 // Make jelly
 

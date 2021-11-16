@@ -555,6 +555,8 @@
       <object>objects\obj_roomchanger</object>
       <object>objects\obj_phasetracker</object>
       <object>objects\obj_radius</object>
+      <object>objects\obj_buydrone</object>
+      <object>objects\obj_buyworker</object>
     </objects>
     <objects name="Bots">
       <object>objects\obj_bot1</object>
@@ -573,6 +575,7 @@
       <object>objects\obj_upgrade_speed</object>
       <object>objects\obj_upgrade_distance</object>
       <object>objects\obj_upgrade_queen</object>
+      <object>objects\obj_upgrade_attack</object>
     </objects>
     <object>objects\obj_dual_instance</object>
     <objects name="Gmnet">

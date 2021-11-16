@@ -1,4 +1,4 @@
-///scr_rpc_hivestats(x,y,player,gatherer,patrol,escort,attack)
+///scr_rpc_hivestats(player,drones,workers,queen_hp,focus)
 
 if argument0 == 1 {
     p1_hive_drones = argument1

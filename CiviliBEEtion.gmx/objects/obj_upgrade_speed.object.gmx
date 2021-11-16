@@ -30,12 +30,7 @@
 upgrades = 0
 cost = 10
 
-if instance_exists(obj_p1) {p_id = 1}
-if instance_exists(obj_p2) {p_id = 2}
-if instance_exists(obj_p3) {p_id = 3}
-if instance_exists(obj_p4) {p_id = 4}
-if instance_exists(obj_p5) {p_id = 5}
-if instance_exists(obj_p6) {p_id = 6}
+p_id = obj_admin.player
 
 info = "Increase bee travel speed."
 </string>

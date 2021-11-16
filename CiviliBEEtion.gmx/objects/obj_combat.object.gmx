@@ -142,11 +142,15 @@ state = "attack"
             <string>///ATTACK
 if (state == "attack") {
 
+var units_exists = false
+
 //For every stack of units
 for (var i = 0; i &lt; units_total;i++) {
 
 
 if (units[i] != "none") {
+
+units_exists = true
 
 //They check all other units to check how many targets they have
 for (var j = 0; j &lt; units_total; j++) {
@@ -178,6 +182,11 @@ targets = 0
 
 }
 
+}
+
+if (!units_exists) {
+    state = "end"
+    alarm[1] = 60
 }
 
 if (state == "attack") {

@@ -58,6 +58,10 @@ phase = "planning"
 players_ready = 0
 bots_ready = 0
 
+with obj_hive {
+    idle_workers = workers
+}
+
 obj_endturn.locked = false
 obj_endturn.image_index = 0
 </string>

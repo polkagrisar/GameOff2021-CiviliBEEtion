@@ -2,21 +2,13 @@
 
 //Add the code to remove workers from hive
 //Also check if there are any workers in the hive
-if (argument[0] == "add") {
-
+if (argument[0] == "add") && owner.idle_workers > 0 {
+    owner.idle_workers--
     //Gatherer = 0, patrol = 1, escort = 2, attack = 3
-    if (index == 0) {
-    creator.gatherer++}
-    
-    if (index == 1) {
-    creator.patrol++}
-    
-    if (index == 2 && creator.gatherer > 0) {
-    creator.escort++}
-    
-    if (index == 3) {
-    creator.attacked_by++}
-
+    if (index == 0) {creator.gatherer++}
+    if (index == 1) {creator.patrol++}
+    if (index == 2 && creator.gatherer > 0) {creator.escort++}
+    if (index == 3) {creator.attacked_by++}
 }
 
 // Removing
@@ -25,16 +17,24 @@ if (argument[0] == "add") {
 if (argument[0] == "remove") {
 
     if (index == 0 && creator.gatherer > 0) {
-    creator.gatherer--}
+        creator.gatherer--
+        owner.idle_workers++
+    }
     
     if (index == 1 && creator.patrol > 0) {
-    creator.patrol--}
+        creator.patrol--
+        owner.idle_workers++
+    }
     
     if (index == 2 && creator.escort > 0) {
-    creator.escort--}
+        creator.escort--
+        owner.idle_workers++
+    }
     
     if (index == 3 && creator.attack > 0) {
-    creator.attacked_by--}
+        creator.attacked_by--
+        owner.idle_workers++
+    }
 
 }
 

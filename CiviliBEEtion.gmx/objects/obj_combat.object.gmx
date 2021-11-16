@@ -55,17 +55,13 @@ image_speed = 0.5
             <kind>1</kind>
             <string>///END THE COMBAT
 if (state == "end") {
-
-for (var i = 0; i &lt; units_total; i++) {
-
-if (units[i] != "none") {
-units[i].state = units[i].order_state
-units[i] = "none"}
-
-}
-
-instance_destroy()
-
+    for (var i = 0; i &lt; units_total; i++) {
+        if (units[i] != "none") {
+            units[i].state = units[i].order_state
+            units[i] = "none"
+        }
+    }
+    instance_destroy()
 }
 </string>
           </argument>
@@ -173,9 +169,11 @@ if (units[k] != "none") {
 }
 
 //If a stack doesn't have any targets = only their team has units, combat ends
-if (targets == 0) {state = "end"
-alarm[1] = 60}
-
+if (targets == 0) {
+    state = "end"
+    alarm[1] = 60
+}
+    
 targets = 0
 
 }
@@ -183,8 +181,9 @@ targets = 0
 }
 
 if (state == "attack") {
-state = "deal_damage"
-alarm[0] = 60}
+    state = "deal_damage"
+    alarm[0] = 10
+}
 
 }
 </string>

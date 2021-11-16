@@ -79,15 +79,19 @@ list_hive = ds_list_create()
 
 with obj_hive {ds_list_add(other.list_hive,id)}
 
-for (i = 1; i &lt; obj_admin.no_players+1; i++) {
-    ds_list_add(list_hive_players,i)
-}
+if obj_admin.player1 == true {ds_list_add(list_hive_players,1)}
+if obj_admin.player2 == true {ds_list_add(list_hive_players,2)}
+if obj_admin.player3 == true {ds_list_add(list_hive_players,3)}
+if obj_admin.player4 == true {ds_list_add(list_hive_players,4)}
+if obj_admin.player5 == true {ds_list_add(list_hive_players,5)}
+if obj_admin.player6 == true {ds_list_add(list_hive_players,6)}
 
-if obj_admin.no_bots &gt; 0 {
-    for (i = 101; i &lt; obj_admin.no_bots+1; i++) {
-        ds_list_add(list_hive_players,i)
-    }
-}
+if obj_admin.bot1 == true {ds_list_add(list_hive_players,101)}
+if obj_admin.bot2 == true {ds_list_add(list_hive_players,102)}
+if obj_admin.bot3 == true {ds_list_add(list_hive_players,103)}
+if obj_admin.bot4 == true {ds_list_add(list_hive_players,104)}
+if obj_admin.bot5 == true {ds_list_add(list_hive_players,105)}
+if obj_admin.bot6 == true {ds_list_add(list_hive_players,106)}
 
 ds_list_shuffle(list_hive_players)
 ds_list_shuffle(list_hive)
@@ -98,7 +102,7 @@ while !ds_list_empty(list_hive) {
     temp_hive = ds_list_find_value(list_hive,0)
     temp_player = ds_list_find_value(list_hive_players,0)
     with temp_hive {p_id = other.temp_player}
-    if temp_hive.p_id &lt;= 6 {
+    if temp_hive.p_id == obj_admin.player {
         with instance_create(mouse_x,mouse_y,obj_mouse) {
             p_id = other.temp_hive.p_id
             home_x = other.temp_hive.x

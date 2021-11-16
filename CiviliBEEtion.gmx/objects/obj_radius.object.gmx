@@ -28,7 +28,7 @@
             <string>/// Create surface
 
 p_id = 0
-owner_hive = 0
+owner = 0
 surface_distance = surface_create(1024,768)
 
 surface_set_target(surface_distance)

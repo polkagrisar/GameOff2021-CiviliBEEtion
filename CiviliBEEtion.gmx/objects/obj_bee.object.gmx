@@ -169,6 +169,9 @@ if (x == go_x &amp;&amp; y == go_y &amp;&amp; state == "go") {
 
 //When they return to Hive
 if (x == home_x &amp;&amp; y == home_y &amp;&amp; state == "return") {
+    with instance_nearest(x,y,obj_hive) {
+        workers += other.bees+other.escort
+    }
     // Offload resources
     if p_id == obj_admin.player {
         obj_admin.res_pollen += gathered_pollen
@@ -334,25 +337,23 @@ units[unit_total] = id}
           <argument>
             <kind>1</kind>
             <string>///Start new combat
-if (p_id == other.p_id) //DEBUG ONLY, Should be &lt; or &gt; instead of ==
-{ 
-
-//Only start combat if someone is a patol, AND none of them is in combat already
-if ((type == "patrol" || other.type == "patrol") &amp;&amp; state != "combat" &amp;&amp; other.state != "combat") {
-state = "combat"
-other.state = "combat"
-other.p_id = 2 //DEBUG ONLY
-enemy_bee = other.id
-
-with instance_create(x,y,obj_combat)  {
-units_total = 2
-units[0] = other.id
-units[1] = other.enemy_bee 
-state = "attack"
-}
-
-enemy_bee = "none"}
-
+if (p_id &lt; other.p_id) { //DEBUG ONLY, Should be &lt; or &gt; instead of == 
+    //Only start combat if someone is a patol, AND none of them is in combat already
+    if ((type == "patrol" || other.type == "patrol") &amp;&amp; state != "combat" &amp;&amp; other.state != "combat") {
+        state = "combat"
+        other.state = "combat"
+        other.p_id = 2 //DEBUG ONLY
+        enemy_bee = other.id
+        
+        with instance_create(x,y,obj_combat)  {
+            units_total = 2
+            units[0] = other.id
+            units[1] = other.enemy_bee 
+            state = "attack"
+        }
+        
+        enemy_bee = "none"
+    }
 }
 </string>
           </argument>

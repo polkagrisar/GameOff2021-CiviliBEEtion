@@ -51,6 +51,7 @@ order_state = "go" //What they want to do when able: go, return, gather/patrol/a
 space = "none" //Space they take nectar or pollen from, or attack
 target = "none" //Target patroller chases
 
+a_frame = 0
 
 //Combat Variables
 hp = 50
@@ -268,21 +269,34 @@ if (type == "gatherer") {attack = (bees * 3) + (escort * 5) }
 else
 {attack = bees * 5}
 
-/*
-//Kills bees
-if (escort == 0) {
-    if (damage &gt;= hp) {
-    bees--
-    damage = 0    }
+if (state == "combat" &amp;&amp; !instance_position(x,y,obj_combat)) {
+state = order_state
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Animation
 
-//Kills escort instead
-if (escort &gt; 0) {
-    if (damage &gt;= hp+20) {
-    escort--
-    damage = 0    }
-}
-*/
+a_frame++
+if (a_frame &gt; 15) {a_frame = 0}
+
 </string>
           </argument>
         </arguments>
@@ -306,12 +320,12 @@ if (escort &gt; 0) {
           <argument>
             <kind>1</kind>
             <string>///ENTER ONGOING COMBAT
-if (state != "combat" &amp;&amp; type == "patrol") {
+if (state != "combat" &amp;&amp; other.state != "end" &amp;&amp; type == "patrol") {
 state = "combat"
 
 with other {
 units_total++
-units[unit_total] = id}
+units[units_total] = other.id}
 
 }
 </string>
@@ -388,11 +402,11 @@ if (state == "attack" &amp;&amp; other.queen_state == "alive") {
         units[1] = other.id
         state = "attack"
         
-        with units[0] {
+       /* with units[0] {
             if (workers &gt; 0) {
                 defender = instance_create(x,y,obj_bee)
                 with defender {
-                    bees = workers
+                    bees = other.workers
                     other.workers -= bees
                     home_x = x
                     home_y = y
@@ -404,7 +418,7 @@ if (state == "attack" &amp;&amp; other.queen_state == "alive") {
                     }
                 }
             }
-        }
+        }*/
     }
 }
 </string>
@@ -430,10 +444,28 @@ if (state == "attack" &amp;&amp; other.queen_state == "alive") {
           <argument>
             <kind>1</kind>
             <string>///DEBUG
-draw_self()
+//draw_self()
 draw_text(x,y+16,state)
 draw_text(x,y+32,order_state)
 draw_text(x,y-16,type)
+
+
+var draw_x = x
+var draw_y = y
+
+if (state == "combat" &amp;&amp; instance_exists(obj_combat)) {
+//draw_x = instance_nearest(x,y,obj_combat).x
+//draw_y = instance_nearest(x,y,obj_combat).y
+}
+else {
+draw_x = x
+draw_y = y
+}
+
+draw_sprite(spr_bee,a_frame,draw_x,draw_y)
+
+if (bees + escort &gt; 1) {draw_sprite(spr_bee2,a_frame,draw_x,draw_y)}
+if (bees + escort &gt; 2) {draw_sprite(spr_bee2,a_frame,draw_x,draw_y-32)}
 </string>
           </argument>
         </arguments>

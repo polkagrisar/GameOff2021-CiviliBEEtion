@@ -30,6 +30,10 @@ units_total = 0 //How many different stacks of bees that has joined.
 targets = 0 //How many stacks you attack
 state = ""
 
+for (var i = 2; i &lt; 10;i++) {
+units[i] = "none"}
+
+
 image_speed = 0.5
 </string>
           </argument>
@@ -55,7 +59,7 @@ image_speed = 0.5
             <kind>1</kind>
             <string>///END THE COMBAT
 if (state == "end") {
-    for (var i = 0; i &lt; units_total; i++) {
+    for (var i = 1; i &lt; units_total; i++) {
         if (units[i] != "none") {
             units[i].state = units[i].order_state
             units[i] = "none"
@@ -93,14 +97,14 @@ for (var i = 0; i &lt; units_total; i++) {
     //Check to see if drone dies or queen takes damage
     if (i = 0) {
     
-    if (drones == 0 &amp;&amp; damage &gt; 0) {
-    hp -= damage
-    damage = 0    
+    if (units[i].drones == 0 &amp;&amp; units[i].damage &gt; 0) {
+    units[i].hp -= units[i].damage
+    units[i].damage = 0    
     }
         
-    if (drones &gt; 0 &amp;&amp; damage &gt;= drones_hp) {
-    damage -= drones_hp
-    drones--
+    if (units[i].drones &gt; 0 &amp;&amp; units[i].damage &gt;= units[i].drones_hp) {
+    units[i].damage -= units[i].drones_hp
+    units[i].drones--
     i--   
     }
     
@@ -271,16 +275,16 @@ for (var i = 0; i &lt; units_total; i++) {
 if (units[i] != "none") {
 
     //Get sprite-index
-    if (units[i].type == "gatherer") {temp_spriteindex = 0}
-    if (units[i].type == "patrol") {temp_spriteindex = 1}
     
+    if (i == 0) {
     
+    }
+    
+    if (i &gt; 0) {
     draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-32)
-    draw_text(x+(32*i)-(16*(units_total-1)+4),y-32,string(units[i].bees))
+    //draw_text(x+(32*i)-(16*(units_total-1)+4),y-32,string(units[i].bees))
     
-    if (units[i].escort &gt; 0) {temp_spriteindex = 2 
-    draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-48)
-    draw_text(x+(32*i)-(16*(units_total-1)+4),y-48,string(units[i].escort))}
+    }
     
     
 }

@@ -50,7 +50,7 @@ info = ""
 //Combat
 queen_state = "alive"
 state = ""
-defender = "" //Workers that are protecting the hive
+defender = "none" //Workers that are protecting the hive
 defender_num = 0
 attack = 15
 drone_hp = 50
@@ -262,7 +262,7 @@ if (state == "combat" &amp;&amp; workers &gt; 0) {
 if (defender == "none") {
 defender = instance_create(x,y,obj_bee)
 with defender {
-    bees = workers
+    bees = other.workers
     other.workers -= bees
     home_x = x
     home_y = y
@@ -276,8 +276,8 @@ with defender {
 }
 
 if (defender != "none") {
-defender.bees++
-workers--
+//defender.bees++
+//workers--
 }
 
 }

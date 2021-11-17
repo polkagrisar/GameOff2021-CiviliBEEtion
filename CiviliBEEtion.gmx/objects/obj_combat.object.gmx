@@ -30,7 +30,40 @@ units_total = 0 //How many different stacks of bees that has joined.
 targets = 0 //How many stacks you attack
 state = ""
 
+for (var i = 2; i &lt; 10;i++) {
+units[i] = "none"}
+
+
+
 image_speed = 0.5
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>    for (var i = 0; i &lt; units_total; i++) {
+        if (units[i] != "none") {
+            units[i].state = units[i].order_state
+            units[i] = "none"
+        }
+    }
 </string>
           </argument>
         </arguments>
@@ -55,13 +88,9 @@ image_speed = 0.5
             <kind>1</kind>
             <string>///END THE COMBAT
 if (state == "end") {
-    for (var i = 0; i &lt; units_total; i++) {
-        if (units[i] != "none") {
-            units[i].state = units[i].order_state
-            units[i] = "none"
-        }
-    }
-    instance_destroy()
+instance_destroy()
+
+    
 }
 </string>
           </argument>
@@ -218,7 +247,7 @@ if (state == "attack") {
           <argument>
             <kind>1</kind>
             <string>///Combat things
-draw_self()
+//draw_self()
 
 //if (position_meeting(x,y,obj_mouse)) { //Show combat if hovering over combat
 

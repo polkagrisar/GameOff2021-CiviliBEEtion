@@ -202,6 +202,7 @@
       <sprite>sprites\spr_nospace</sprite>
       <sprite>sprites\spr_orderbox</sprite>
       <sprite>sprites\spr_bee</sprite>
+      <sprite>sprites\spr_bee2</sprite>
       <sprite>sprites\spr_emblem</sprite>
       <sprite>sprites\spr_order_icon</sprite>
       <sprite>sprites\spr_combat</sprite>

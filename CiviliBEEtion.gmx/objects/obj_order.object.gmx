@@ -70,7 +70,7 @@ with obj_hive {
     }
 }
 
-owner_id.workers -= gatherer+patrol+escort+attack
+owner_id.workers -= gatherer+patrol+escort+attackers
 
 // Create workers/escorts
 
@@ -139,18 +139,18 @@ if attackers &gt; 0 {
         go_y = other.y
         home_x = other.owner_x
         home_y = other.owner_y
-        if p_id == 1 {move_speed = 4+obj_admin.p1_upgrade_speed}
-        if p_id == 2 {move_speed = 4+obj_admin.p2_upgrade_speed}
-        if p_id == 3 {move_speed = 4+obj_admin.p3_upgrade_speed}
-        if p_id == 4 {move_speed = 4+obj_admin.p4_upgrade_speed}
-        if p_id == 5 {move_speed = 4+obj_admin.p5_upgrade_speed}
-        if p_id == 6 {move_speed = 4+obj_admin.p6_upgrade_speed}
-        if p_id == 101 {move_speed = 4+obj_admin.bot1_upgrade_speed}
-        if p_id == 102 {move_speed = 4+obj_admin.bot2_upgrade_speed}
-        if p_id == 103 {move_speed = 4+obj_admin.bot3_upgrade_speed}
-        if p_id == 104 {move_speed = 4+obj_admin.bot4_upgrade_speed}
-        if p_id == 105 {move_speed = 4+obj_admin.bot5_upgrade_speed}
-        if p_id == 106 {move_speed = 4+obj_admin.bot6_upgrade_speed}
+        if p_id == 1 {move_speed = 5+obj_admin.p1_upgrade_speed}
+        if p_id == 2 {move_speed = 5+obj_admin.p2_upgrade_speed}
+        if p_id == 3 {move_speed = 5+obj_admin.p3_upgrade_speed}
+        if p_id == 4 {move_speed = 5+obj_admin.p4_upgrade_speed}
+        if p_id == 5 {move_speed = 5+obj_admin.p5_upgrade_speed}
+        if p_id == 6 {move_speed = 5+obj_admin.p6_upgrade_speed}
+        if p_id == 101 {move_speed = 5+obj_admin.bot1_upgrade_speed}
+        if p_id == 102 {move_speed = 5+obj_admin.bot2_upgrade_speed}
+        if p_id == 103 {move_speed = 5+obj_admin.bot3_upgrade_speed}
+        if p_id == 104 {move_speed = 5+obj_admin.bot4_upgrade_speed}
+        if p_id == 105 {move_speed = 5+obj_admin.bot5_upgrade_speed}
+        if p_id == 106 {move_speed = 5+obj_admin.bot6_upgrade_speed}
     }
 }
 
@@ -162,7 +162,7 @@ with obj_space {
 }
 
 with obj_hive {
-    attack = 0
+    attackers = 0
 }
 
 instance_destroy()

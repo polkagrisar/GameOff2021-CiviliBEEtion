@@ -379,37 +379,33 @@ if (p_id &lt; other.p_id) { //DEBUG ONLY, Should be &lt; or &gt; instead of ==
             <kind>1</kind>
             <string>///START HIVE COMBAT
 if (state == "attack" &amp;&amp; other.queen_state == "alive") {
-state = "combat"
-other.state = "combat"
-
-with instance_create(x,y,obj_hive_combat) {
-units_total = 2
-units[0] = instance_nearest(x,y,obj_hive)
-units[1] = other.id
-state = "attack"
-
-
-with units[0] {
-    if (workers &gt; 0) {
-    defender = instance_create(x,y,obj_bee)
-    with defender {
-    bees = workers
-    other.workers -= bees
-    home_x = x
-    home_y = y
     state = "combat"
-    order_state = "return"
-    with instance_nearest(x,y,obj_hive_combat) {
-    units_total++
-    units[units_total] = other.id }
+    other.state = "combat"
+    
+    with instance_create(x,y,obj_hive_combat) {
+        units_total = 2
+        units[0] = instance_nearest(x,y,obj_hive)
+        units[1] = other.id
+        state = "attack"
+        
+        with units[0] {
+            if (workers &gt; 0) {
+                defender = instance_create(x,y,obj_bee)
+                with defender {
+                    bees = workers
+                    other.workers -= bees
+                    home_x = x
+                    home_y = y
+                    state = "combat"
+                    order_state = "return"
+                    with instance_nearest(x,y,obj_hive_combat) {
+                        units_total++
+                        units[units_total] = other.id
+                    }
+                }
+            }
+        }
     }
-
-}
-}
-
-}
-
-
 }
 </string>
           </argument>

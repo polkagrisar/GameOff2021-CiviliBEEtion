@@ -329,7 +329,7 @@ jelly_progress--
             <kind>1</kind>
             <string>/// Send Bees &amp; Attacks to other players
 
-if attack &gt; 0 {
+if attackers &gt; 0 {
     var send_player = obj_admin.player
     
     // send data
@@ -339,13 +339,13 @@ if attack &gt; 0 {
     ds_list_add(list_p1,x,y,300,400)
     for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
         var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_order,player,x,y,send_player,0,0,0,attack)
+        htmerpc_send(self.rpc_id,scr_rpc_order,player,x,y,send_player,0,0,0,attackers)
     }
 }
 
 // Send your own hive stats
 
-if obj_admin.player == 1 {
+if p_id == 1 &amp;&amp; obj_admin.player == 1 {
     // send data
     self.rpc_id = htme_hash()
     var playerlist = htme_getPlayers()
@@ -357,7 +357,7 @@ if obj_admin.player == 1 {
     }
 }
 
-if obj_admin.player == 2 {
+if p_id == 2 &amp;&amp; obj_admin.player == 2 {
     // send data
     self.rpc_id = htme_hash()
     var playerlist = htme_getPlayers()
@@ -369,7 +369,7 @@ if obj_admin.player == 2 {
     }
 }
 
-if obj_admin.player == 3 {
+if p_id == 3 &amp;&amp; obj_admin.player == 3 {
     // send data
     self.rpc_id = htme_hash()
     var playerlist = htme_getPlayers()
@@ -381,7 +381,7 @@ if obj_admin.player == 3 {
     }
 }
 
-if obj_admin.player == 4 {
+if p_id == 4 &amp;&amp; obj_admin.player == 4 {
     // send data
     self.rpc_id = htme_hash()
     var playerlist = htme_getPlayers()
@@ -393,7 +393,7 @@ if obj_admin.player == 4 {
     }
 }
 
-if obj_admin.player == 5 {
+if p_id == 5 &amp;&amp; obj_admin.player == 5 {
     // send data
     self.rpc_id = htme_hash()
     var playerlist = htme_getPlayers()
@@ -405,7 +405,7 @@ if obj_admin.player == 5 {
     }
 }
 
-if obj_admin.player == 6 {
+if p_id == 6 &amp;&amp; obj_admin.player == 6 {
     // send data
     self.rpc_id = htme_hash()
     var playerlist = htme_getPlayers()

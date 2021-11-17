@@ -5,5 +5,5 @@ with instance_create(argument0,argument1,obj_order) {
     gatherer = argument3
     patrol = argument4
     escort = argument5
-    attack = argument6
+    attackers = argument6
 }

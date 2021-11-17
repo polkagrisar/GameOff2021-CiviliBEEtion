@@ -49,3 +49,4 @@ if argument0 == 6 {
 }
 
 with obj_phasetracker {alarm[0] = 60}
+show_debug_message("HIVE SENT")

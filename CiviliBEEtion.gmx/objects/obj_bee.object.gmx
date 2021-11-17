@@ -453,19 +453,18 @@ draw_text(x,y-16,type)
 var draw_x = x
 var draw_y = y
 
-if (state == "combat" &amp;&amp; instance_exists(obj_combat)) {
-//draw_x = instance_nearest(x,y,obj_combat).x
-//draw_y = instance_nearest(x,y,obj_combat).y
-}
-else {
-draw_x = x
-draw_y = y
-}
-
 draw_sprite(spr_bee,a_frame,draw_x,draw_y)
 
-if (bees + escort &gt; 1) {draw_sprite(spr_bee2,a_frame,draw_x,draw_y)}
-if (bees + escort &gt; 2) {draw_sprite(spr_bee2,a_frame,draw_x,draw_y-32)}
+if (bees + escort &gt; 1) {draw_sprite(spr_bee,a_frame+1,draw_x-8,draw_y-8)}
+if (bees + escort &gt; 2) {draw_sprite(spr_bee,a_frame+2,draw_x+8,draw_y-8)}
+if (bees + escort &gt; 3) {draw_sprite(spr_bee,a_frame+3,draw_x-8,draw_y+8)}
+if (bees + escort &gt; 4) {draw_sprite(spr_bee,a_frame+4,draw_x+8,draw_y+8)}
+
+if (bees + escort &gt; 5) {draw_sprite(spr_bee,a_frame+5,draw_x-4,draw_y-4)}
+if (bees + escort &gt; 6) {draw_sprite(spr_bee,a_frame+6,draw_x+4,draw_y-4)}
+if (bees + escort &gt; 7) {draw_sprite(spr_bee,a_frame+7,draw_x-4,draw_y+4)}
+if (bees + escort &gt; 8) {draw_sprite(spr_bee,a_frame+8,draw_x+4,draw_y+4)}
+
 </string>
           </argument>
         </arguments>

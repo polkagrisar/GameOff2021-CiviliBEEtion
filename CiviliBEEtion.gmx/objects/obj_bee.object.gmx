@@ -164,7 +164,7 @@ if (x == go_x &amp;&amp; y == go_y &amp;&amp; state == "go") {
     if (type == "attack") {
         space = instance_position(x,y,obj_hive)
         state = "attack"
-        order_state = "attack"
+        order_state = "return"
     }
 }
 
@@ -236,6 +236,16 @@ if (state == "gather") {
     gathered_nectar += space.nectar/10
     gathered_honey += space.honey/10
     gathered_total += 0.1
+    
+    //Forced into combat
+    if (instance_position(x,y,obj_combat)) {
+    state = "combat"
+    with instance_nearest(x,y,obj_combat) {
+    units[units_total] = other.id
+    units_total++}    
+    }
+
+    
 }
 
 if (state == "patrol" &amp;&amp; obj_admin.workers_roaming == false) {
@@ -269,7 +279,7 @@ if (type == "gatherer") {attack = (bees * 3) + (escort * 5) }
 else
 {attack = bees * 5}
 
-if (state == "combat" &amp;&amp; !instance_position(x,y,obj_combat)) {
+if (state == "combat" &amp;&amp; !instance_position(x,y,obj_combat) &amp;&amp; !instance_position(x,y,obj_hive_combat)) {
 state = order_state
 }
 </string>
@@ -324,8 +334,8 @@ if (state != "combat" &amp;&amp; other.state != "end" &amp;&amp; type == "patrol
 state = "combat"
 
 with other {
-units_total++
-units[units_total] = other.id}
+units[units_total] = other.id
+units_total++}
 
 }
 </string>
@@ -397,10 +407,9 @@ if (state == "attack" &amp;&amp; other.queen_state == "alive") {
     other.state = "combat"
     
     with instance_create(x,y,obj_hive_combat) {
-        units_total = 2
+        units_total = 3
         units[0] = instance_nearest(x,y,obj_hive)
-        units[1] = other.id
-        state = "attack"
+        units[2] = other.id
         
        /* with units[0] {
             if (workers &gt; 0) {

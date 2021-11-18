@@ -26,13 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>units[0] = "none" //All the stacks of bees
+units[1] = "none"
+units[2] = "none"  
 units_total = 0 //How many different stacks of bees that has joined.
 targets = 0 //How many stacks you attack
-state = ""
-
-for (var i = 2; i &lt; 10;i++) {
-units[i] = "none"}
-
+state = "setup"
 
 image_speed = 0.5
 </string>
@@ -116,7 +114,7 @@ for (var i = 0; i &lt; units_total; i++) {
     if (i &gt; 0) { 
     //Check if No bees left
     if (units[i].bees == 0) {
-    if (units[0].defender_num == i) {
+    if (i == 1) {
     units[0].defender = "none"
     }    
     instance_destroy(units[i])
@@ -149,21 +147,38 @@ units[0].hp = 1
 units[0].queen_state = "dead"
 units[0].defender = "none"
 state = "end"
-
-for (var i = 1; i &lt; units_total; i++) {
-        if (units[i] != "none") {
-            units[i].state = units[i].order_state
-            units[i] = "none"
-        }
+alarm[1] = 60
 }
 
-
-}
-
+if (state != "end")
 state = "attack"
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (state == "setup")
+state = "attack"
 </string>
           </argument>
         </arguments>
@@ -265,7 +280,7 @@ if (state == "attack") {
           <argument>
             <kind>1</kind>
             <string>///Combat things
-draw_self()
+//draw_self()
 
 //if (position_meeting(x,y,obj_mouse)) { //Show combat if hovering over combat
 
@@ -275,9 +290,14 @@ for (var i = 0; i &lt; units_total; i++) {
 if (units[i] != "none") {
 
     //Get sprite-index
-    
+    if (units[i].type == "patrol") {temp_spriteindex = 1}
+    if (units[i].type == "defend") {temp_spriteindex = 2}
+    if (units[i].type == "attack") {temp_spriteindex = 3}
+        
     if (i == 0) {
-    
+    draw_sprite(spr_order_icon,0,x+(32*i)-(16*(units_total-1)),y-32)
+    if (units[i].drones &gt; 0)
+    draw_sprite(spr_order_icon,2,x+(32*i)-(16*(units_total-1)),y-48)
     }
     
     if (i &gt; 0) {

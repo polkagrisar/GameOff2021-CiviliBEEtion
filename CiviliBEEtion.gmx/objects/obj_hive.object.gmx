@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>workers = 5
-drones = 0
+drones = 5
 
 idle_workers = 5
 
@@ -39,7 +39,7 @@ camera = "none"
 
 p_id = 0
 
-hp = 50
+hp = 100
 max_hp = 100
 
 type = "hive"
@@ -52,8 +52,8 @@ queen_state = "alive"
 state = ""
 defender = "none" //Workers that are protecting the hive
 defender_num = 0
-attack = 15
-drone_hp = 50
+attack = 35
+drones_hp = 50
 damage = 0
 
 attack = 0
@@ -263,21 +263,21 @@ if (defender == "none") {
 defender = instance_create(x,y,obj_bee)
 with defender {
     bees = other.workers
+    type = "defend"
     other.workers -= bees
+    other.idle_workers -= bees
     home_x = x
     home_y = y
     state = "combat"
     order_state = "return"
     with instance_nearest(x,y,obj_hive_combat) {
-    units_total++
-    units[0].defender_num = units_total
-    units[units_total] = other.id }
-}
+    units[1] = other.id}
 }
 
 if (defender != "none") {
-//defender.bees++
-//workers--
+defender.bees++
+workers--}
+
 }
 
 }

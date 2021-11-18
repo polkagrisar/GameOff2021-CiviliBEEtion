@@ -165,51 +165,51 @@ if p_id == 106 {
             <string>/// Get distance
 
 if p_id == 1 {
-    reach = 216+(obj_admin.p1_upgrade_distance*22)
+    reach = 180+(obj_admin.p1_upgrade_distance*22)
 }
 
 if p_id == 2 {
-    reach = 216+(obj_admin.p2_upgrade_distance*22)
+    reach = 180+(obj_admin.p2_upgrade_distance*22)
 }
 
 if p_id == 3 {
-    reach = 216+(obj_admin.p3_upgrade_distance*22)
+    reach = 180+(obj_admin.p3_upgrade_distance*22)
 }
 
 if p_id == 4 {
-    reach = 216+(obj_admin.p4_upgrade_distance*22)
+    reach = 180+(obj_admin.p4_upgrade_distance*22)
 }
 
 if p_id == 5 {
-    reach = 216+(obj_admin.p5_upgrade_distance*22)
+    reach = 180+(obj_admin.p5_upgrade_distance*22)
 }
 
 if p_id == 6 {
-    reach = 216+(obj_admin.p6_upgrade_distance*22)
+    reach = 180+(obj_admin.p6_upgrade_distance*22)
 }
 
 if p_id == 101 {
-    reach = 216+(obj_admin.bot1_upgrade_distance*22)
+    reach = 180+(obj_admin.bot1_upgrade_distance*22)
 }
 
 if p_id == 102 {
-    reach = 216+(obj_admin.bot2_upgrade_distance*22)
+    reach = 180+(obj_admin.bot2_upgrade_distance*22)
 }
 
 if p_id == 103 {
-    reach = 216+(obj_admin.bot3_upgrade_distance*22)
+    reach = 180+(obj_admin.bot3_upgrade_distance*22)
 }
 
 if p_id == 104 {
-    reach = 216+(obj_admin.bot4_upgrade_distance*22)
+    reach = 180+(obj_admin.bot4_upgrade_distance*22)
 }
 
 if p_id == 105 {
-    reach = 216+(obj_admin.bot5_upgrade_distance*22)
+    reach = 180+(obj_admin.bot5_upgrade_distance*22)
 }
 
 if p_id == 106 {
-    reach = 216+(obj_admin.bot6_upgrade_distance*22)
+    reach = 180+(obj_admin.bot6_upgrade_distance*22)
 }
 </string>
           </argument>

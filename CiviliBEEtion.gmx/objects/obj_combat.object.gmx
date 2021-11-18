@@ -247,7 +247,7 @@ if (state == "attack") {
           <argument>
             <kind>1</kind>
             <string>///Combat things
-//draw_self()
+draw_self()
 
 //if (position_meeting(x,y,obj_mouse)) { //Show combat if hovering over combat
 

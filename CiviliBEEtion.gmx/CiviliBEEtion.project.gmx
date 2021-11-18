@@ -558,6 +558,7 @@
       <object>objects\obj_radius</object>
       <object>objects\obj_buydrone</object>
       <object>objects\obj_buyworker</object>
+      <object>objects\obj_bee_fx</object>
     </objects>
     <objects name="Bots">
       <object>objects\obj_bot1</object>

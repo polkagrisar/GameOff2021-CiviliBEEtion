@@ -3,7 +3,7 @@
   <spriteName>spr_space</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>spr_mask_space</maskName>
@@ -66,7 +66,7 @@ image_index = 1}
     Types:
     "rock" - You can fly to these, but they provide nothing
     "stump" - Gives patrol bees a range boost when patroled
-    "flower" - Provides its resources when grown
+    "flower" - Provides its resources
     "bud" - Turns into a flower when grown
 */
 
@@ -151,8 +151,7 @@ if (gatherer == 0) {escort = 0}
           <argument>
             <kind>1</kind>
             <string>///Destroy Order-boxes
-if (box[0] == "none")
-exit 
+if (box[0] == "none") {exit}
 
 if (obj_mouse.target != id) {
     for (var i = 0; i &lt; available_actions; i++) {

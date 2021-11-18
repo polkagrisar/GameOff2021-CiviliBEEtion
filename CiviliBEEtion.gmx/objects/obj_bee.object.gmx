@@ -58,6 +58,9 @@ hp = 50
 damage = 0 //Damage taken
 attack = 10
 enemy_bee = ""
+
+alarm[0] = 1
+bee_fx = 0
 </string>
           </argument>
         </arguments>
@@ -87,6 +90,40 @@ obj_admin.workers_roaming = false
 
 with obj_bee {
     if type == "gatherer" {obj_admin.workers_roaming = true}
+}
+
+with obj_bee_fx {
+    if maker == other.id {instance_destroy()}
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create bee fx
+
+for (i = 0; i &lt; bees+escort; i++) {
+    with instance_create(x,y,obj_bee_fx) {
+        maker = other.id
+    }
+    bee_fx++
 }
 </string>
           </argument>
@@ -426,6 +463,36 @@ if (state == "attack" &amp;&amp; other.queen_state == "alive") {
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Replace bee fx
+
+if bee_fx &lt; bees+escort {
+    with instance_create(x,y,obj_bee_fx) {
+        maker = other.id
+    }
+    bee_fx++
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -452,7 +519,7 @@ draw_text(x,y-16,type)
 
 var draw_x = x
 var draw_y = y
-
+/*
 draw_sprite(spr_bee,a_frame,draw_x,draw_y)
 
 if (bees + escort &gt; 1) {draw_sprite(spr_bee,a_frame+1,draw_x-8,draw_y-8)}

@@ -35,6 +35,9 @@ angle = random(360)
 countdown = 360
 depth = random_range(-5,5)
 distance = random_range(6,16)
+
+offset_x = random_range(-6,6)
+offset_y = random_range(-6,6)
 </string>
           </argument>
         </arguments>
@@ -91,7 +94,7 @@ y = maker.y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(distance,angle),y+lengthdir_y(distance,angle),dir,1,0,c_white,1)
+            <string>draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(distance,angle)+offset_x,y+lengthdir_y(distance,angle)+offset_y,dir,1,0,c_white,1)
 </string>
           </argument>
         </arguments>

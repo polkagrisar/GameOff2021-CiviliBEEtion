@@ -6,7 +6,7 @@
   <depth>10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>spr_mask_space</maskName>
+  <maskName>spr_mask_space_setup</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -54,13 +54,9 @@ This is any space that is not a Hive
             <kind>1</kind>
             <string>///Variables
 image_speed = 0
-type = choose("flower","rock") //What space it is
 available_actions = 0
 box[0] = "none" //Holds the orderboxes
-if (type == "flower") {available_actions = 3
-image_index = 0}
-if (type == "rock") {available_actions = 1
-image_index = 1}
+type = "flower"
 
 /*
     Types:
@@ -73,7 +69,7 @@ image_index = 1}
 growth = 0 // For buds, grows into a flower when it reaches 100
 pollen = 1  // How much each unit of resource gives
 nectar = 1
-honey = 0.1
+honey = 1
 resources = 10 // The units that can be taken. 10 is max
 
 info = ""

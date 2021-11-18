@@ -210,6 +210,7 @@
     <sprites name="Masks">
       <sprite>sprites\spr_mask_bee</sprite>
       <sprite>sprites\spr_mask_space</sprite>
+      <sprite>sprites\spr_mask_space_setup</sprite>
       <sprite>sprites\spr_mask_hive</sprite>
     </sprites>
     <sprites name="CustomiBEEtion">

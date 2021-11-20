@@ -3,7 +3,7 @@
   <spriteName>spr_hive</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>10</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>spr_mask_hive</maskName>
@@ -48,15 +48,12 @@ attackers = 0 //Bees sent to attack
 info = ""
 
 //Combat
-queen_state = "alive"
-state = ""
+state = "none"
 defender = "none" //Workers that are protecting the hive
 defender_num = 0
-attack = 35
+attack = 25
 drones_hp = 50
 damage = 0
-
-attack = 0
 
 reach = 0
 </string>
@@ -264,8 +261,8 @@ defender = instance_create(x,y,obj_bee)
 with defender {
     bees = other.workers
     type = "defend"
+    p_id = other.p_id
     other.workers -= bees
-    other.idle_workers -= bees
     home_x = x
     home_y = y
     state = "combat"

@@ -403,7 +403,7 @@ if (p_id &lt; other.p_id) { //DEBUG ONLY, Should be &lt; or &gt; instead of ==
     if ((type == "patrol" || other.type == "patrol") &amp;&amp; state != "combat" &amp;&amp; other.state != "combat") {
         state = "combat"
         other.state = "combat"
-        other.p_id = 2 //DEBUG ONLY
+        //other.p_id = 2 //DEBUG ONLY
         enemy_bee = other.id
         
         with instance_create(x,y,obj_combat)  {
@@ -439,32 +439,18 @@ if (p_id &lt; other.p_id) { //DEBUG ONLY, Should be &lt; or &gt; instead of ==
           <argument>
             <kind>1</kind>
             <string>///START HIVE COMBAT
-if (state == "attack" &amp;&amp; other.queen_state == "alive") {
+if (state == "attack" &amp;&amp; other.hp &gt; 1) {
     state = "combat"
     other.state = "combat"
     
     with instance_create(x,y,obj_hive_combat) {
         units_total = 3
         units[0] = instance_nearest(x,y,obj_hive)
+        with instance_create(x,y,obj_queen_fx) {
+        maker = other.units[0]
+        }
         units[2] = other.id
         
-       /* with units[0] {
-            if (workers &gt; 0) {
-                defender = instance_create(x,y,obj_bee)
-                with defender {
-                    bees = other.workers
-                    other.workers -= bees
-                    home_x = x
-                    home_y = y
-                    state = "combat"
-                    order_state = "return"
-                    with instance_nearest(x,y,obj_hive_combat) {
-                        units_total++
-                        units[units_total] = other.id
-                    }
-                }
-            }
-        }*/
     }
 }
 </string>
@@ -525,21 +511,6 @@ draw_text(x,y+16,state)
 draw_text(x,y+32,order_state)
 draw_text(x,y-16,type)
 
-
-var draw_x = x
-var draw_y = y
-/*
-draw_sprite(spr_bee,a_frame,draw_x,draw_y)
-
-if (bees + escort &gt; 1) {draw_sprite(spr_bee,a_frame+1,draw_x-8,draw_y-8)}
-if (bees + escort &gt; 2) {draw_sprite(spr_bee,a_frame+2,draw_x+8,draw_y-8)}
-if (bees + escort &gt; 3) {draw_sprite(spr_bee,a_frame+3,draw_x-8,draw_y+8)}
-if (bees + escort &gt; 4) {draw_sprite(spr_bee,a_frame+4,draw_x+8,draw_y+8)}
-
-if (bees + escort &gt; 5) {draw_sprite(spr_bee,a_frame+5,draw_x-4,draw_y-4)}
-if (bees + escort &gt; 6) {draw_sprite(spr_bee,a_frame+6,draw_x+4,draw_y-4)}
-if (bees + escort &gt; 7) {draw_sprite(spr_bee,a_frame+7,draw_x-4,draw_y+4)}
-if (bees + escort &gt; 8) {draw_sprite(spr_bee,a_frame+8,draw_x+4,draw_y+4)}
 
 </string>
           </argument>

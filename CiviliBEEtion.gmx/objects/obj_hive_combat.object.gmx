@@ -57,6 +57,7 @@ image_speed = 0.5
             <kind>1</kind>
             <string>///END THE COMBAT
 if (state == "end") {
+units[0].state = "none"
     for (var i = 1; i &lt; units_total; i++) {
         if (units[i] != "none") {
             units[i].state = units[i].order_state
@@ -132,8 +133,7 @@ for (var i = 0; i &lt; units_total; i++) {
     else
     units[i].bees--
     
-    with instance_create(x,y,obj_combat_bee_fx) {hspeed = choose(random_range(-4,-2),random_range(2,4))
-    vspeed = choose(random_range(-4,-2),random_range(2,4))}
+    instance_create(x,y,obj_combat_bee_fx)
     i--} //Check again to see if the stack dies or if you lose another bee
     }
 }
@@ -144,7 +144,6 @@ for (var i = 0; i &lt; units_total; i++) {
 //Check if queen is low enough to end combat, else attack again
 if (units[0].hp &lt;= 1) {
 units[0].hp = 1
-units[0].queen_state = "dead"
 units[0].defender = "none"
 state = "end"
 alarm[1] = 60

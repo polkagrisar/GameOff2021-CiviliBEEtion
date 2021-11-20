@@ -198,11 +198,12 @@
     <sprites name="Marcus">
       <sprite>sprites\spr_hive</sprite>
       <sprite>sprites\spr_mouse</sprite>
-      <sprite>sprites\spr_space</sprite>
+      <sprite>sprites\spr_flower</sprite>
       <sprite>sprites\spr_nospace</sprite>
       <sprite>sprites\spr_orderbox</sprite>
       <sprite>sprites\spr_bee</sprite>
-      <sprite>sprites\spr_bee2</sprite>
+      <sprite>sprites\spr_drone</sprite>
+      <sprite>sprites\spr_queenbee</sprite>
       <sprite>sprites\spr_emblem</sprite>
       <sprite>sprites\spr_order_icon</sprite>
       <sprite>sprites\spr_combat</sprite>
@@ -650,6 +651,8 @@
       <object>objects\obj_combat</object>
       <object>objects\obj_hive_combat</object>
       <object>objects\obj_combat_bee_fx</object>
+      <object>objects\obj_queen_fx</object>
+      <object>objects\obj_drone_fx</object>
     </objects>
   </objects>
   <rooms name="rooms">

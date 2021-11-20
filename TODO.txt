@@ -5,7 +5,8 @@ MARTIN ======================================================================
 *Bot AI (that's going to take effort)
 
 MARCUS ======================================================================
-
+Sprites for rock and stump
+Sprite Icon for buying drones and workers
 
 
 WHOEVER =====================================================================

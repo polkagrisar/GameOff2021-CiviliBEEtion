@@ -273,16 +273,7 @@ if (state == "gather") {
     gathered_nectar += space.nectar/10
     gathered_honey += space.honey/10
     gathered_total += 0.1
-    
-    //Forced into combat
-    if (instance_position(x,y,obj_combat)) {
-    state = "combat"
-    with instance_nearest(x,y,obj_combat) {
-    units[units_total] = other.id
-    units_total++}    
-    }
-
-    
+        
 }
 
 if (state == "patrol" &amp;&amp; obj_admin.workers_roaming == false) {
@@ -348,6 +339,33 @@ if (a_frame &gt; 15) {a_frame = 0}
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Forced into combat
+if (instance_position(x,y,obj_combat) &amp;&amp; state != "combat") {
+state = "combat"
+with instance_nearest(x,y,obj_combat) {
+units[units_total] = other.id
+units_total++}    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_combat">
       <action>
@@ -367,14 +385,14 @@ if (a_frame &gt; 15) {a_frame = 0}
           <argument>
             <kind>1</kind>
             <string>///ENTER ONGOING COMBAT
-if (state != "combat" &amp;&amp; other.state != "end" &amp;&amp; type == "patrol") {
+/*if (state != "combat" &amp;&amp; other.state != "end" &amp;&amp; type == "patrol") {
 state = "combat"
 
 with other {
 units[units_total] = other.id
 units_total++}
 
-}
+}*/
 </string>
           </argument>
         </arguments>

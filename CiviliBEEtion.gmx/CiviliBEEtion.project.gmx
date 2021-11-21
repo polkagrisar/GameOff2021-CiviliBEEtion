@@ -198,8 +198,10 @@
     <sprites name="Marcus">
       <sprite>sprites\spr_hive</sprite>
       <sprite>sprites\spr_mouse</sprite>
-      <sprite>sprites\spr_flower</sprite>
-      <sprite>sprites\spr_nospace</sprite>
+      <sprite>sprites\spr_balanced_flower</sprite>
+      <sprite>sprites\spr_pollen_flower</sprite>
+      <sprite>sprites\spr_superflower</sprite>
+      <sprite>sprites\spr_rock</sprite>
       <sprite>sprites\spr_orderbox</sprite>
       <sprite>sprites\spr_bee</sprite>
       <sprite>sprites\spr_drone</sprite>

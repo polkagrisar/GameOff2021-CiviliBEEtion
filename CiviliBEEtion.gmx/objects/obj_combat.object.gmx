@@ -120,7 +120,7 @@ for (var i = 0; i &lt; units_total; i++) {
     if (units[i] != "none") {
     
     //Check if No bees left
-    if (units[i].bees == 0) {
+    if (units[i].bees &lt;= 0) {
     instance_destroy(units[i])
     units[i] = "none"}
     }

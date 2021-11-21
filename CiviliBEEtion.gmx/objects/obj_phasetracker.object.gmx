@@ -169,6 +169,39 @@ bot4_ready = false
 bot5_ready = false
 bot6_ready = false
 
+with obj_hive {
+    if p_id == 1 {
+        hp = obj_admin.p1_queen_hp
+        workers = obj_admin.p1_hive_workers
+        drones = obj_admin.p1_hive_drones
+    }
+    if p_id == 2 {
+        hp = obj_admin.p2_queen_hp
+        workers = obj_admin.p2_hive_workers
+        drones = obj_admin.p2_hive_drones
+    }
+    if p_id == 3 {
+        hp = obj_admin.p3_queen_hp
+        workers = obj_admin.p3_hive_workers
+        drones = obj_admin.p3_hive_drones
+    }
+    if p_id == 4 {
+        hp = obj_admin.p4_queen_hp
+        workers = obj_admin.p4_hive_workers
+        drones = obj_admin.p4_hive_drones
+    }
+    if p_id == 5 {
+        hp = obj_admin.p5_queen_hp
+        workers = obj_admin.p5_hive_workers
+        drones = obj_admin.p5_hive_drones
+    }
+    if p_id == 6 {
+        hp = obj_admin.p6_queen_hp
+        workers = obj_admin.p6_hive_workers
+        drones = obj_admin.p6_hive_drones
+    }
+}
+
 with obj_order {event_user(0)}
 
 alarm[2] = 5*60

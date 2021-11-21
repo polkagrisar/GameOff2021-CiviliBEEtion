@@ -166,6 +166,41 @@ if (state == "gather") {
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Patrol hunt bees
+
+if type == "patrol" &amp;&amp; state != "combat" {
+    target = -1
+    target_distance = 999999
+    with obj_bee {
+        if p_id != other.p_id &amp;&amp; point_distance(x,y,other.x,other.y) &lt; other.target_distance {
+            other.target = id
+            other.target_distance = point_distance(x,y,other.x,other.y)
+        }
+    }
+    if target != -1 {state = "chase"}
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -220,6 +255,19 @@ if (x == home_x &amp;&amp; y == home_y &amp;&amp; state == "return") {
     instance_destroy()
 }
 
+// Patrol chase bees
+
+if (state == "chase") {
+    if point_distance(x,y,target.x,target.y) &lt;= move_speed {
+        x = target.x
+        y = target.y
+    } else {
+        dir = point_direction(x,y,target.x,target.y)
+        x += lengthdir_x(move_speed,dir)
+        y += lengthdir_y(move_speed,dir)
+    }
+}
+
 //Go towards objective
 if (state == "go") {
     //Code to move towards go_x and go_y
@@ -268,18 +316,22 @@ if (state == "return") {
 
 if (state == "gather") {
     //Code to take pollen and nectar from space
-    space.resources -= 0.1
-    gathered_pollen += space.pollen/10
-    gathered_nectar += space.nectar/10
-    gathered_honey += space.honey/10
-    gathered_total += 0.1
+    space.resources -= 0.05
+    gathered_pollen += space.pollen/20
+    gathered_nectar += space.nectar/20
+    gathered_honey += space.honey/20
+    gathered_total += 0.05
         
 }
+
+// Patrols return
 
 if (state == "patrol" &amp;&amp; obj_admin.workers_roaming == false) {
     state = "return"
     order_state = "return"
 }
+
+// Remove excess collections
 </string>
           </argument>
         </arguments>
@@ -303,9 +355,9 @@ if (state == "patrol" &amp;&amp; obj_admin.workers_roaming == false) {
             <string>///Combat Stats
 
 //Set attack
-if (type == "gatherer") {attack = (bees * 3) + (escort * 5) }
+if (type == "gatherer") {attack = (bees) + (escort * 3) }
 else
-{attack = bees * 5}
+{attack = bees * 3}
 
 if (state == "combat" &amp;&amp; !instance_position(x,y,obj_combat) &amp;&amp; !instance_position(x,y,obj_hive_combat)) {
 state = order_state
@@ -330,37 +382,13 @@ state = order_state
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Animation
-
-a_frame++
-if (a_frame &gt; 15) {a_frame = 0}
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Forced into combat
 if (instance_position(x,y,obj_combat) &amp;&amp; state != "combat") {
-state = "combat"
-with instance_nearest(x,y,obj_combat) {
-units[units_total] = other.id
-units_total++}    
+    state = "combat"
+    with instance_nearest(x,y,obj_combat) {
+        units[units_total] = other.id
+        units_total++
+    }    
 }
 </string>
           </argument>

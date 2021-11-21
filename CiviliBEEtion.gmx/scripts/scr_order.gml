@@ -19,6 +19,10 @@ if (argument[0] == "remove") {
     if (index == 0 && creator.gatherer > 0) {
         creator.gatherer--
         owner.idle_workers++
+        if creator.gatherer == 0 {
+            owner.idle_workers += creator.escort
+            creator.escort = 0
+        }
     }
     
     if (index == 1 && creator.patrol > 0) {

@@ -61,6 +61,8 @@ if y &lt; 16 {y += 112}
             <string>///Set info box
 if (index == 0)
 info = "LC: Add Gatherer#RC: Remove Gatherer" 
+
+if (index == 2 &amp;&amp; creator.gatherer == 0) {visible = false} else visible = true
 </string>
           </argument>
         </arguments>

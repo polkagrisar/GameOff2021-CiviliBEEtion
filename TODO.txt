@@ -3,12 +3,17 @@ MARTIN ======================================================================
 *Update info boxes?
 *The rest of the upgrades
 *Bot AI (that's going to take effort)
+*Patrol bee range
+*Stump range boost
+	*Lose boost when entering combat and going home
+*Fix terrain gen bugs
+*Bees drop excess gatherings
 
 MARCUS ======================================================================
-Sprites for rock and stump
-Sprite Icon for buying drones and workers
 
+*Sprites for rock and stump
+*Sprite Icon for buying drones and workers
+*Sprites for decaying flowers
+*Attack power
 
 WHOEVER =====================================================================
-
-*Buds gain growth based on the pollen of bees that passes over them.

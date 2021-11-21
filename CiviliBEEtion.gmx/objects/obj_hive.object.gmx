@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>workers = 5
-drones = 5
+drones = 0
 
 idle_workers = 5
 
@@ -283,30 +283,6 @@ workers--}
         </arguments>
       </action>
     </event>
-    <event eventtype="5" enumb="37">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>obj_admin.p1_queen_hp--
-jelly_progress--
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="7" enumb="22">
       <action>
         <libid>1</libid>
@@ -554,6 +530,7 @@ draw_text(165,54,obj_admin.res_honey)
 draw_self()
 draw_text(x-32,y-32,"W: " + string(idle_workers) + "/" + string(workers))
 draw_text(x-32,y-16,"ID: "+ string (p_id))
+draw_text(x-32,y+32,"DRONES: "+ string (drones))
 
 if (mouse != "none")
 draw_text(x-32,y, "You")

@@ -80,7 +80,7 @@ if obj_endturn.locked == false {
     }
     
     with obj_space {
-        if point_distance(x,y,other.owner.x,other.owner.y) &lt;= other.owner.reach+8 {
+        if point_distance(x,y,other.owner.x,other.owner.y) &lt;= other.owner.reach+8 &amp;&amp; type != "bud" {
             draw_set_colour(c_white)
             draw_circle(x,y,32,false)
         }

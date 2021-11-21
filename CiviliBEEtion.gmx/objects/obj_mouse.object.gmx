@@ -109,7 +109,7 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; hover != "none") {
 
 if (mouse_check_button_pressed(mb_left) &amp;&amp; hover != "none") {
     if (target == hover) {exit}
-    if hover.type == "order" { with hover {scr_order("add")} }
+    if hover.type == "order" &amp;&amp; hover.visible { with hover {scr_order("add")} }
 } else
 //Press Empty
 if (mouse_check_button_pressed(mb_left) &amp;&amp; hover == "none") || (mouse_check_button_pressed(mb_left) &amp;&amp; point_distance(x,y,home_x,home_y) &gt; owner.reach &amp;&amp; !place_meeting(x,y,obj_orderbox)) {

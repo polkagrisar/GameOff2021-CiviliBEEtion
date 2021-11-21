@@ -30,7 +30,7 @@
 maker = id
 
 dir = choose(-1,1)
-move_speed = random_range(12,32)
+move_speed = random_range(12,24)
 angle = random(360)
 countdown = 360
 depth = random_range(-5,5)

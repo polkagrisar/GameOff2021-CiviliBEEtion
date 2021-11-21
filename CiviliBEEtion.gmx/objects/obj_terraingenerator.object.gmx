@@ -159,6 +159,7 @@ for (i = 0; i &lt; ds_list_size(list_hives)+1; i++) {
     if dir_count &lt; 360 {
         with instance_create(x,y,obj_space) {
         type = "flower"
+        sub_type = "balanced"
         }
     }
     ds_list_delete(list_hives,0)
@@ -190,6 +191,7 @@ ds_list_destroy(list_hives)
 // Create super flower at map center
 with instance_create(room_width/2,room_height/2,obj_space) {
     type = "flower"
+    sub_type = "superflower"
     pollen = 5
     nectar = 5
     honey = 5
@@ -219,10 +221,11 @@ for (i = 0; i &lt; 5; i++) {
     if !place_meeting(x,y,obj_hive) &amp;&amp; !place_meeting(x,y,obj_space) &amp;&amp; ds_list_find_value(other.list_stuff,0) != "blank" {
         with instance_create(x,y,obj_space) {
             type = ds_list_find_value(other.list_stuff,0)
-            if other.focus != "pollen" {pollen = 0.5}
-            if other.focus != "nectar" {nectar = 0.5}
-            if other.focus != "honey" {honey = 0.5}
-            if other.focus == "balanced" {
+            sub_type = other.focus
+            if sub_type != "pollen" {pollen = 0.5}
+            if sub_type != "nectar" {nectar = 0.5}
+            if sub_type != "honey" {honey = 0.5}
+            if sub_type == "balanced" {
                 pollen = 0.75
                 nectar = 0.75
                 honey = 0.75
@@ -256,10 +259,11 @@ for (i = 0; i &lt; 10; i++) {
     if !place_meeting(x,y,obj_hive) &amp;&amp; !place_meeting(x,y,obj_space) &amp;&amp; ds_list_find_value(other.list_stuff,0) != "blank" {
         with instance_create(x,y,obj_space) {
             type = ds_list_find_value(other.list_stuff,0)
-            if other.focus != "pollen" {pollen = 0.5}
-            if other.focus != "nectar" {nectar = 0.5}
-            if other.focus != "honey" {honey = 0.5}
-            if other.focus == "balanced" {
+            sub_type = other.focus
+            if sub_type != "pollen" {pollen = 0.5}
+            if sub_type != "nectar" {nectar = 0.5}
+            if sub_type != "honey" {honey = 0.5}
+            if sub_type == "balanced" {
                 pollen = 0.75
                 nectar = 0.75
                 honey = 0.75
@@ -293,10 +297,11 @@ for (i = 0; i &lt; 18; i++) {
     if !place_meeting(x,y,obj_hive) &amp;&amp; !place_meeting(x,y,obj_space &amp;&amp; ds_list_find_value(other.list_stuff,0) != "blank") {
         with instance_create(x,y,obj_space) {
             type = ds_list_find_value(other.list_stuff,0)
-            if other.focus != "pollen" {pollen = 0.5}
-            if other.focus != "nectar" {nectar = 0.5}
-            if other.focus != "honey" {honey = 0.5}
-            if other.focus == "balanced" {
+            sub_type = other.focus
+            if sub_type != "pollen" {pollen = 0.5}
+            if sub_type != "nectar" {nectar = 0.5}
+            if sub_type != "honey" {honey = 0.5}
+            if sub_type == "balanced" {
                 pollen = 0.75
                 nectar = 0.75
                 honey = 0.75
@@ -326,13 +331,14 @@ for (i = 0; i &lt; 20; i++) {
     x = room_width/2+lengthdir_x(368+offset_x,placement_angle*i+offset)
     y = room_height/2+lengthdir_y(368+offset_y,placement_angle*i+offset)
     focus = choose("pollen","nectar","honey","balanced")
-    if !place_meeting(x,y,obj_hive) &amp;&amp; !place_meeting(x,y,obj_space &amp;&amp; ds_list_find_value(other.list_stuff,0) != "blank") &amp;&amp; point_distance(x,y,room_width/2,room_height/2) &lt; 368 {
+    if (!place_meeting(x,y,obj_hive) &amp;&amp; !place_meeting(x,y,obj_space) &amp;&amp; ds_list_find_value(other.list_stuff,0) != "blank") &amp;&amp; point_distance(x,y,room_width/2,room_height/2) &lt; 368 {
         with instance_create(x,y,obj_space) {
             type = ds_list_find_value(other.list_stuff,0)
-            if other.focus != "pollen" {pollen = 0.5}
-            if other.focus != "nectar" {nectar = 0.5}
-            if other.focus != "honey" {honey = 0.5}
-            if other.focus == "balanced" {
+            sub_type = other.focus
+            if sub_type != "pollen" {pollen = 0.5}
+            if sub_type != "nectar" {nectar = 0.5}
+            if sub_type != "honey" {honey = 0.5}
+            if sub_type == "balanced" {
                 pollen = 0.75
                 nectar = 0.75
                 honey = 0.75
@@ -343,46 +349,6 @@ for (i = 0; i &lt; 20; i++) {
 }
 
 ds_list_destroy(list_stuff)
-
-/*
-
-// Spread other flowers
-
-placed = 0
-focus = choose("pollen","nectar","honey","balanced")
-
-flowers = 0
-rocks = 0
-buds = 0
-stumps = 0
-
-while placed &lt; 11 {
-    x = room_width/2+lengthdir_x(random(364),random(360))
-    y = room_height/2+lengthdir_y(random(364),random(360))
-    if !place_meeting(x,y,obj_hive) &amp;&amp; !place_meeting(x,y,obj_space) {
-        with instance_create(x,y,obj_space) {
-            type = "flower"
-            focus = choose("pollen","nectar","honey")
-            if other.focus != "pollen" {pollen = 0.5}
-            if other.focus != "nectar" {nectar = 0.5}
-            if other.focus != "honey" {honey = 0.5}
-            if other.focus == "balanced" {
-                pollen = 0.75
-                nectar = 0.75
-                honey = 0.75
-            }
-        }
-        placed++
-    }
-}
-
-// Spread buds
-
-
-// Spread rocks
-
-// Spread stumps
-*/
 </string>
           </argument>
         </arguments>

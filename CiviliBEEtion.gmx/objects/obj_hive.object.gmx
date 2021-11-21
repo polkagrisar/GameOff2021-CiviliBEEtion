@@ -39,7 +39,7 @@ camera = "none"
 
 p_id = 0
 
-hp = 100
+hp = 50
 max_hp = 100
 
 type = "hive"

@@ -90,7 +90,7 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; hover != "none") {
     if (target == hover) {exit}
             
     //If Flower / Rock / Anything on the space-object
-    if (hover.type == "flower" || hover.type == "rock") &amp;&amp; point_distance(hover.x,hover.y,home_x,home_y) &lt;= owner.reach+8 { 
+    if (hover.type == "flower" || hover.type == "rock" || hover.type == "stump") &amp;&amp; point_distance(hover.x,hover.y,home_x,home_y) &lt;= owner.reach+8 { 
         target = hover
         state = "orders"
         if hover.type == "flower" {with hover {available_actions = 3}} else {with hover {available_actions = 1}}

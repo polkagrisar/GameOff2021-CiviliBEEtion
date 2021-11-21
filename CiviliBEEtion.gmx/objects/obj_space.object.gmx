@@ -67,11 +67,11 @@ sub_type = "balanced"
     "bud" - Turns into a flower when grown
     
     Sub-types:
-    Balanced
-    Pollen
-    Nectar
-    Honey
-    Superflower
+    balanced
+    pollen
+    nectar
+    honey
+    superflower
 */
 
 growth = 0 // For buds, grows into a flower when it reaches 100
@@ -86,49 +86,6 @@ gatherer = 0
 patrol = 0
 escort = 0
 attackers = 0
-
-alarm[0] = 1 //Set flower 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Set stats depending on flower
-
-if (sub_type == "balanced") {
-pollen = 0.75
-nectar = 0.75
-honey = 0.75
-}
-
-if (sub_type == "pollen") {
-pollen = 1
-nectar = 0.5
-honey = 0.5
-}
-
-if (sub_type == "superflower") {
-pollen = 1
-nectar = 1
-honey = 1
-}
 </string>
           </argument>
         </arguments>
@@ -153,6 +110,7 @@ honey = 1
             <kind>1</kind>
             <string>///Set info box
 info = "P: " + string(pollen) + "#N: " + string(nectar) + "#H: " + string(honey) + "#TEMP: " + string(resources)
+if type != "flower" {info = ""}
 
 if resources &lt; 0 {resources = 0}
 </string>

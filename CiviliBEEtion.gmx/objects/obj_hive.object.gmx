@@ -318,6 +318,18 @@ if attackers &gt; 0 {
 
 // Send your own hive stats
 
+if p_id == obj_admin.player {
+    // send data
+    self.rpc_id = htme_hash()
+    var playerlist = htme_getPlayers()
+    list_p1 = ds_list_create()
+    ds_list_add(list_p1,x,y,300,400)
+    for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
+        var player = ds_list_find_value(playerlist,i)
+        htmerpc_send(self.rpc_id,scr_rpc_hivestats,player,p_id,drones,workers,hp,obj_admin.focus)
+    }
+}
+/*
 if p_id == 1 &amp;&amp; obj_admin.player == 1 {
     // send data
     self.rpc_id = htme_hash()

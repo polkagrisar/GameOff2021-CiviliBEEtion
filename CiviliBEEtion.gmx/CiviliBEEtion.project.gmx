@@ -221,6 +221,7 @@
     </sprites>
     <sprites name="Upgrades">
       <sprite>sprites\spr_upgrade_blank</sprite>
+      <sprite>sprites\spr_focuses</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -582,6 +583,20 @@
       <object>objects\obj_upgrade_distance</object>
       <object>objects\obj_upgrade_queen</object>
       <object>objects\obj_upgrade_attack</object>
+      <object>objects\obj_upgrade_patrol</object>
+      <object>objects\obj_upgrade_pollenfocus</object>
+      <object>objects\obj_upgrade_nectarfocus</object>
+      <object>objects\obj_upgrade_honeyfocus</object>
+      <object>objects\obj_upgrade_pollinationfocus</object>
+      <object>objects\obj_upgrade_actheal</object>
+      <object>objects\obj_upgrade_actroyal</object>
+      <object>objects\obj_upgrade_actattack</object>
+    </objects>
+    <objects name="Focuses">
+      <object>objects\obj_focus_pollen</object>
+      <object>objects\obj_focus_nectar</object>
+      <object>objects\obj_focus_honey</object>
+      <object>objects\obj_focus_bloom</object>
     </objects>
     <object>objects\obj_dual_instance</object>
     <objects name="Gmnet">

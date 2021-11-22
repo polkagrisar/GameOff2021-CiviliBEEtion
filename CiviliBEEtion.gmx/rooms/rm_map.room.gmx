@@ -16,7 +16,7 @@
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1016</w>
+    <w>984</w>
     <h>600</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-21</xoffset>
-    <yoffset>-63</yoffset>
+    <xoffset>-226</xoffset>
+    <yoffset>426</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="bg_map" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -60,6 +60,18 @@
     <instance objName="obj_buydrone" x="16" y="128" name="inst_AA3A04E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_buyworker" x="56" y="128" name="inst_A9C200D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_attack" x="182" y="708" name="inst_B8387660" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_upgrade_patrol" x="232" y="738" name="inst_9EB44945" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_upgrade_pollenfocus" x="32" y="678" name="inst_FDC98557" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_upgrade_nectarfocus" x="82" y="648" name="inst_E99843C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_upgrade_pollinationfocus" x="182" y="648" name="inst_FF003968" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_upgrade_honeyfocus" x="132" y="678" name="inst_D7BCB30A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_upgrade_actheal" x="32" y="618" name="inst_4D8D80C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_upgrade_actroyal" x="82" y="588" name="inst_A07B9F4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_upgrade_actattack" x="132" y="618" name="inst_45328334" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_focus_pollen" x="0" y="152" name="inst_DA5D5FAD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_focus_nectar" x="0" y="176" name="inst_1AF7CE5B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_focus_honey" x="0" y="200" name="inst_DD1E0B87" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_focus_bloom" x="0" y="224" name="inst_49F55234" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

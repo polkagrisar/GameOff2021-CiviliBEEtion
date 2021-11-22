@@ -86,6 +86,8 @@ gatherer = 0
 patrol = 0
 escort = 0
 attackers = 0
+
+collided_with = ds_list_create()
 </string>
           </argument>
         </arguments>
@@ -111,6 +113,7 @@ attackers = 0
             <string>///Set info box
 info = "P: " + string(pollen) + "#N: " + string(nectar) + "#H: " + string(honey) + "#TEMP: " + string(resources)
 if type != "flower" {info = ""}
+if type == "bud" {info = "GROWTH: " + string(growth)}
 
 if resources &lt; 0 {resources = 0}
 </string>
@@ -164,9 +167,24 @@ if (obj_mouse.target != id) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if type == "bud" {
-    growth += other.gathered_pollen*2
+            <string>// Grow if plant
+
+if type == "bud" &amp;&amp; ds_list_find_index(collided_with,other.id) == -1 &amp;&amp; other.gathered_total &gt; 0 {
+    growth += (other.gathered_pollen*other.gathered_total)*2
+    show_debug_message("BUD BOOP")
+    if other.focus == "bloom" {
+        growth += other.gathered_total
+    }
     if growth &gt;= 100 {type = "flower"}
+    ds_list_add(collided_with,other.id)
+}
+
+// Restore resources if focus on growth
+
+if other.focus == "bloom" &amp;&amp; type == "flower" &amp;&amp; ds_list_find_index(collided_with,other.id) == -1 &amp;&amp; other.gathered_total &gt; 0 {
+    resources += other.gathered_total
+    if resources &gt; 10 {resources = 10}
+    ds_list_add(collided_with,other.id)
 }
 </string>
           </argument>

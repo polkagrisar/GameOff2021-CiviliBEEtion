@@ -2,12 +2,10 @@ MARTIN ======================================================================
 
 *Update info boxes?
 *The rest of the upgrades
+	*Make sure they have an effect in game
+		*Still needs action buttons
 *Bot AI (that's going to take effort)
-*Patrol bee range
-*Stump range boost
-	*Lose boost when entering combat and going home
 *Fix terrain gen bugs
-*Bees drop excess gatherings
 
 MARCUS ======================================================================
 
@@ -17,3 +15,6 @@ MARCUS ======================================================================
 *Attack power
 
 WHOEVER =====================================================================
+
+*Spaces show patrol range when the Patrol box is hovered over?
+*Change the COMBAT focus icon to GROW

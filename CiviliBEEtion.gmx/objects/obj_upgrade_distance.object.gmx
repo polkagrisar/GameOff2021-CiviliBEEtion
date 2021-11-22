@@ -60,7 +60,7 @@ info = "Increase travel range."
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if obj_phasetracker.phase == "planning" &amp;&amp; obj_admin.res_pollen &gt;= cost {
+            <string>if obj_endturn.locked == false &amp;&amp; obj_admin.res_pollen &gt;= cost {
     obj_admin.res_pollen -= cost
     upgrades++
 

@@ -27,12 +27,12 @@
             <kind>1</kind>
             <string>image_speed = 0
 
-upgrades = 0
-cost = 10
+upgrades = false
+cost = 35
 
 p_id = obj_admin.player
 
-info = "Increase bee travel speed."
+info = "Allows you to spend honey to heal your queen."
 </string>
           </argument>
         </arguments>
@@ -55,10 +55,10 @@ info = "Increase bee travel speed."
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if obj_endturn.locked == false &amp;&amp; obj_admin.res_pollen &gt;= cost {
+            <string>if obj_endturn.locked == false &amp;&amp; obj_admin.res_pollen &gt;= cost &amp;&amp; upgrades == false {
     obj_admin.res_pollen -= cost
-    cost += 10
-    upgrades++
+    upgrades = true
+    // Create honey focus box
 
     // send data
     self.rpc_id = htme_hash()
@@ -67,7 +67,7 @@ info = "Increase bee travel speed."
     ds_list_add(list_p1,x,y,300,400)
     for(var i = 0;i&lt;ds_list_size(playerlist);i++) {
         var player = ds_list_find_value(playerlist,i)
-        htmerpc_send(self.rpc_id,scr_rpc_research,player,p_id,"speed")
+        htmerpc_send(self.rpc_id,scr_rpc_research,player,p_id,"actheal")
     }
 }
 </string>
@@ -93,6 +93,8 @@ info = "Increase bee travel speed."
           <argument>
             <kind>1</kind>
             <string>draw_self()
+
+if upgrades == true {exit}
 
 draw_set_font(fnt_upgrade)
 draw_set_alpha(0.4)

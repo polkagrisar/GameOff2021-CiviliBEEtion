@@ -29,6 +29,8 @@
 type = ""
 p_id = 0
 
+focus = "none"
+
 bees = 0 // How many bees in the stack, How much pollen/nectar you can gather is based on this amount
 escort = 0 
 move_speed = 0
@@ -61,6 +63,9 @@ enemy_bee = ""
 
 alarm[0] = 1
 bee_fx = 0
+
+patrol_range = 0 // Range given by upgrades
+patrol_stump = 0 // Bonus patrol range given by stump
 </string>
           </argument>
         </arguments>
@@ -187,7 +192,7 @@ if (state == "gather") {
 
 if type == "patrol" &amp;&amp; state != "combat" {
     target = -1
-    target_distance = 999999
+    target_distance = 48+(patrol_range*16)+patrol_stump
     with obj_bee {
         if p_id != other.p_id &amp;&amp; point_distance(x,y,other.x,other.y) &lt; other.target_distance {
             other.target = id
@@ -226,11 +231,15 @@ if (x == go_x &amp;&amp; y == go_y &amp;&amp; state == "go") {
         space = instance_position(x,y,obj_space)
         state = "gather"
         order_state = "gather"
+        ds_list_add(space.collided_with,id)
     }
     
     if (type == "patrol") {
         state = "patrol"
         order_state = "patrol"
+        space = instance_position(x,y,obj_space)
+        if space.type == "stump" {patrol_stump += 64}
+        if space.type == "rock" {patrol_stump += 32}
     }
 
     if (type == "attack") {
@@ -247,9 +256,9 @@ if (x == home_x &amp;&amp; y == home_y &amp;&amp; state == "return") {
     }
     // Offload resources
     if p_id == obj_admin.player {
-        obj_admin.res_pollen += gathered_pollen
-        obj_admin.res_nectar += gathered_nectar
-        obj_admin.res_honey += gathered_honey
+        obj_admin.res_pollen += gathered_pollen*gathered_total
+        obj_admin.res_nectar += gathered_nectar*gathered_total
+        obj_admin.res_honey += gathered_honey*gathered_total
     }
     //die
     instance_destroy()
@@ -282,6 +291,7 @@ if (state == "go") {
 }
 
 if (state == "return") {
+    patrol_stump = 0
     //Code to move towards home_x and home_y
     if point_distance(x,y,home_x,home_y) &lt;= move_speed {
         x = home_x
@@ -316,12 +326,28 @@ if (state == "return") {
 
 if (state == "gather") {
     //Code to take pollen and nectar from space
-    space.resources -= 0.05
-    gathered_pollen += space.pollen/20
-    gathered_nectar += space.nectar/20
-    gathered_honey += space.honey/20
-    gathered_total += 0.05
-        
+    space.resources -= 0.025
+    if focus == "none" || focus == "bloom" {
+        gathered_pollen = space.pollen
+        gathered_nectar = space.nectar
+        gathered_honey = space.honey
+    }
+    if focus == "pollen" {
+        gathered_pollen = space.pollen+(space.nectar/2)+(space.honey/2)
+        gathered_nectar = space.nectar/2
+        gathered_honey = space.honey/2
+    }
+    if focus == "nectar" {
+        gathered_pollen = space.pollen/2
+        gathered_nectar = space.nectar+(space.pollen/2)+(space.honey/2)
+        gathered_honey = space.honey/2
+    }
+    if focus == "honey" {
+        gathered_pollen = space.pollen/2
+        gathered_nectar = space.nectar/2
+        gathered_honey = space.honey+(space.pollen/2)+(space.nectar/2)
+    }
+    gathered_total += 0.025
 }
 
 // Patrols return
@@ -355,12 +381,14 @@ if (state == "patrol" &amp;&amp; obj_admin.workers_roaming == false) {
             <string>///Combat Stats
 
 //Set attack
-if (type == "gatherer") {attack = (bees) + (escort * 3) }
-else
-{attack = bees * 3}
+if (type == "gatherer") {
+    attack = (bees) + (escort * 3)
+} else {
+    attack = bees * 3
+}
 
 if (state == "combat" &amp;&amp; !instance_position(x,y,obj_combat) &amp;&amp; !instance_position(x,y,obj_hive_combat)) {
-state = order_state
+    state = order_state
 }
 </string>
           </argument>
@@ -385,6 +413,7 @@ state = order_state
             <string>///Forced into combat
 if (instance_position(x,y,obj_combat) &amp;&amp; state != "combat") {
     state = "combat"
+    patrol_stump = 0
     with instance_nearest(x,y,obj_combat) {
         units[units_total] = other.id
         units_total++
@@ -557,7 +586,9 @@ draw_text(x,y+16,state)
 draw_text(x,y+32,order_state)
 draw_text(x,y-16,type)
 
-
+if type == "patrol" {
+    draw_circle(x,y,(patrol_range*16+patrol_stump)+48,true)
+}
 </string>
           </argument>
         </arguments>

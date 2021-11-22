@@ -144,25 +144,30 @@ ds_list_destroy(list_hive)
 
 list_hives = ds_list_create()
 
-with obj_hive {ds_list_add(other.list_hives,id)}
+with obj_hive {
+    ds_list_add(other.list_hives,id)
+}
 
-for (i = 0; i &lt; ds_list_size(list_hives)+1; i++) {
+while ds_list_size(list_hives) &gt; 0 {
     target = ds_list_find_value(list_hives,0)
     dir = random(360)
     dir_count = 0
-    x = target.x+lengthdir_x(70,dir)
-    y = target.y+lengthdir_y(70,dir)
-    while place_meeting(target.x+lengthdir_x(70,dir),target.y+lengthdir_y(70,dir),obj_hive) || place_meeting(target.x+lengthdir_x(70,dir),target.y+lengthdir_y(70,dir),obj_space) &amp;&amp; dir_count &lt; 360 &amp;&amp; point_distance(x,y,room_width/2,room_height/2) &lt; 364 {
+    while (place_meeting(target.x+lengthdir_x(70,dir),target.y+lengthdir_y(70,dir),obj_hive)
+    || place_meeting(target.x+lengthdir_x(70,dir),target.y+lengthdir_y(70,dir),obj_space))
+    &amp;&amp; dir_count &lt; 360
+    &amp;&amp; point_distance(target.x+lengthdir_x(70,dir),target.y+lengthdir_y(70,dir),room_width/2,room_height/2) &lt; 364 {
         dir++
         dir_count++
     }
     if dir_count &lt; 360 {
+        x = target.x+lengthdir_x(70,dir)
+        y = target.y+lengthdir_y(70,dir)
         with instance_create(x,y,obj_space) {
-        type = "flower"
-        sub_type = "balanced"
-        pollen = 0.75
-        nectar = 0.75
-        honey = 0.75
+            type = "flower"
+            sub_type = "balanced"
+            pollen = 0.75
+            nectar = 0.75
+            honey = 0.75
         }
     }
     ds_list_delete(list_hives,0)
@@ -244,7 +249,7 @@ ds_list_clear(list_stuff)
 
 repeat (6) {ds_list_add(list_stuff,"flower")}
 repeat (4) {ds_list_add(list_stuff,"rock")}
-repeat (4) {ds_list_add(list_stuff,"stump")}
+repeat (5) {ds_list_add(list_stuff,"stump")}
 repeat (8) {ds_list_add(list_stuff,"bud")}
 repeat (3) {ds_list_add(list_stuff,"blank")}
 
@@ -281,10 +286,10 @@ ds_list_clear(list_stuff)
 // Circle 3
 
 repeat (6) {ds_list_add(list_stuff,"flower")}
-repeat (8) {ds_list_add(list_stuff,"rock")}
+repeat (5) {ds_list_add(list_stuff,"rock")}
 repeat (4) {ds_list_add(list_stuff,"stump")}
 repeat (10) {ds_list_add(list_stuff,"bud")}
-repeat (6) {ds_list_add(list_stuff,"blank")}
+repeat (5) {ds_list_add(list_stuff,"blank")}
 
 ds_list_shuffle(list_stuff)
 
@@ -297,7 +302,7 @@ for (i = 0; i &lt; 18; i++) {
     x = room_width/2+lengthdir_x(276+offset_x,placement_angle*i+offset)
     y = room_height/2+lengthdir_y(276+offset_y,placement_angle*i+offset)
     focus = choose("pollen","nectar","honey","balanced")
-    if !place_meeting(x,y,obj_hive) &amp;&amp; !place_meeting(x,y,obj_space &amp;&amp; ds_list_find_value(list_stuff,0) != "blank") {
+    if !place_meeting(x,y,obj_hive) &amp;&amp; !place_meeting(x,y,obj_space) &amp;&amp; ds_list_find_value(list_stuff,0) != "blank" {
         with instance_create(x,y,obj_space) {
             type = ds_list_find_value(other.list_stuff,0)
             sub_type = other.focus
@@ -318,10 +323,10 @@ ds_list_clear(list_stuff)
 
 // Last circle
 
-repeat (8) {ds_list_add(list_stuff,"flower")}
-repeat (10) {ds_list_add(list_stuff,"rock")}
-repeat (5) {ds_list_add(list_stuff,"stump")}
-repeat (10) {ds_list_add(list_stuff,"blank")}
+repeat (9) {ds_list_add(list_stuff,"flower")}
+repeat (8) {ds_list_add(list_stuff,"rock")}
+repeat (6) {ds_list_add(list_stuff,"stump")}
+repeat (1) {ds_list_add(list_stuff,"blank")}
 
 ds_list_shuffle(list_stuff)
 
@@ -329,10 +334,10 @@ var placement_angle = 360/20
 var offset = irandom(360)
 
 for (i = 0; i &lt; 20; i++) {
-    offset_x = random_range(-16,16)
-    offset_y = random_range(-16,16)
-    x = room_width/2+lengthdir_x(368+offset_x,placement_angle*i+offset)
-    y = room_height/2+lengthdir_y(368+offset_y,placement_angle*i+offset)
+    offset_x = random_range(-4,4)
+    offset_y = random_range(-4,4)
+    x = room_width/2+lengthdir_x(364+offset_x,placement_angle*i+offset)
+    y = room_height/2+lengthdir_y(364+offset_y,placement_angle*i+offset)
     focus = choose("pollen","nectar","honey","balanced")
     if (!place_meeting(x,y,obj_hive) &amp;&amp; !place_meeting(x,y,obj_space) &amp;&amp; ds_list_find_value(list_stuff,0) != "blank") &amp;&amp; point_distance(x,y,room_width/2,room_height/2) &lt; 368 {
         with instance_create(x,y,obj_space) {
@@ -402,13 +407,12 @@ with obj_bot1 {event_user(0)}
             <kind>1</kind>
             <string>/// Finalise
 
-obj_space.mask_index = spr_mask_space
-
-obj_phasetracker.phase = "planning"
-
 with obj_space {
+    mask_index = spr_mask_space
     if type == "blank" {instance_destroy()}
 }
+
+obj_phasetracker.phase = "planning"
 
 instance_destroy()
 </string>

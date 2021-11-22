@@ -94,7 +94,15 @@ y = maker.y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(distance,angle)+offset_x,y+lengthdir_y(distance,angle)+offset_y,dir,1,0,c_white,1)
+            <string>var color_index = maker.p_id
+if (color_index &gt; 100) {
+color_index -= 94}
+
+image_index = color_index
+
+
+
+draw_sprite_ext(sprite_index,image_index,x+lengthdir_x(distance,angle)+offset_x,y+lengthdir_y(distance,angle)+offset_y,dir,1,0,c_white,1)
 </string>
           </argument>
         </arguments>

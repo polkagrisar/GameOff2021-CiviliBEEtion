@@ -135,7 +135,7 @@ for (var i = 0; i &lt; units_total; i++) {
     else
     units[i].bees--
     
-    instance_create(x,y,obj_combat_bee_fx)
+    with instance_create(x,y,obj_combat_bee_fx) {p_id = other.units[i].p_id}
     i--} //Check again to see if the stack dies or if you lose another bee
     }
     

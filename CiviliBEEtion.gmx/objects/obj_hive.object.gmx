@@ -56,6 +56,8 @@ drones_hp = 50
 damage = 0
 
 reach = 0
+
+image_speed = 0
 </string>
           </argument>
         </arguments>
@@ -580,6 +582,32 @@ draw_line_colour(spawn_x,spawn_y,x,y,c_red,c_red)
 draw_sprite(spr_order_icon,3,x,y)
 draw_text(x,y-32,attackers)
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set color
+var color_index = p_id
+if (color_index &gt; 100) {
+color_index -= 94}
+
+image_index = color_index
 </string>
           </argument>
         </arguments>

@@ -1,2 +1,0 @@
-*Opponent having a weird amount of worker bees in their hive
-after combats (i.e -5/-5, or you having 9/9 for you, but 8/8 for opponent)

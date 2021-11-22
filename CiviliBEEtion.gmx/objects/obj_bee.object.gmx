@@ -419,6 +419,15 @@ if (instance_position(x,y,obj_combat) &amp;&amp; state != "combat") {
         units_total++
     }    
 }
+
+if (instance_position(x,y,obj_hive_combat) &amp;&amp; state != "combat") {
+    state = "combat"
+    patrol_stump = 0
+    with instance_nearest(x,y,obj_hive_combat) {
+        units[units_total] = other.id
+        units_total++
+    }    
+}
 </string>
           </argument>
         </arguments>

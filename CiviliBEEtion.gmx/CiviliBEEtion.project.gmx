@@ -200,6 +200,7 @@
       <sprite>sprites\spr_mouse</sprite>
       <sprite>sprites\spr_balanced_flower</sprite>
       <sprite>sprites\spr_pollen_flower</sprite>
+      <sprite>sprites\spr_nectar_flower</sprite>
       <sprite>sprites\spr_superflower</sprite>
       <sprite>sprites\spr_rock</sprite>
       <sprite>sprites\spr_orderbox</sprite>
@@ -209,6 +210,7 @@
       <sprite>sprites\spr_emblem</sprite>
       <sprite>sprites\spr_order_icon</sprite>
       <sprite>sprites\spr_combat</sprite>
+      <sprite>sprites\spr_buy_icons</sprite>
     </sprites>
     <sprites name="Masks">
       <sprite>sprites\spr_mask_bee</sprite>

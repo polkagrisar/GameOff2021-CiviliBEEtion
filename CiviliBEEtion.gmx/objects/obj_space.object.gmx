@@ -283,6 +283,13 @@ if (type == "bud" &amp;&amp; sub_type == "pollen" &amp;&amp; growth &gt; 60) {dr
 if (type == "flower" &amp;&amp; sub_type == "pollen") {draw_sprite(spr_pollen_flower,3,x,y)}
 //Add whiltered when missing resourses
 
+//Nectar Flower
+if (type == "bud" &amp;&amp; sub_type == "nectar" &amp;&amp; growth &lt; 25) {draw_sprite(spr_nectar_flower,0,x,y)}
+if (type == "bud" &amp;&amp; sub_type == "nectar" &amp;&amp; growth &gt; 24 &amp;&amp; growth &lt; 61) {draw_sprite(spr_nectar_flower,1,x,y)}
+if (type == "bud" &amp;&amp; sub_type == "nectar" &amp;&amp; growth &gt; 60) {draw_sprite(spr_nectar_flower,2,x,y)}
+if (type == "flower" &amp;&amp; sub_type == "nectar") {draw_sprite(spr_nectar_flower,3,x,y)}
+//Add whiltered when missing resourses
+
 //Superflower
 if (sub_type == "superflower") {draw_sprite(spr_superflower,0,x,y)}
 

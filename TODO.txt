@@ -5,7 +5,6 @@ MARTIN ======================================================================
 	*Make sure they have an effect in game
 		*Still needs action buttons
 *Bot AI (that's going to take effort)
-*Fix terrain gen bugs
 
 MARCUS ======================================================================
 

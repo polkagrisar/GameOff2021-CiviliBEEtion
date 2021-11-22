@@ -37,9 +37,163 @@
 seed = 0
 
 // Tendenices increase the chance the AI will pick a specific action
-tendecy_hoard = 0   // Create workers and gather as much as possible
-tendency_attack = 0 // Send patrols and attack other hives
-tendency_research = 0 // Upgrade
+tendency_healqueen = 0 // Focus on restoring the queen's health
+tendency_caution = 0 // Make extra drones, send patrols
+tendency_attack = 0 // Target other player's hives
+tendency_units = 0 // Scale from 0-10. If units should spread out or group up
+tendency_guard = 0 // Keeping some extra drones/workers in the hive
+
+hive = 0 // The id of its hive
+
+pollen = 0
+nectar = 0
+honey = 0
+
+focus = "none"
+
+upgrade_speed_cost = 10
+upgrade_distance_cost = 10
+upgrade_queen_cost = 25
+upgrade_attack_cost = 15
+upgrade_patrol_cost = 20
+upgrade_pollenfocus_cost = 35
+upgrade_nectarfocus_cost = 35
+upgrade_honeyfocus_cost = 35
+upgrade_pollinationfocus_cost = 35
+upgrade_actheal_cost = 35
+upgrade_actroyal_cost = 35
+upgrade_actattack_cost = 35
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Decide what to do for the turn
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Buy upgrades
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Use actions / Decide focus
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Buy units
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Assign units
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Be done
+
+obj_phasetracker.bots_ready++
+obj_phasetracker.alarm[0] = 60
 </string>
           </argument>
         </arguments>
@@ -66,9 +220,15 @@ tendency_research = 0 // Upgrade
 
 seed = irandom(9999999999)
 
-tendecy_hoard = irandom(10)
-tendency_attack = irandom(10)
-tendency_research = irandom(10)
+tendency_healqueen = irandom(10) // Focus on restoring the queen's health
+tendency_caution = irandom(10) // Make extra drones, send patrols
+tendency_attack = irandom(10) // Target other player's hives
+tendency_units = irandom(10) // Scale from 0-10. If units should spread out or group up
+tendency_guard = irandom(10) // Keeping some extra drones/workers in the hive
+
+with obj_hive {
+    if p_id = 101 {other.hive = id}
+}
 </string>
           </argument>
         </arguments>

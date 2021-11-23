@@ -8,12 +8,10 @@ MARTIN ======================================================================
 
 MARCUS ======================================================================
 
-*Sprites for rock and stump
-*Sprite Icon for buying drones and workers
-*Sprites for decaying flowers
-*Attack power
+*Sprites for stump
 
 WHOEVER =====================================================================
 
 *Spaces show patrol range when the Patrol box is hovered over?
 *Change the COMBAT focus icon to GROW
+*Implement so the attack increases based on the attack upgrades

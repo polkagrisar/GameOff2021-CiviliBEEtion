@@ -51,7 +51,7 @@ info = ""
 state = "none"
 defender = "none" //Workers that are protecting the hive
 defender_num = 0
-attack = 25
+attack = 50
 drones_hp = 50
 damage = 0
 

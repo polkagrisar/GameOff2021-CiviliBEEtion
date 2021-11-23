@@ -270,34 +270,62 @@ if gatherer &gt; 0 || patrol &gt; 0 || escort &gt; 0 || attackers &gt; 0 {
             <string>///Draw space
 
 //Balanced Flower
-if (type == "bud" &amp;&amp; sub_type == "balanced" &amp;&amp; growth &lt; 25) {draw_sprite(spr_balanced_flower,0,x,y)}
-if (type == "bud" &amp;&amp; sub_type == "balanced" &amp;&amp; growth &gt; 24 &amp;&amp; growth &lt; 61) {draw_sprite(spr_balanced_flower,1,x,y)}
-if (type == "bud" &amp;&amp; sub_type == "balanced" &amp;&amp; growth &gt; 60) {draw_sprite(spr_balanced_flower,2,x,y)}
-if (type == "flower" &amp;&amp; sub_type == "balanced") {draw_sprite(spr_balanced_flower,3,x,y)}
-//Add whiltered when missing resourses
+if (sub_type == "balanced") {
+if (type == "bud" &amp;&amp; growth &lt; 25) {draw_sprite(spr_balanced_flower,0,x,y)}
+if (type == "bud" &amp;&amp; growth &gt; 24 &amp;&amp; growth &lt; 61) {draw_sprite(spr_balanced_flower,1,x,y)}
+if (type == "bud" &amp;&amp; growth &gt; 60) {draw_sprite(spr_balanced_flower,2,x,y)}
+
+if (type == "flower" &amp;&amp; resources &gt; 7.5) {draw_sprite(spr_balanced_flower,3,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 5 &amp;&amp; resources &lt;= 7.5) {draw_sprite(spr_balanced_flower,4,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 2.5 &amp;&amp; resources &lt;= 5) {draw_sprite(spr_balanced_flower,5,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 0 &amp;&amp; resources &lt;= 2.5) {draw_sprite(spr_balanced_flower,6,x,y)}
+if (type == "flower" &amp;&amp; resources == 0) {draw_sprite(spr_balanced_flower,7,x,y)}
+}
 
 //Pollen Flower
-if (type == "bud" &amp;&amp; sub_type == "pollen" &amp;&amp; growth &lt; 25) {draw_sprite(spr_pollen_flower,0,x,y)}
-if (type == "bud" &amp;&amp; sub_type == "pollen" &amp;&amp; growth &gt; 24 &amp;&amp; growth &lt; 61) {draw_sprite(spr_pollen_flower,1,x,y)}
-if (type == "bud" &amp;&amp; sub_type == "pollen" &amp;&amp; growth &gt; 60) {draw_sprite(spr_pollen_flower,2,x,y)}
-if (type == "flower" &amp;&amp; sub_type == "pollen") {draw_sprite(spr_pollen_flower,3,x,y)}
-//Add whiltered when missing resourses
+if (sub_type == "pollen") {
+if (type == "bud" &amp;&amp; growth &lt; 25) {draw_sprite(spr_pollen_flower,0,x,y)}
+if (type == "bud" &amp;&amp; growth &gt; 24 &amp;&amp; growth &lt; 61) {draw_sprite(spr_pollen_flower,1,x,y)}
+if (type == "bud" &amp;&amp; growth &gt; 60) {draw_sprite(spr_pollen_flower,2,x,y)}
 
-//Nectar Flower
-if (type == "bud" &amp;&amp; sub_type == "nectar" &amp;&amp; growth &lt; 25) {draw_sprite(spr_nectar_flower,0,x,y)}
-if (type == "bud" &amp;&amp; sub_type == "nectar" &amp;&amp; growth &gt; 24 &amp;&amp; growth &lt; 61) {draw_sprite(spr_nectar_flower,1,x,y)}
-if (type == "bud" &amp;&amp; sub_type == "nectar" &amp;&amp; growth &gt; 60) {draw_sprite(spr_nectar_flower,2,x,y)}
-if (type == "flower" &amp;&amp; sub_type == "nectar") {draw_sprite(spr_nectar_flower,3,x,y)}
-//Add whiltered when missing resourses
+if (type == "flower" &amp;&amp; resources &gt; 7.5) {draw_sprite(spr_pollen_flower,3,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 5 &amp;&amp; resources &lt;= 7.5) {draw_sprite(spr_pollen_flower,4,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 2.5 &amp;&amp; resources &lt;= 5) {draw_sprite(spr_pollen_flower,5,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 0 &amp;&amp; resources &lt;= 2.5) {draw_sprite(spr_pollen_flower,6,x,y)}
+if (type == "flower" &amp;&amp; resources == 0) {draw_sprite(spr_pollen_flower,7,x,y)}
+}
+
+//Pollen Flower
+if (sub_type == "nectar") {
+if (type == "bud" &amp;&amp; growth &lt; 25) {draw_sprite(spr_nectar_flower,0,x,y)}
+if (type == "bud" &amp;&amp; growth &gt; 24 &amp;&amp; growth &lt; 61) {draw_sprite(spr_nectar_flower,1,x,y)}
+if (type == "bud" &amp;&amp; growth &gt; 60) {draw_sprite(spr_nectar_flower,2,x,y)}
+
+if (type == "flower" &amp;&amp; resources &gt; 7.5) {draw_sprite(spr_nectar_flower,3,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 5 &amp;&amp; resources &lt;= 7.5) {draw_sprite(spr_nectar_flower,4,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 2.5 &amp;&amp; resources &lt;= 5) {draw_sprite(spr_nectar_flower,5,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 0 &amp;&amp; resources &lt;= 2.5) {draw_sprite(spr_nectar_flower,6,x,y)}
+if (type == "flower" &amp;&amp; resources == 0) {draw_sprite(spr_nectar_flower,7,x,y)}
+}
+
+//Honey Flower
+if (sub_type == "honey") {
+if (type == "bud" &amp;&amp; growth &lt; 25) {draw_sprite(spr_honey_flower,0,x,y)}
+if (type == "bud" &amp;&amp; growth &gt; 24 &amp;&amp; growth &lt; 61) {draw_sprite(spr_honey_flower,1,x,y)}
+if (type == "bud" &amp;&amp; growth &gt; 60) {draw_sprite(spr_honey_flower,2,x,y)}
+
+if (type == "flower" &amp;&amp; resources &gt; 7.5) {draw_sprite(spr_honey_flower,3,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 5 &amp;&amp; resources &lt;= 7.5) {draw_sprite(spr_honey_flower,4,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 2.5 &amp;&amp; resources &lt;= 5) {draw_sprite(spr_honey_flower,5,x,y)}
+if (type == "flower" &amp;&amp; resources &gt; 0 &amp;&amp; resources &lt;= 2.5) {draw_sprite(spr_honey_flower,6,x,y)}
+if (type == "flower" &amp;&amp; resources == 0) {draw_sprite(spr_honey_flower,7,x,y)}
+}
 
 //Superflower
-if (sub_type == "superflower") {draw_sprite(spr_superflower,0,x,y)}
+if (sub_type == "superflower") {
+draw_sprite_ext(spr_superflower,0,x,y,2,2,0,c_white,1)}
 
 if (type == "rock") {draw_sprite(spr_rock,0,x,y)}
-
-
-
-draw_text(x,y-16,type)
 </string>
           </argument>
         </arguments>

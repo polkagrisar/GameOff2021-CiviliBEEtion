@@ -201,6 +201,7 @@
       <sprite>sprites\spr_balanced_flower</sprite>
       <sprite>sprites\spr_pollen_flower</sprite>
       <sprite>sprites\spr_nectar_flower</sprite>
+      <sprite>sprites\spr_honey_flower</sprite>
       <sprite>sprites\spr_superflower</sprite>
       <sprite>sprites\spr_rock</sprite>
       <sprite>sprites\spr_orderbox</sprite>

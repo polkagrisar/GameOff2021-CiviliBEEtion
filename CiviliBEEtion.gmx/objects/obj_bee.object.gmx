@@ -205,6 +205,41 @@ if type == "patrol" &amp;&amp; state != "combat" {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Combat Stats
+
+var base_attack = 1 + 0 // The "0" is = upgraded attack number //obj_admin.p1_upgrade_attack 
+
+var stack_bonus = (bees+escort*base_attack) / 2
+
+//Add an extra attack if not a gatherer
+if (escort &gt; 0 || type == "patrol" || type == "attack") {stack_bonus++}
+
+attack = base_attack + stack_bonus
+
+//Exit combat
+if (state == "combat" &amp;&amp; !instance_position(x,y,obj_combat) &amp;&amp; !instance_position(x,y,obj_hive_combat)) {
+    state = order_state
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -358,38 +393,6 @@ if (state == "patrol" &amp;&amp; obj_admin.workers_roaming == false) {
 }
 
 // Remove excess collections
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Combat Stats
-
-//Set attack
-if (type == "gatherer") {
-    attack = (bees) + (escort * 3)
-} else {
-    attack = bees * 3
-}
-
-if (state == "combat" &amp;&amp; !instance_position(x,y,obj_combat) &amp;&amp; !instance_position(x,y,obj_hive_combat)) {
-    state = order_state
-}
 </string>
           </argument>
         </arguments>

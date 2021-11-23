@@ -28,7 +28,7 @@
             <string>image_speed = 0
 
 upgrades = 0
-cost = 25
+cost = 6
 
 if instance_exists(obj_p1) {p_id = 1}
 if instance_exists(obj_p2) {p_id = 2}

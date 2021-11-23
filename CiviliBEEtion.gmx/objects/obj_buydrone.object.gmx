@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>image_speed = 0
 image_index = 0
-cost = 5
+cost = 1
 
 p_id = obj_admin.player
 

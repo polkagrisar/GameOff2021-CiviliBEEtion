@@ -51,18 +51,18 @@ honey = 0
 
 focus = "none"
 
-upgrade_speed_cost = 10
-upgrade_distance_cost = 10
-upgrade_queen_cost = 25
-upgrade_attack_cost = 15
-upgrade_patrol_cost = 20
-upgrade_pollenfocus_cost = 35
-upgrade_nectarfocus_cost = 35
-upgrade_honeyfocus_cost = 35
-upgrade_pollinationfocus_cost = 35
-upgrade_actheal_cost = 35
-upgrade_actroyal_cost = 35
-upgrade_actattack_cost = 35
+upgrade_speed_cost = 5
+upgrade_distance_cost = 3
+upgrade_queen_cost = 6
+upgrade_attack_cost = 10
+upgrade_patrol_cost = 5
+upgrade_pollenfocus_cost = 15
+upgrade_nectarfocus_cost = 15
+upgrade_honeyfocus_cost = 15
+upgrade_pollinationfocus_cost = 15
+upgrade_actheal_cost = 15
+upgrade_actroyal_cost = 15
+upgrade_actattack_cost = 15
 </string>
           </argument>
         </arguments>
@@ -86,6 +86,35 @@ upgrade_actattack_cost = 35
           <argument>
             <kind>1</kind>
             <string>/// Decide what to do for the turn
+
+random_set_seed(seed)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Emergency purchases
+
+if hive.workers == 0 &amp;&amp; nectar &gt;= 2 {
+    nectar -= 2
+    hive.workers++
+    hive.idle_workers++
+}
 </string>
           </argument>
         </arguments>
@@ -170,6 +199,10 @@ upgrade_actattack_cost = 35
           <argument>
             <kind>1</kind>
             <string>/// Assign units
+
+while hive.idle_workers &gt; 0 {
+    hive.idle_workers--
+}
 </string>
           </argument>
         </arguments>
@@ -191,6 +224,8 @@ upgrade_actattack_cost = 35
           <argument>
             <kind>1</kind>
             <string>/// Be done
+
+seed = irandom(9999999999)
 
 obj_phasetracker.bots_ready++
 obj_phasetracker.alarm[0] = 60

@@ -28,7 +28,7 @@
             <string>image_speed = 0
 
 upgrades = false
-cost = 35
+cost = 15
 
 p_id = obj_admin.player
 

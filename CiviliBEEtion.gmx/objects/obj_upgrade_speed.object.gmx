@@ -28,7 +28,7 @@
             <string>image_speed = 0
 
 upgrades = 0
-cost = 10
+cost = 5
 
 p_id = obj_admin.player
 
@@ -57,7 +57,7 @@ info = "Increase bee travel speed."
             <kind>1</kind>
             <string>if obj_endturn.locked == false &amp;&amp; obj_admin.res_pollen &gt;= cost {
     obj_admin.res_pollen -= cost
-    cost += 10
+    cost += 2
     upgrades++
 
     // send data

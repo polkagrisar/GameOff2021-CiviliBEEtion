@@ -591,8 +591,8 @@ if bee_fx &lt; bees+escort {
             <kind>1</kind>
             <string>///DEBUG
 //draw_self()
-draw_text(x,y+16,state)
-draw_text(x,y+32,order_state)
+//draw_text(x,y+16,state)
+//draw_text(x,y+32,order_state)
 draw_text(x,y-16,type)
 
 if type == "patrol" {

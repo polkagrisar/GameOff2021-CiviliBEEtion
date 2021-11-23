@@ -36,7 +36,7 @@ if obj_admin.player3 == true {player_amount++}
 if obj_admin.player4 == true {player_amount++}
 if obj_admin.player5 == true {player_amount++}
 if obj_admin.player6 == true {player_amount++}
-if obj_admin.bot1 == true {player_amount++}
+if obj_admin.bot1 == true {player_amount++ instance_create(300,32,obj_bot1)}
 if obj_admin.bot2 == true {player_amount++}
 if obj_admin.bot3 == true {player_amount++}
 if obj_admin.bot4 == true {player_amount++}
@@ -200,9 +200,9 @@ ds_list_destroy(list_hives)
 with instance_create(room_width/2,room_height/2,obj_space) {
     type = "flower"
     sub_type = "superflower"
-    pollen = 5
-    nectar = 5
-    honey = 5
+    pollen = 2.5
+    nectar = 2.5
+    honey = 2.5
 }
 
 // Spread stuff, circle 1
@@ -412,7 +412,7 @@ with obj_space {
     if type == "blank" {instance_destroy()}
 }
 
-obj_phasetracker.phase = "planning"
+obj_phasetracker.alarm[4] = 80
 
 instance_destroy()
 </string>

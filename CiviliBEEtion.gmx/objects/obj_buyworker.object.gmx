@@ -28,7 +28,7 @@
             <string>image_speed = 0
 image_index = 1
 
-cost = 5
+cost = 2
 
 p_id = obj_admin.player
 

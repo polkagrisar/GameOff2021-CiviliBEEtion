@@ -32,6 +32,8 @@ escort = 0
 attackers = 0
 
 total_order = 0
+
+space_owner = -1 // The id of the space it's on
 </string>
           </argument>
         </arguments>

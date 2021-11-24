@@ -42,12 +42,18 @@ tendency_caution = 0 // Make extra drones, send patrols
 tendency_attack = 0 // Target other player's hives
 tendency_units = 0 // Scale from 0-10. If units should spread out or group up
 tendency_guard = 0 // Keeping some extra drones/workers in the hive
+tendency_work = 0 // Buying and sending out workers
+tendency_research = 0 // Likelihood of buying upgrades
+
+tendency_pollen = 0
+tendency_nectar = 0
+tendency_honey = 0
 
 hive = 0 // The id of its hive
 
-pollen = 0
-nectar = 0
-honey = 0
+pollen = 20
+nectar = 20
+honey = 20
 
 focus = "none"
 
@@ -85,9 +91,13 @@ upgrade_actattack_cost = 15
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Decide what to do for the turn
+            <string>/// Emergency purchases
 
-random_set_seed(seed)
+if hive.workers == 0 &amp;&amp; nectar &gt;= 2 {
+    nectar -= 2
+    hive.workers++
+    hive.idle_workers++
+}
 </string>
           </argument>
         </arguments>
@@ -108,12 +118,70 @@ random_set_seed(seed)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Emergency purchases
+            <string>/// Decide what to do for the turn
 
-if hive.workers == 0 &amp;&amp; nectar &gt;= 2 {
-    nectar -= 2
-    hive.workers++
-    hive.idle_workers++
+random_set_seed(seed)
+
+// Research first
+
+// Add all spaces to list
+
+list_flowers = ds_list_create()
+list_obstacles = ds_list_create() // Rocks and stumps
+
+ds_list_shuffle(list_flowers)
+ds_list_shuffle(list_obstacles)
+
+with obj_space {
+    if type == "flower" &amp;&amp; point_distance(x,y,obj_bot1.hive.x,obj_bot1.hive.y) &lt;= obj_bot1.hive.reach {
+        with instance_create(x,y,obj_aiorder) {
+            owner = 101
+            space_owner = other.id
+            ds_list_add(obj_bot1.list_flowers,id)
+        }
+    }
+    if (type == "rock" || type == "stump") &amp;&amp; point_distance(x,y,obj_bot1.hive.x,obj_bot1.hive.y) &lt;= obj_bot1.hive.reach {
+        with instance_create(x,y,obj_aiorder) {
+            owner = 101
+            space_owner = other.id
+            ds_list_add(obj_bot1.list_obstacles,id)
+        }
+    }
+}
+
+// Do all other actions
+
+list_decision = ds_list_create()
+
+var temp = tendency_healqueen+irandom(4)
+repeat(temp) {ds_list_add(list_decision,"queen")}
+
+temp = tendency_caution+irandom(4)
+repeat(temp) {ds_list_add(list_decision,"caution")}
+
+temp = tendency_guard+irandom(4)
+repeat(temp) {ds_list_add(list_decision,"guard")}
+
+temp = tendency_work+irandom(4)
+repeat(temp) {ds_list_add(list_decision,"work")}
+
+//temp = tendency_research+irandom(4)
+//repeat(temp) {ds_list_add(list_decision,"research")}
+
+temp = (10-tendency_caution)+irandom(4)
+repeat(temp) {ds_list_add(list_decision,"worker")}
+
+ds_list_shuffle(list_decision)
+
+while ds_list_size(list_decision) &gt; 0 {
+    temp = ds_list_find_value(list_decision,0)
+    show_debug_message(ds_list_find_value(list_decision,0))
+    if temp == "queen" {scr_ai_queen()}
+    if temp == "caution" {scr_ai_caution()}
+    if temp == "guard" {scr_ai_guard()}
+    if temp == "work" {scr_ai_work()}
+    //if temp == "research" {scr_ai_research()}
+    if temp == "worker" {scr_ai_makeworker()}
 }
 </string>
           </argument>
@@ -178,6 +246,8 @@ if hive.workers == 0 &amp;&amp; nectar &gt;= 2 {
           <argument>
             <kind>1</kind>
             <string>/// Buy units
+
+
 </string>
           </argument>
         </arguments>
@@ -200,9 +270,6 @@ if hive.workers == 0 &amp;&amp; nectar &gt;= 2 {
             <kind>1</kind>
             <string>/// Assign units
 
-while hive.idle_workers &gt; 0 {
-    hive.idle_workers--
-}
 </string>
           </argument>
         </arguments>
@@ -224,6 +291,10 @@ while hive.idle_workers &gt; 0 {
           <argument>
             <kind>1</kind>
             <string>/// Be done
+
+ds_list_destroy(list_decision)
+ds_list_destroy(list_flowers)
+ds_list_destroy(list_obstales)
 
 seed = irandom(9999999999)
 
@@ -255,11 +326,18 @@ obj_phasetracker.alarm[0] = 60
 
 seed = irandom(9999999999)
 
-tendency_healqueen = irandom(10) // Focus on restoring the queen's health
-tendency_caution = irandom(10) // Make extra drones, send patrols
-tendency_attack = irandom(10) // Target other player's hives
-tendency_units = irandom(10) // Scale from 0-10. If units should spread out or group up
-tendency_guard = irandom(10) // Keeping some extra drones/workers in the hive
+tendency_healqueen = irandom_range(1,10) // Focus on restoring the queen's health
+tendency_caution = irandom_range(1,10) // Make extra drones, send patrols
+tendency_attack = irandom_range(1,10) // Target other player's hives
+tendency_units = irandom_range(1,10) // Scale from 0-10. If units should spread out or group up
+tendency_guard = irandom_range(1,10) // Keeping some extra drones/workers in the hive
+tendency_work = irandom_range(1,10) // Buying and sending out workers
+tendency_research = irandom_range(1,10) // Likelihood of buying upgrades
+
+tendency_pollen = irandom_range(1,10)
+tendency_nectar = irandom_range(1,10)
+tendency_honey = irandom_range(1,10)
+
 
 with obj_hive {
     if p_id = 101 {other.hive = id}

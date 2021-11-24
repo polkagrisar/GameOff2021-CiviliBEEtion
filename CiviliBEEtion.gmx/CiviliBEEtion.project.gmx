@@ -527,6 +527,14 @@
       <script>scripts\scr_rpc_royaljelly.gml</script>
       <script>scripts\scr_rpc_hivestats.gml</script>
     </scripts>
+    <scripts name="AI">
+      <script>scripts\scr_ai_queen.gml</script>
+      <script>scripts\scr_ai_caution.gml</script>
+      <script>scripts\scr_ai_guard.gml</script>
+      <script>scripts\scr_ai_work.gml</script>
+      <script>scripts\scr_ai_makeworker.gml</script>
+      <script>scripts\scr_ai_research.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
@@ -664,6 +672,7 @@
       <object>objects\obj_hive</object>
       <object>objects\obj_mouse</object>
       <object>objects\obj_order</object>
+      <object>objects\obj_aiorder</object>
       <object>objects\obj_orderbox</object>
       <object>objects\obj_bee</object>
       <object>objects\obj_camera</object>

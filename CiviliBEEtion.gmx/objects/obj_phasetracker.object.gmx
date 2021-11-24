@@ -297,6 +297,7 @@ with obj_hive {
 }
 
 with obj_order {event_user(0)}
+with obj_aiorder {event_user(0)}
 
 alarm[2] = 5*60
 </string>

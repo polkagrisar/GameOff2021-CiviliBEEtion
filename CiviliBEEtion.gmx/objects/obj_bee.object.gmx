@@ -596,10 +596,34 @@ if bee_fx &lt; bees+escort {
 //draw_self()
 //draw_text(x,y+16,state)
 //draw_text(x,y+32,order_state)
-draw_text(x,y-16,type)
+//draw_text(x,y-16,type)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Patrol range
 
-if type == "patrol" {
+if type == "patrol" &amp;&amp; state != "combat" &amp;&amp; p_id == obj_admin.player {
+    draw_set_colour(c_black)
+    draw_set_alpha(0.2)
     draw_circle(x,y,(patrol_range*16+patrol_stump)+48,true)
+    draw_set_alpha(1)
 }
 </string>
           </argument>

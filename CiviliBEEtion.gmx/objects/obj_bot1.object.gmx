@@ -135,14 +135,14 @@ ds_list_shuffle(list_obstacles)
 with obj_space {
     if type == "flower" &amp;&amp; point_distance(x,y,obj_bot1.hive.x,obj_bot1.hive.y) &lt;= obj_bot1.hive.reach {
         with instance_create(x,y,obj_aiorder) {
-            owner = 101
+            p_id = 101
             space_owner = other.id
             ds_list_add(obj_bot1.list_flowers,id)
         }
     }
     if (type == "rock" || type == "stump") &amp;&amp; point_distance(x,y,obj_bot1.hive.x,obj_bot1.hive.y) &lt;= obj_bot1.hive.reach {
         with instance_create(x,y,obj_aiorder) {
-            owner = 101
+            p_id = 101
             space_owner = other.id
             ds_list_add(obj_bot1.list_obstacles,id)
         }
@@ -292,9 +292,11 @@ while ds_list_size(list_decision) &gt; 0 {
             <kind>1</kind>
             <string>/// Be done
 
+obj_admin.bot1_focus = "none"
+
 ds_list_destroy(list_decision)
 ds_list_destroy(list_flowers)
-ds_list_destroy(list_obstales)
+ds_list_destroy(list_obstacles)
 
 seed = irandom(9999999999)
 

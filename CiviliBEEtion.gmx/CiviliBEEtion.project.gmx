@@ -212,6 +212,12 @@
       <sprite>sprites\spr_order_icon</sprite>
       <sprite>sprites\spr_combat</sprite>
       <sprite>sprites\spr_buy_icons</sprite>
+      <sprite>sprites\spr_gatherer_icon</sprite>
+      <sprite>sprites\spr_patrol_icon</sprite>
+      <sprite>sprites\spr_queen_icon</sprite>
+      <sprite>sprites\spr_escort_icon</sprite>
+      <sprite>sprites\spr_drone_icon</sprite>
+      <sprite>sprites\spr_attack_icon</sprite>
     </sprites>
     <sprites name="Masks">
       <sprite>sprites\spr_mask_bee</sprite>

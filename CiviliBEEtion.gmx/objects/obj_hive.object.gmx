@@ -579,7 +579,7 @@ var spawn_y = scr_get_data("spawn_y",player_id)
 
 if (attackers &gt; 0){
 draw_line_colour(spawn_x,spawn_y,x,y,c_red,c_red)
-draw_sprite(spr_order_icon,3,x,y)
+draw_sprite(spr_attack_icon,0,x,y)
 draw_text(x,y-32,attackers)
 }
 </string>

@@ -85,12 +85,12 @@ if gatherer &gt; 0 {
         go_y = other.y
         home_x = other.owner_x
         home_y = other.owner_y
-        if p_id == 1 {move_speed = 2+obj_admin.p1_upgrade_speed; focus = obj_admin.p1_focus}
-        if p_id == 2 {move_speed = 2+obj_admin.p2_upgrade_speed; focus = obj_admin.p2_focus}
-        if p_id == 3 {move_speed = 2+obj_admin.p3_upgrade_speed; focus = obj_admin.p3_focus}
-        if p_id == 4 {move_speed = 2+obj_admin.p4_upgrade_speed; focus = obj_admin.p4_focus}
-        if p_id == 5 {move_speed = 2+obj_admin.p5_upgrade_speed; focus = obj_admin.p5_focus}
-        if p_id == 6 {move_speed = 2+obj_admin.p6_upgrade_speed; focus = obj_admin.p6_focus}
+        if p_id == 1 {move_speed = 2+obj_admin.p1_upgrade_speed; focus = obj_admin.p1_focus; attack_bonus = obj_admin.p1_upgrade_attack}
+        if p_id == 2 {move_speed = 2+obj_admin.p2_upgrade_speed; focus = obj_admin.p2_focus; attack_bonus = obj_admin.p2_upgrade_attack}
+        if p_id == 3 {move_speed = 2+obj_admin.p3_upgrade_speed; focus = obj_admin.p3_focus; attack_bonus = obj_admin.p3_upgrade_attack}
+        if p_id == 4 {move_speed = 2+obj_admin.p4_upgrade_speed; focus = obj_admin.p4_focus; attack_bonus = obj_admin.p4_upgrade_attack}
+        if p_id == 5 {move_speed = 2+obj_admin.p5_upgrade_speed; focus = obj_admin.p5_focus; attack_bonus = obj_admin.p5_upgrade_attack}
+        if p_id == 6 {move_speed = 2+obj_admin.p6_upgrade_speed; focus = obj_admin.p6_focus; attack_bonus = obj_admin.p6_upgrade_attack}
     }
 }
 
@@ -106,12 +106,12 @@ if patrol &gt; 0 {
         go_y = other.y
         home_x = other.owner_x
         home_y = other.owner_y
-        if p_id == 1 {move_speed = 4+obj_admin.p1_upgrade_speed; patrol_range = obj_admin.p1_upgrade_patrol; focus = obj_admin.p1_focus}
-        if p_id == 2 {move_speed = 4+obj_admin.p2_upgrade_speed; patrol_range = obj_admin.p2_upgrade_patrol; focus = obj_admin.p2_focus}
-        if p_id == 3 {move_speed = 4+obj_admin.p3_upgrade_speed; patrol_range = obj_admin.p3_upgrade_patrol; focus = obj_admin.p3_focus}
-        if p_id == 4 {move_speed = 4+obj_admin.p4_upgrade_speed; patrol_range = obj_admin.p4_upgrade_patrol; focus = obj_admin.p4_focus}
-        if p_id == 5 {move_speed = 4+obj_admin.p5_upgrade_speed; patrol_range = obj_admin.p5_upgrade_patrol; focus = obj_admin.p5_focus}
-        if p_id == 6 {move_speed = 4+obj_admin.p6_upgrade_speed; patrol_range = obj_admin.p6_upgrade_patrol; focus = obj_admin.p6_focus}
+        if p_id == 1 {move_speed = 4+obj_admin.p1_upgrade_speed; patrol_range = obj_admin.p1_upgrade_patrol; focus = obj_admin.p1_focus; attack_bonus = obj_admin.p1_upgrade_attack}
+        if p_id == 2 {move_speed = 4+obj_admin.p2_upgrade_speed; patrol_range = obj_admin.p2_upgrade_patrol; focus = obj_admin.p2_focus; attack_bonus = obj_admin.p2_upgrade_attack}
+        if p_id == 3 {move_speed = 4+obj_admin.p3_upgrade_speed; patrol_range = obj_admin.p3_upgrade_patrol; focus = obj_admin.p3_focus; attack_bonus = obj_admin.p3_upgrade_attack}
+        if p_id == 4 {move_speed = 4+obj_admin.p4_upgrade_speed; patrol_range = obj_admin.p4_upgrade_patrol; focus = obj_admin.p4_focus; attack_bonus = obj_admin.p4_upgrade_attack}
+        if p_id == 5 {move_speed = 4+obj_admin.p5_upgrade_speed; patrol_range = obj_admin.p5_upgrade_patrol; focus = obj_admin.p5_focus; attack_bonus = obj_admin.p5_upgrade_attack}
+        if p_id == 6 {move_speed = 4+obj_admin.p6_upgrade_speed; patrol_range = obj_admin.p6_upgrade_patrol; focus = obj_admin.p6_focus; attack_bonus = obj_admin.p6_upgrade_attack}
     }
 }
 
@@ -127,12 +127,12 @@ if attackers &gt; 0 {
         go_y = other.y
         home_x = other.owner_x
         home_y = other.owner_y
-        if p_id == 1 {move_speed = 5+obj_admin.p1_upgrade_speed; focus = obj_admin.p1_focus}
-        if p_id == 2 {move_speed = 5+obj_admin.p2_upgrade_speed; focus = obj_admin.p2_focus}
-        if p_id == 3 {move_speed = 5+obj_admin.p3_upgrade_speed; focus = obj_admin.p3_focus}
-        if p_id == 4 {move_speed = 5+obj_admin.p4_upgrade_speed; focus = obj_admin.p4_focus}
-        if p_id == 5 {move_speed = 5+obj_admin.p5_upgrade_speed; focus = obj_admin.p5_focus}
-        if p_id == 6 {move_speed = 5+obj_admin.p6_upgrade_speed; focus = obj_admin.p6_focus}
+        if p_id == 1 {move_speed = 5+obj_admin.p1_upgrade_speed; focus = obj_admin.p1_focus; attack_bonus = obj_admin.p1_upgrade_attack}
+        if p_id == 2 {move_speed = 5+obj_admin.p2_upgrade_speed; focus = obj_admin.p2_focus; attack_bonus = obj_admin.p2_upgrade_attack}
+        if p_id == 3 {move_speed = 5+obj_admin.p3_upgrade_speed; focus = obj_admin.p3_focus; attack_bonus = obj_admin.p3_upgrade_attack}
+        if p_id == 4 {move_speed = 5+obj_admin.p4_upgrade_speed; focus = obj_admin.p4_focus; attack_bonus = obj_admin.p4_upgrade_attack}
+        if p_id == 5 {move_speed = 5+obj_admin.p5_upgrade_speed; focus = obj_admin.p5_focus; attack_bonus = obj_admin.p5_upgrade_attack}
+        if p_id == 6 {move_speed = 5+obj_admin.p6_upgrade_speed; focus = obj_admin.p6_focus; attack_bonus = obj_admin.p6_upgrade_attack}
     }
 }
 

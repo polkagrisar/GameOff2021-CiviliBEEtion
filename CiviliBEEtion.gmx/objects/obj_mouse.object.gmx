@@ -338,7 +338,7 @@ draw_text(x,y-48,view_hview)
             <string>///Draw Info
 
 if (hover != "none") {
-    draw_text(x+8,y-16,hover.info)
+    draw_text(hover.x-32,hover.y-32,hover.info)
 }
 </string>
           </argument>

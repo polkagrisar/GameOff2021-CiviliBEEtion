@@ -250,27 +250,28 @@ if (state == "attack") {
 
 //if (position_meeting(x,y,obj_mouse)) { //Show combat if hovering over combat
 
-var temp_spriteindex = 4
+var temp_sprite = spr_patrol_icon
 
 for (var i = 0; i &lt; units_total; i++) {
 if (units[i] != "none") {
 
-    //Get sprite-index
-    if (units[i].type == "gatherer") {temp_spriteindex = 0}
-    if (units[i].type == "patrol") {temp_spriteindex = 1}
+    //Get sprit
+    if (units[i].type == "gatherer") {temp_sprite = spr_gatherer_icon}
+    if (units[i].type == "patrol") {temp_sprite = spr_patrol_icon}
+    if (units[i].type == "attack") {temp_sprite = spr_attack_icon}
+
     
-    
-    draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-32)
+    draw_sprite(temp_sprite,units[i].p_id,x+(32*i)-(16*(units_total-1)),y-32)
     draw_text(x+(32*i)-(16*(units_total-1)+4),y-32,string(units[i].bees))
     
-    if (units[i].escort &gt; 0) {temp_spriteindex = 2 
-    draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-48)
+    if (units[i].escort &gt; 0) {temp_sprite = spr_escort_icon
+    draw_sprite(temp_sprite,units[i].p_id,x+(32*i)-(16*(units_total-1)),y-48)
     draw_text(x+(32*i)-(16*(units_total-1)+4),y-48,string(units[i].escort))}
     
     
 }
-temp_spriteindex = 4
-if (units[i] == "none") {draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-32)}
+
+//if (units[i] == "none") {draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-32)}
 
 }  
 

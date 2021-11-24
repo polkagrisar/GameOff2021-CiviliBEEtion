@@ -24,6 +24,11 @@ if (type == "flower") {
                 index = i
                 creator = other.id
                 image_index = index
+                if (index == 2) {
+                x-=64
+                y-=32
+                }                
+                
             }
         }
     }

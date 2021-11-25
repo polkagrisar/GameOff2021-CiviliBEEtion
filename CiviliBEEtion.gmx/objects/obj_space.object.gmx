@@ -326,6 +326,7 @@ if (sub_type == "superflower") {
 draw_sprite_ext(spr_superflower,0,x,y,2,2,0,c_white,1)}
 
 if (type == "rock") {draw_sprite(spr_rock,0,x,y)}
+if (type == "stump") {draw_sprite(spr_stump,0,x,y)}
 </string>
           </argument>
         </arguments>

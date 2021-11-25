@@ -251,21 +251,25 @@ if (state == "attack") {
 //if (position_meeting(x,y,obj_mouse)) { //Show combat if hovering over combat
 
 var temp_sprite = spr_patrol_icon
+var temp_index = 0
 
 for (var i = 0; i &lt; units_total; i++) {
 if (units[i] != "none") {
 
-    //Get sprit
+    //Get sprite
     if (units[i].type == "gatherer") {temp_sprite = spr_gatherer_icon}
     if (units[i].type == "patrol") {temp_sprite = spr_patrol_icon}
     if (units[i].type == "attack") {temp_sprite = spr_attack_icon}
-
     
-    draw_sprite(temp_sprite,units[i].p_id,x+(32*i)-(16*(units_total-1)),y-32)
+    //Get index
+    temp_index = units[i].p_id
+    if (temp_index &gt; 100) {temp_index -= 94}
+    
+    draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-32)
     draw_text(x+(32*i)-(16*(units_total-1)+4),y-32,string(units[i].bees))
     
     if (units[i].escort &gt; 0) {temp_sprite = spr_escort_icon
-    draw_sprite(temp_sprite,units[i].p_id,x+(32*i)-(16*(units_total-1)),y-48)
+    draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-48)
     draw_text(x+(32*i)-(16*(units_total-1)+4),y-48,string(units[i].escort))}
     
     

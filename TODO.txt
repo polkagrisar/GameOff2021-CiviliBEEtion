@@ -8,11 +8,7 @@ MARTIN ======================================================================
 
 MARCUS ======================================================================
 
-*Sprites for stump
-
 WHOEVER =====================================================================
 
 *Spaces show patrol range when the Patrol box is hovered over?
-*Change the COMBAT focus icon to GROW
-*Implement so the attack increases based on the attack upgrades
 *Show how much Royal Jelly each player has

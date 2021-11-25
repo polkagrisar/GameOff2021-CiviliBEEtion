@@ -16,6 +16,8 @@ if hive.idle_workers > 0 {
             ds_list_delete(other.list_flowers,0)
         }
     }
+    var shuffle_flowers = irandom(10)
+    if shuffle_flowers >= tendency_units {ds_list_shuffle(list_flowers)}
     if hive.idle_workers > 0 {ds_list_add(list_decision,"work")}
 }
 

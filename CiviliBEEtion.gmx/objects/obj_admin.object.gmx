@@ -162,6 +162,7 @@ p1_upgrade_patrol = 0 // The patrol range of patrol bees
 
 p1_upgrade_focus_pollen = false
 p1_upgrade_focus_nectar = false
+p1_upgrade_focus_honey = false
 p1_upgrade_focus_pollination = false
 
 p1_upgrade_action_attack = false
@@ -178,6 +179,7 @@ p2_upgrade_patrol = 0 // The patrol range of patrol bees
 
 p2_upgrade_focus_pollen = false
 p2_upgrade_focus_nectar = false
+p2_upgrade_focus_honey = false
 p2_upgrade_focus_pollination = false
 
 p2_upgrade_action_attack = false
@@ -194,6 +196,7 @@ p3_upgrade_patrol = 0 // The patrol range of patrol bees
 
 p3_upgrade_focus_pollen = false
 p3_upgrade_focus_nectar = false
+p3_upgrade_focus_honey = false
 p3_upgrade_focus_pollination = false
 
 p3_upgrade_action_attack = false
@@ -210,6 +213,7 @@ p4_upgrade_patrol = 0 // The patrol range of patrol bees
 
 p4_upgrade_focus_pollen = false
 p4_upgrade_focus_nectar = false
+p4_upgrade_focus_honey = false
 p4_upgrade_focus_pollination = false
 
 p4_upgrade_action_attack = false
@@ -226,6 +230,7 @@ p5_upgrade_patrol = 0 // The patrol range of patrol bees
 
 p5_upgrade_focus_pollen = false
 p5_upgrade_focus_nectar = false
+p5_upgrade_focus_honey = false
 p5_upgrade_focus_pollination = false
 
 p5_upgrade_action_attack = false
@@ -242,6 +247,7 @@ p6_upgrade_patrol = 0 // The patrol range of patrol bees
 
 p6_upgrade_focus_pollen = false
 p6_upgrade_focus_nectar = false
+p6_upgrade_focus_honey = false
 p6_upgrade_focus_pollination = false
 
 p6_upgrade_action_attack = false
@@ -258,6 +264,7 @@ bot1_upgrade_patrol = 0 // The patrol range of patrol bees
 
 bot1_upgrade_focus_pollen = false
 bot1_upgrade_focus_nectar = false
+bot1_upgrade_focus_honey = false
 bot1_upgrade_focus_pollination = false
 
 bot1_upgrade_action_attack = false
@@ -274,6 +281,7 @@ bot2_upgrade_patrol = 0 // The patrol range of patrol bees
 
 bot2_upgrade_focus_pollen = false
 bot2_upgrade_focus_nectar = false
+bot2_upgrade_focus_honey = false
 bot2_upgrade_focus_pollination = false
 
 bot2_upgrade_action_attack = false
@@ -290,6 +298,7 @@ bot3_upgrade_patrol = 0 // The patrol range of patrol bees
 
 bot3_upgrade_focus_pollen = false
 bot3_upgrade_focus_nectar = false
+bot3_upgrade_focus_honey = false
 bot3_upgrade_focus_pollination = false
 
 bot3_upgrade_action_attack = false
@@ -306,6 +315,7 @@ bot4_upgrade_patrol = 0 // The patrol range of patrol bees
 
 bot4_upgrade_focus_pollen = false
 bot4_upgrade_focus_nectar = false
+bot4_upgrade_focus_honey = false
 bot4_upgrade_focus_pollination = false
 
 bot4_upgrade_action_attack = false
@@ -322,6 +332,7 @@ bot5_upgrade_patrol = 0 // The patrol range of patrol bees
 
 bot5_upgrade_focus_pollen = false
 bot5_upgrade_focus_nectar = false
+bot5_upgrade_focus_honey = false
 bot5_upgrade_focus_pollination = false
 
 bot5_upgrade_action_attack = false
@@ -338,6 +349,7 @@ bot6_upgrade_patrol = 0 // The patrol range of patrol bees
 
 bot6_upgrade_focus_pollen = false
 bot6_upgrade_focus_nectar = false
+bot6_upgrade_focus_honey = false
 bot6_upgrade_focus_pollination = false
 
 bot6_upgrade_action_attack = false

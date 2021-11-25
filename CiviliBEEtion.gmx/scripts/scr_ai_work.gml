@@ -13,7 +13,8 @@ if hive.idle_workers > 0 {
             gatherer++
             other.hive.idle_workers--
         } else {
-            ds_list_delete(other.list_flowers,0)
+            escort++
+            other.hive.idle_workers--
         }
     }
     var shuffle_flowers = irandom(10)

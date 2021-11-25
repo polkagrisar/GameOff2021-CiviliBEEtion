@@ -49,6 +49,8 @@ tendency_pollen = 0
 tendency_nectar = 0
 tendency_honey = 0
 
+need_research = "none" // What the bot wants to upgrade next
+
 hive = 0 // The id of its hive
 
 pollen = 20
@@ -56,6 +58,14 @@ nectar = 20
 honey = 20
 
 focus = "none"
+
+focus_pollen = false
+focus_nectar = false
+focus_honey = false
+focus_pollination = false
+can_heal = false
+can_royal = false
+can_attack = false
 
 upgrade_speed_cost = 5
 upgrade_distance_cost = 3
@@ -69,6 +79,119 @@ upgrade_pollinationfocus_cost = 15
 upgrade_actheal_cost = 15
 upgrade_actroyal_cost = 15
 upgrade_actattack_cost = 15
+
+upgrade_cost = 0
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Research
+
+// Buy the chosen upgrade if you have enough pollen
+
+if pollen &gt;= upgrade_cost {
+    pollen -= upgrade_cost
+    if need_research == "speed" {
+        obj_admin.bot1_upgrade_speed++
+        upgrade_speed_cost += 2
+    }
+    if need_research == "distance" {obj_admin.bot1_upgrade_distance++}
+    if need_research == "queen" {
+        obj_admin.bot1_upgrade_queen++
+        with obj_hive {
+            if p_id == 101 {hp += 5}
+        }
+    }
+    if need_research == "attack" {
+        obj_admin.bot1_upgrade_attack++
+        upgrade_attack_cost += 5
+    }
+    if need_research == "patrol" {obj_admin.bot1_upgrade_patrol++}
+    if need_research == "pollenfocus" {
+        obj_admin.bot1_upgrade_focus_pollen = true
+        focus_pollen = true
+    }
+    if need_research == "nectarfocus" {
+        obj_admin.bot1_upgrade_focus_nectar = true
+        focus_nectar = true
+    }
+    if need_research == "honeyfocus" {
+        obj_admin.bot1_upgrade_focus_honey = true
+        focus_honey = true
+    }
+    if need_research == "pollinationfocus" {
+        obj_admin.bot1_upgrade_focus_pollination = true
+        focus_pollen = true
+    }
+    if need_research == "actheal" {
+        obj_admin.bot1_upgrade_action_heal = true
+        can_heal = true
+    }
+    if need_research == "actroyal" {
+        obj_admin.bot1_upgrade_action_royal = true
+        can_royal = true
+    }
+    if need_research == "actattack" {
+        obj_admin.bot1_upgrade_action_attack = true
+        can_attack = true
+    }
+    
+    // Decide what to research next
+    list_research = ds_list_create()
+    
+    ds_list_add(list_research,"speed")
+    if obj_admin.bot1_upgrade_distance &lt; 16 {ds_list_add(list_research,"distance")}
+    ds_list_add(list_research,"queen")
+    ds_list_add(list_research,"attack")
+    ds_list_add(list_research,"patrol")
+    if focus_pollen == false {ds_list_add(list_research,"pollenfocus")}
+    if focus_nectar == false {ds_list_add(list_research,"nectarfocus")}
+    if focus_pollen == false {ds_list_add(list_research,"honeyfocus")}
+    if focus_pollen == false {ds_list_add(list_research,"pollinationfocus")}
+    if can_heal == false {ds_list_add(list_research,"actheal")}
+    if can_royal == false {ds_list_add(list_research,"actroyal")}
+    if can_attack == false {ds_list_add(list_research,"actattack")}
+    
+    ds_list_shuffle(list_research)
+
+    need_research = ds_list_find_value(list_research,0) // What the bot wants to upgrade next
+    ds_list_destroy(list_research)
+    
+    if need_research == "speed" {upgrade_cost = upgrade_speed_cost}
+    if need_research == "distance" {upgrade_cost = upgrade_distance_cost}
+    if need_research == "queen" {upgrade_cost = upgrade_queen_cost}
+    if need_research == "attack" {upgrade_cost = upgrade_attack_cost}
+    if need_research == "patrol" {upgrade_cost = upgrade_patrol_cost}
+    if need_research == "pollenfocus" {upgrade_cost = upgrade_pollenfocus_cost}
+    if need_research == "nectarfocus" {upgrade_cost = upgrade_nectarfocus_cost}
+    if need_research == "honeyfocus" {upgrade_cost = upgrade_honeyfocus_cost}
+    if need_research == "pollinationfocus" {upgrade_cost = upgrade_pollinationfocus_cost}
+    if need_research == "actheal" {upgrade_cost = upgrade_actheal_cost}
+    if need_research == "actroyal" {upgrade_cost = upgrade_actroyal_cost}
+    if need_research == "actattack" {upgrade_cost = upgrade_actattack_cost}
+    
+    ds_list_add(list_decision,"research")
+}
+
+ds_list_delete(list_decision,0)
 </string>
           </argument>
         </arguments>
@@ -165,8 +288,8 @@ repeat(temp) {ds_list_add(list_decision,"guard")}
 temp = tendency_work+irandom(4)
 repeat(temp) {ds_list_add(list_decision,"work")}
 
-//temp = tendency_research+irandom(4)
-//repeat(temp) {ds_list_add(list_decision,"research")}
+temp = tendency_research+irandom(4)
+repeat(temp) {ds_list_add(list_decision,"research")}
 
 temp = (10-tendency_caution)+irandom(4)
 repeat(temp) {ds_list_add(list_decision,"worker")}
@@ -180,7 +303,7 @@ while ds_list_size(list_decision) &gt; 0 {
     if temp == "caution" {scr_ai_caution()}
     if temp == "guard" {scr_ai_guard()}
     if temp == "work" {scr_ai_work()}
-    //if temp == "research" {scr_ai_research()}
+    if temp == "research" {event_user(2)}
     if temp == "worker" {scr_ai_makeworker()}
 }
 </string>
@@ -340,10 +463,24 @@ tendency_pollen = irandom_range(1,10)
 tendency_nectar = irandom_range(1,10)
 tendency_honey = irandom_range(1,10)
 
-
 with obj_hive {
     if p_id = 101 {other.hive = id}
 }
+
+need_research = choose("speed","distance","queen","attack","patrol","pollenfocus","nectarfocus","honeyfocus","pollinationfocus","actheal","actroyal","actattack") // What the bot wants to upgrade next
+
+if need_research == "speed" {upgrade_cost = upgrade_speed_cost}
+if need_research == "distance" {upgrade_cost = upgrade_distance_cost}
+if need_research == "queen" {upgrade_cost = upgrade_queen_cost}
+if need_research == "attack" {upgrade_cost = upgrade_attack_cost}
+if need_research == "patrol" {upgrade_cost = upgrade_patrol_cost}
+if need_research == "pollenfocus" {upgrade_cost = upgrade_pollenfocus_cost}
+if need_research == "nectarfocus" {upgrade_cost = upgrade_nectarfocus_cost}
+if need_research == "honeyfocus" {upgrade_cost = upgrade_honeyfocus_cost}
+if need_research == "pollinationfocus" {upgrade_cost = upgrade_pollinationfocus_cost}
+if need_research == "actheal" {upgrade_cost = upgrade_actheal_cost}
+if need_research == "actroyal" {upgrade_cost = upgrade_actroyal_cost}
+if need_research == "actattack" {upgrade_cost = upgrade_actattack_cost}
 </string>
           </argument>
         </arguments>

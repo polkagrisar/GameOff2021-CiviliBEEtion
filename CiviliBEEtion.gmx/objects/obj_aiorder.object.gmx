@@ -72,6 +72,8 @@ with obj_hive {
     }
 }
 
+owner_id.workers -= gatherer+patrol+escort+attackers
+
 // Create workers/escorts
 
 if gatherer &gt; 0 {

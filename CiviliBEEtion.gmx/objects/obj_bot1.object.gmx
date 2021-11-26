@@ -53,11 +53,13 @@ need_research = "none" // What the bot wants to upgrade next
 
 hive = 0 // The id of its hive
 
-pollen = 20
-nectar = 20
-honey = 20
+pollen = 0
+nectar = 0
+honey = 0
 
 focus = "none"
+
+ease_in = 0 // Makes the bot less aggressive with patrols and escorts at the start of the game
 
 focus_pollen = false
 focus_nectar = false
@@ -279,10 +281,12 @@ list_decision = ds_list_create()
 var temp = tendency_healqueen+irandom(4)
 repeat(temp) {ds_list_add(list_decision,"queen")}
 
-temp = tendency_caution+irandom(4)
+temp = tendency_caution+irandom(4)-ease_in
+if temp &lt; 0 {temp = 0}
 repeat(temp) {ds_list_add(list_decision,"caution")}
 
-temp = tendency_guard+irandom(4)
+temp = tendency_guard+irandom(4)-ease_in
+if temp &lt; 0 {temp = 0}
 repeat(temp) {ds_list_add(list_decision,"guard")}
 
 temp = tendency_work+irandom(4)
@@ -306,6 +310,8 @@ while ds_list_size(list_decision) &gt; 0 {
     if temp == "research" {event_user(2)}
     if temp == "worker" {scr_ai_makeworker()}
 }
+
+if ease_in &gt; 0 {ease_in--}
 </string>
           </argument>
         </arguments>
@@ -467,20 +473,11 @@ with obj_hive {
     if p_id = 101 {other.hive = id}
 }
 
-need_research = choose("speed","distance","queen","attack","patrol","pollenfocus","nectarfocus","honeyfocus","pollinationfocus","actheal","actroyal","actattack") // What the bot wants to upgrade next
+ease_in = 10+irandom(4)
 
-if need_research == "speed" {upgrade_cost = upgrade_speed_cost}
+need_research = "distance" // What the bot wants to upgrade next
+
 if need_research == "distance" {upgrade_cost = upgrade_distance_cost}
-if need_research == "queen" {upgrade_cost = upgrade_queen_cost}
-if need_research == "attack" {upgrade_cost = upgrade_attack_cost}
-if need_research == "patrol" {upgrade_cost = upgrade_patrol_cost}
-if need_research == "pollenfocus" {upgrade_cost = upgrade_pollenfocus_cost}
-if need_research == "nectarfocus" {upgrade_cost = upgrade_nectarfocus_cost}
-if need_research == "honeyfocus" {upgrade_cost = upgrade_honeyfocus_cost}
-if need_research == "pollinationfocus" {upgrade_cost = upgrade_pollinationfocus_cost}
-if need_research == "actheal" {upgrade_cost = upgrade_actheal_cost}
-if need_research == "actroyal" {upgrade_cost = upgrade_actroyal_cost}
-if need_research == "actattack" {upgrade_cost = upgrade_actattack_cost}
 </string>
           </argument>
         </arguments>

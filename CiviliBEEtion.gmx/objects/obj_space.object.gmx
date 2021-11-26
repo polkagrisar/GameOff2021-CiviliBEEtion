@@ -113,7 +113,9 @@ collided_with = ds_list_create()
             <string>///Set info box
 info = "P: " + string(pollen) + "#N: " + string(nectar) + "#H: " + string(honey) + "#TEMP: " + string(resources)
 if type != "flower" {info = ""}
-if type == "bud" {info = "GROWTH: " + string(growth)}
+//if type == "bud" {info = "GROWTH: " + string(growth)}
+
+info = ""
 
 if resources &lt; 0 {resources = 0}
 </string>

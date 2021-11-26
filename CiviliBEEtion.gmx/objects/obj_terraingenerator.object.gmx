@@ -212,7 +212,7 @@ list_stuff = ds_list_create()
 repeat (3) {ds_list_add(list_stuff,"flower")}
 repeat (2) {ds_list_add(list_stuff,"rock")}
 repeat (1) {ds_list_add(list_stuff,"stump")}
-repeat (2) {ds_list_add(list_stuff,"bud")}
+repeat (3) {ds_list_add(list_stuff,"bud")}
 repeat (1) {ds_list_add(list_stuff,"blank")}
 
 ds_list_shuffle(list_stuff)

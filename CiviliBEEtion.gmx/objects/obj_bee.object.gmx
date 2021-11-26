@@ -296,6 +296,37 @@ if (x == home_x &amp;&amp; y == home_y &amp;&amp; state == "return") {
         obj_admin.res_nectar += gathered_nectar*gathered_total
         obj_admin.res_honey += gathered_honey*gathered_total
     }
+    // Offload resources - bots
+    if p_id == 101 {
+        obj_bot1.pollen += gathered_pollen*gathered_total
+        obj_bot1.nectar += gathered_nectar*gathered_total
+        obj_bot1.honey += gathered_honey*gathered_total
+    }
+    if p_id == 102 {
+        obj_bot2.pollen += gathered_pollen*gathered_total
+        obj_bot2.nectar += gathered_nectar*gathered_total
+        obj_bot2.honey += gathered_honey*gathered_total
+    }
+    if p_id == 103 {
+        obj_bot3.pollen += gathered_pollen*gathered_total
+        obj_bot3.nectar += gathered_nectar*gathered_total
+        obj_bot3.honey += gathered_honey*gathered_total
+    }
+    if p_id == 104 {
+        obj_bot4.pollen += gathered_pollen*gathered_total
+        obj_bot4.nectar += gathered_nectar*gathered_total
+        obj_bot4.honey += gathered_honey*gathered_total
+    }
+    if p_id == 105 {
+        obj_bot5.pollen += gathered_pollen*gathered_total
+        obj_bot5.nectar += gathered_nectar*gathered_total
+        obj_bot5.honey += gathered_honey*gathered_total
+    }
+    if p_id == 106 {
+        obj_bot6.pollen += gathered_pollen*gathered_total
+        obj_bot6.nectar += gathered_nectar*gathered_total
+        obj_bot6.honey += gathered_honey*gathered_total
+    }
     //die
     instance_destroy()
 }

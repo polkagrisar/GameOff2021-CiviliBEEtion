@@ -57,8 +57,8 @@
     <instance objName="obj_upgrade_speed" x="32" y="738" name="inst_7D1D7B17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_distance" x="82" y="708" name="inst_C63A5D5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_queen" x="132" y="738" name="inst_92259FAF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_buydrone" x="16" y="128" name="inst_AA3A04E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_buyworker" x="56" y="128" name="inst_A9C200D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_buydrone" x="28" y="128" name="inst_AA3A04E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_buyworker" x="76" y="128" name="inst_A9C200D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_attack" x="182" y="708" name="inst_B8387660" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_patrol" x="232" y="738" name="inst_9EB44945" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_pollenfocus" x="32" y="678" name="inst_FDC98557" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -68,15 +68,15 @@
     <instance objName="obj_upgrade_actheal" x="32" y="618" name="inst_4D8D80C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_actroyal" x="82" y="588" name="inst_A07B9F4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_actattack" x="132" y="618" name="inst_45328334" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_focus_pollen" x="0" y="152" name="inst_DA5D5FAD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_focus_nectar" x="0" y="176" name="inst_1AF7CE5B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_focus_honey" x="0" y="200" name="inst_DD1E0B87" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_focus_bloom" x="0" y="224" name="inst_49F55234" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_action_heal" x="6" y="256" name="inst_E02D752D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_action_royal" x="56" y="286" name="inst_9EA967D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_action_combat" x="6" y="316" name="inst_474DA7B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_focus_pollen" x="4" y="176" name="inst_DA5D5FAD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_focus_nectar" x="4" y="200" name="inst_1AF7CE5B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_focus_honey" x="4" y="224" name="inst_DD1E0B87" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_focus_bloom" x="4" y="248" name="inst_49F55234" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_action_heal" x="6" y="280" name="inst_E02D752D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_action_royal" x="56" y="310" name="inst_9EA967D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_action_combat" x="6" y="340" name="inst_474DA7B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="htme_obj_menu" x="232" y="120" name="inst_A5F7E909" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="spr_toggle_info" x="84" y="112" name="inst_2C34C70E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="spr_toggle_info" x="916" y="720" name="inst_2C34C70E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

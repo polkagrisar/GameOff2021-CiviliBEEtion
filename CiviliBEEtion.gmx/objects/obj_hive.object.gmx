@@ -513,6 +513,7 @@ draw_text(4,36,string(floor(jelly_progress))+"%")
 draw_set_colour(c_orange)
 draw_set_halign(fa_center)
 draw_set_valign(fa_top)
+draw_set_font(font0)
 
 draw_sprite(spr_resource_box,0,33,60)
 draw_sprite(spr_resource_box,1,99,60)
@@ -545,6 +546,9 @@ draw_text(165,70,obj_admin.res_honey)
             <string>// Draw the rest
 
 draw_self()
+
+draw_set_font(font0)
+
 draw_text(x-32,y-32,"W: " + string(idle_workers) + "/" + string(workers))
 draw_text(x-32,y-16,"ID: "+ string (p_id))
 draw_text(x-32,y+32,"DRONES: "+ string (drones))
@@ -554,6 +558,17 @@ var min_x = x-24
 var max_x = min_x+(48*missing_hp)
 
 draw_line_colour(x-24,y-32,max_x,y-32,c_red,c_red)
+
+if p_id != obj_admin.player {exit}
+
+draw_set_colour(c_white)
+draw_set_halign(fa_left)
+draw_set_valign(fa_middle)
+
+draw_sprite(spr_drone,0,16,152)
+draw_text(28,152,drones)
+draw_sprite(spr_bee,0,64,152)
+draw_text(76,152,string(idle_workers) + "/" + string(workers))
 </string>
           </argument>
         </arguments>

@@ -339,6 +339,28 @@ draw_sprite_ext(spr_superflower,0,x,y,2,2,0,c_white,1)}
 
 if (type == "rock") {draw_sprite(spr_rock,0,x,y)}
 if (type == "stump") {draw_sprite(spr_stump,0,x,y)}
+
+if (patrol &gt; 0) {
+    draw_set_colour(c_black)
+    draw_set_alpha(0.2)
+    var patrol_range = 0
+    var patrol_stump = 0
+    var p_id = scr_get_data("p_id",0)
+    
+        if p_id == 1 {patrol_range = obj_admin.p1_upgrade_patrol;}
+        if p_id == 2 {patrol_range = obj_admin.p2_upgrade_patrol;}
+        if p_id == 3 {patrol_range = obj_admin.p1_upgrade_patrol;}
+        if p_id == 4 {patrol_range = obj_admin.p2_upgrade_patrol;}
+        if p_id == 5 {patrol_range = obj_admin.p1_upgrade_patrol;}
+        if p_id == 6 {patrol_range = obj_admin.p2_upgrade_patrol;}
+    
+    if (type == "stump") {patrol_stump = 64}
+    if (type == "rock") {patrol_stump = 32}
+    
+    draw_circle(x,y,(patrol_range*16+patrol_stump)+48,true)
+    draw_set_alpha(1)
+
+}
 </string>
           </argument>
         </arguments>

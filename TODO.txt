@@ -1,6 +1,5 @@
 MARTIN ======================================================================
 
-*Update info boxes?
 *The rest of the upgrades
 	*Make sure they have an effect in game
 		*Still needs action buttons
@@ -9,6 +8,5 @@ MARTIN ======================================================================
 MARCUS ======================================================================
 
 WHOEVER =====================================================================
-
-*Spaces show patrol range when the Patrol box is hovered over?
 *Show how much Royal Jelly each player has
+*Make so attack upgrade works. (Increase base by 2 for a turn?)

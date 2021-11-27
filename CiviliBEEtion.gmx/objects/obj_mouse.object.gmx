@@ -197,31 +197,6 @@ if (hover != "none") {
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_action_parent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Mouse Collision
-
-hover = other.id
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="spr_toggle_info">
       <action>
         <libid>1</libid>
@@ -298,6 +273,31 @@ hover = other.id
       </action>
     </event>
     <event eventtype="4" ename="obj_space">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Mouse Collision
+
+hover = other.id
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_action_parent">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -461,6 +461,29 @@ if (y &gt; room_height-100) {offset = 75}
 
     draw_sprite(spr_infobox,0,x+75,y+50-offset)
     draw_text(x+28,y-offset,hover.info)
+}
+
+//Draw patrol range
+if (hover != "none") {
+if (hover.type == "order" &amp;&amp; hover.image_index == 1){
+if (hover.creator.patrol &gt; 0) {exit}
+    draw_set_colour(c_black)
+    draw_set_alpha(0.2)
+    var patrol_range = 0
+    var patrol_stump = 0
+        if p_id == 1 {patrol_range = obj_admin.p1_upgrade_patrol;}
+        if p_id == 2 {patrol_range = obj_admin.p2_upgrade_patrol;}
+        if p_id == 3 {patrol_range = obj_admin.p1_upgrade_patrol;}
+        if p_id == 4 {patrol_range = obj_admin.p2_upgrade_patrol;}
+        if p_id == 5 {patrol_range = obj_admin.p1_upgrade_patrol;}
+        if p_id == 6 {patrol_range = obj_admin.p2_upgrade_patrol;}
+    
+    if (hover.creator.type == "stump") {patrol_stump = 64}
+    if (hover.creator.type == "rock") {patrol_stump = 32}
+    
+    draw_circle(hover.creator.x,hover.creator.y,(patrol_range*16+patrol_stump)+48,true)
+    draw_set_alpha(1)
+    }
 }
 </string>
           </argument>

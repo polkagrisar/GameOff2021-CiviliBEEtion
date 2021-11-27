@@ -219,6 +219,7 @@
       <sprite>sprites\spr_escort_icon</sprite>
       <sprite>sprites\spr_drone_icon</sprite>
       <sprite>sprites\spr_attack_icon</sprite>
+      <sprite>sprites\spr_resource_box</sprite>
     </sprites>
     <sprites name="Masks">
       <sprite>sprites\spr_mask_bee</sprite>

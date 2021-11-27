@@ -56,9 +56,9 @@ target = "none" //Target patroller chases
 a_frame = 0
 
 //Combat Variables
-hp = 50
+hp = 30
 damage = 0 //Damage taken
-attack = 10
+attack = 0
 attack_bonus = 0
 enemy_bee = ""
 
@@ -226,10 +226,10 @@ if type == "patrol" &amp;&amp; state != "combat" {
 
 var base_attack = 1 + attack_bonus //attack_bonus = upgrades in attack 
 
-var stack_bonus = (bees+escort*base_attack) / 2
+var stack_bonus = ((bees+escort)*base_attack) / 2
 
 //Add an extra attack if not a gatherer
-if (escort &gt; 0 || type == "patrol" || type == "attack") {stack_bonus++}
+if (escort &gt; 0 || type != "gatherer") {stack_bonus++}
 
 attack = base_attack + stack_bonus
 

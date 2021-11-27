@@ -51,8 +51,8 @@ info = ""
 state = "none"
 defender = "none" //Workers that are protecting the hive
 defender_num = 0
-attack = 50
-drones_hp = 50
+attack = 30
+drones_hp = 30
 damage = 0
 
 reach = 0
@@ -514,9 +514,12 @@ draw_set_colour(c_orange)
 draw_set_halign(fa_center)
 draw_set_valign(fa_top)
 
-draw_text(33,54,obj_admin.res_pollen)
-draw_text(99,54,obj_admin.res_nectar)
-draw_text(165,54,obj_admin.res_honey)
+draw_sprite(spr_resource_box,0,33,60)
+draw_sprite(spr_resource_box,1,99,60)
+draw_sprite(spr_resource_box,2,165,60)
+draw_text(33,70,obj_admin.res_pollen)
+draw_text(99,70,obj_admin.res_nectar)
+draw_text(165,70,obj_admin.res_honey)
 </string>
           </argument>
         </arguments>
@@ -546,10 +549,11 @@ draw_text(x-32,y-32,"W: " + string(idle_workers) + "/" + string(workers))
 draw_text(x-32,y-16,"ID: "+ string (p_id))
 draw_text(x-32,y+32,"DRONES: "+ string (drones))
 
-if (mouse != "none")
-draw_text(x-32,y, "You")
-else
-draw_text (x-32,y, "Other")
+var missing_hp = hp/max_hp
+var min_x = x-24
+var max_x = min_x+(48*missing_hp)
+
+draw_line_colour(x-24,y-32,max_x,y-32,c_red,c_red)
 </string>
           </argument>
         </arguments>
@@ -628,7 +632,9 @@ image_index = color_index
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if p_id == 1 {obj_admin.p1_upgrade_distance++}
+            <string>if p_id == 1 {obj_admin.res_pollen += 100
+obj_admin.res_nectar += 100
+obj_admin.res_honey += 100}
 </string>
           </argument>
         </arguments>

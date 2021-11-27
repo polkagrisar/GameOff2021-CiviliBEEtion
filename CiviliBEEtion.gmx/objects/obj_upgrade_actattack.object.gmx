@@ -60,7 +60,7 @@ info = "Allows you to spend honey to increase your combat capabilities temporari
     obj_admin.res_pollen -= cost
     upgrades = true
     // Create honey focus box
-
+    obj_action_combat.image_index = 3
     // send data
     self.rpc_id = htme_hash()
     var playerlist = htme_getPlayers()

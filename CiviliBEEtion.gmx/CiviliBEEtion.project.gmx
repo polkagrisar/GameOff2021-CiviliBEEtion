@@ -233,6 +233,7 @@
       <sprite>sprites\spr_upgrade_blank</sprite>
       <sprite>sprites\spr_focuses</sprite>
       <sprite>sprites\spr_upgrades</sprite>
+      <sprite>sprites\spr_action</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -616,6 +617,11 @@
       <object>objects\obj_focus_nectar</object>
       <object>objects\obj_focus_honey</object>
       <object>objects\obj_focus_bloom</object>
+    </objects>
+    <objects name="Actions">
+      <object>objects\obj_action_heal</object>
+      <object>objects\obj_action_royal</object>
+      <object>objects\obj_action_combat</object>
     </objects>
     <object>objects\obj_dual_instance</object>
     <objects name="Gmnet">

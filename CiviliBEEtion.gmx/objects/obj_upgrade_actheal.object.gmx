@@ -60,7 +60,7 @@ info = "Allows you to spend honey to heal your queen."
     obj_admin.res_pollen -= cost
     upgrades = true
     // Create honey focus box
-
+    obj_action_heal.image_index++
     // send data
     self.rpc_id = htme_hash()
     var playerlist = htme_getPlayers()

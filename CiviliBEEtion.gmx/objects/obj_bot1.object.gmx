@@ -88,6 +88,79 @@ upgrade_cost = 0
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="14">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// ACTIONS
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Pick focus
+
+list_focus = ds_list_create()
+
+ds_list_add(list_focus,"none")
+if focus_pollen == true {
+    ds_list_add(list_focus,"pollen")
+    ds_list_add(list_focus,"pollen")
+}
+if focus_nectar == true {
+    ds_list_add(list_focus,"nectar")
+    ds_list_add(list_focus,"nectar")
+}
+if focus_honey == true {
+    ds_list_add(list_focus,"honey")
+    ds_list_add(list_focus,"honey")
+}
+if focus_pollination == true {
+    ds_list_add(list_focus,"bloom")
+}
+
+ds_list_shuffle(list_focus)
+
+focus = ds_list_find_value(list_focus,0)
+
+ds_list_destroy(list_focus)
+
+if focus == "none" &amp;&amp; focus_pollination == true {focus = "bloom"}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="12">
       <action>
         <libid>1</libid>
@@ -161,6 +234,9 @@ if pollen &gt;= upgrade_cost {
     
     ds_list_add(list_research,"speed")
     if obj_admin.bot1_upgrade_distance &lt; 16 {ds_list_add(list_research,"distance")}
+    if obj_admin.bot1_upgrade_distance &lt; 11 {ds_list_add(list_research,"distance")}
+    if obj_admin.bot1_upgrade_distance &lt; 6 {ds_list_add(list_research,"distance")}
+    ds_list_add(list_research,"distance")
     ds_list_add(list_research,"queen")
     ds_list_add(list_research,"attack")
     ds_list_add(list_research,"patrol")
@@ -189,11 +265,9 @@ if pollen &gt;= upgrade_cost {
     if need_research == "actheal" {upgrade_cost = upgrade_actheal_cost}
     if need_research == "actroyal" {upgrade_cost = upgrade_actroyal_cost}
     if need_research == "actattack" {upgrade_cost = upgrade_actattack_cost}
-    
-    ds_list_add(list_decision,"research")
 }
 
-ds_list_delete(list_decision,0)
+if pollen &gt;= upgrade_cost {event_user(2)}
 </string>
           </argument>
         </arguments>
@@ -249,6 +323,16 @@ random_set_seed(seed)
 
 // Research first
 
+event_user(2)
+
+// Pick focus
+
+event_user(3)
+
+// Do actions
+
+event_user(4)
+
 // Add all spaces to list
 
 list_flowers = ds_list_create()
@@ -292,9 +376,6 @@ repeat(temp) {ds_list_add(list_decision,"guard")}
 temp = tendency_work+irandom(4)
 repeat(temp) {ds_list_add(list_decision,"work")}
 
-temp = tendency_research+irandom(4)
-repeat(temp) {ds_list_add(list_decision,"research")}
-
 temp = (10-tendency_caution)+irandom(4)
 repeat(temp) {ds_list_add(list_decision,"worker")}
 
@@ -307,98 +388,10 @@ while ds_list_size(list_decision) &gt; 0 {
     if temp == "caution" {scr_ai_caution()}
     if temp == "guard" {scr_ai_guard()}
     if temp == "work" {scr_ai_work()}
-    if temp == "research" {event_user(2)}
     if temp == "worker" {scr_ai_makeworker()}
 }
 
 if ease_in &gt; 0 {ease_in--}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Buy upgrades
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Use actions / Decide focus
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Buy units
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Assign units
-
 </string>
           </argument>
         </arguments>

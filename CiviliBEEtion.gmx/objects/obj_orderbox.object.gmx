@@ -59,14 +59,15 @@ if y &lt; 16 {y += 112}
           <argument>
             <kind>1</kind>
             <string>///Set info box
+
 if (index == 0)
-info = "Gatherer:#Gathers Nectar, Pollen and Honey from flowers." 
+info = "Gatherer:#Gathers Pollen,#Nectar and Honey #from flowers." 
 if (index == 1)
-info = "Patroller:#Patrols an area and attacks any nearby enemy bees."
+info = "Patroller:#Patrols an area #and chases down any #nearby enemy bees."
 if (index == 2)
-info = "Escort:#Protects Gatherers in combat."
+info = "Escort:#Protect Gatherers #during combat."
 if (index == 3)
-info = "Attacker:#Flies to an enemy hive to attack their Queen." 
+info = "Attacker:#Flies to an enemy #hive to attack their #Queen." 
 
 
 

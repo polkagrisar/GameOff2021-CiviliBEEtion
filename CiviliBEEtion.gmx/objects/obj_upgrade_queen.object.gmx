@@ -38,7 +38,8 @@ if instance_exists(obj_p4) {p_id = 4}
 if instance_exists(obj_p5) {p_id = 5}
 if instance_exists(obj_p6) {p_id = 6}
 
-info = "Increase your Queen's health."
+info = "Increase your #Queen's health."
+type = "upgrade"
 </string>
           </argument>
         </arguments>

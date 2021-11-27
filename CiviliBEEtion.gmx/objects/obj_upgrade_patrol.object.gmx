@@ -33,7 +33,8 @@ cost = 5
 
 p_id = obj_admin.player
 
-info = "Increase bee patrol range."
+info = "Increase bee #patrol range."
+type = "upgrade"
 </string>
           </argument>
         </arguments>

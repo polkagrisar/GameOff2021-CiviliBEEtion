@@ -31,9 +31,12 @@ image_index = 3
 upgrades = 0
 cost = 5
 
+
 p_id = obj_admin.player
 
-info = "Increase bee travel speed."
+info = "Increase bee travel #speed."
+type = "upgrade"
+
 </string>
           </argument>
         </arguments>

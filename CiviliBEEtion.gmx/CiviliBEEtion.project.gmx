@@ -236,6 +236,8 @@
       <sprite>sprites\spr_upgrades</sprite>
       <sprite>sprites\spr_action</sprite>
     </sprites>
+    <sprite>sprites\spr_infobox</sprite>
+    <sprite>sprites\spr_info_toggle</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_map</background>
@@ -548,6 +550,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\font0</font>
+    <font>fonts\fnt_info</font>
     <font>fonts\fnt_cost</font>
     <font>fonts\fnt_upgrade</font>
   </fonts>
@@ -620,6 +623,7 @@
       <object>objects\obj_focus_bloom</object>
     </objects>
     <objects name="Actions">
+      <object>objects\obj_action_parent</object>
       <object>objects\obj_action_heal</object>
       <object>objects\obj_action_royal</object>
       <object>objects\obj_action_combat</object>
@@ -696,6 +700,7 @@
       <object>objects\obj_hive_combat</object>
       <object>objects\obj_combat_bee_fx</object>
       <object>objects\obj_queen_fx</object>
+      <object>objects\spr_toggle_info</object>
       <object>objects\obj_drone_fx</object>
     </objects>
   </objects>

@@ -33,7 +33,8 @@ cost = 10
 
 p_id = obj_admin.player
 
-info = "Increase bee attack power."
+info = "Increase the attack power #of your bees."
+type = "upgrade"
 </string>
           </argument>
         </arguments>

@@ -111,11 +111,21 @@ collided_with = ds_list_create()
           <argument>
             <kind>1</kind>
             <string>///Set info box
-info = "P: " + string(pollen) + "#N: " + string(nectar) + "#H: " + string(honey) + "#TEMP: " + string(resources)
-if type != "flower" {info = ""}
-//if type == "bud" {info = "GROWTH: " + string(growth)}
 
 info = ""
+
+if (type == "flower") {
+if (sub_type == "balanced") {info = "Balanced Flower: #Gives a decent #amount of Pollen, #Nectar and Honey."}
+if (sub_type == "honey") {info = "Honey-Flower: #Gives more Honey, #but less Pollen and #Nectar."}
+if (sub_type == "pollen") {info = "Pollen-Flower: #Gives more Pollen, #but less Nectar and #Honey."}
+if (sub_type == "nectar") {info = "Nectar-Flower: #Gives more Nectar, #but less Pollen and #Honey."}
+if (sub_type == "superflower") {info = "Superflower: #Gives a massive #amount of Pollen, #Nectar and Honey."}
+}
+
+if (type == "rock") {info = "Rock: #Slightly increases #the range of #Patrol bees."}
+if (type == "stump") {info = "Stump: #Greatly increases #the range of #Patrol bees."}
+
+if type == "bud" {info = "Bud: #Ungrown flowers. #Pollinate to grow."}
 
 if resources &lt; 0 {resources = 0}
 </string>

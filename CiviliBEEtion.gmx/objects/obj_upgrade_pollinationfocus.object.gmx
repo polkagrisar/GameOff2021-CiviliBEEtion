@@ -33,7 +33,8 @@ cost = 15
 
 p_id = obj_admin.player
 
-info = "Allows you to focus on pollinating flowers (including already grown flowers)."
+info = "Allows you to #focus on #pollinating flowers #(including already #grown flowers)."
+type = "upgrade"
 </string>
           </argument>
         </arguments>

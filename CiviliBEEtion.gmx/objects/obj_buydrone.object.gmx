@@ -31,7 +31,8 @@ cost = 1
 
 p_id = obj_admin.player
 
-info = "Produce a drone. Drones protext the hive and heal the queen."
+type = ""
+info = "Produce a drone. #Drones protect the #hive and heal the #queen. #(Drones die at start #of turn)"
 </string>
           </argument>
         </arguments>

@@ -33,7 +33,8 @@ cost = 15
 
 p_id = obj_admin.player
 
-info = "Allows you to spend honey to heal your queen."
+info = "Allows you to #spend honey to #heal your queen."
+type = "upgrade"
 </string>
           </argument>
         </arguments>

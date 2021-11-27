@@ -35,6 +35,8 @@ hover = "none"
 
 home_x = 0
 home_y = 0
+
+info_toggle = true
 </string>
           </argument>
         </arguments>
@@ -88,6 +90,14 @@ if (obj_phasetracker.phase != "planning" || obj_endturn.locked == true) {exit}
 
 if (mouse_check_button_pressed(mb_left) &amp;&amp; hover != "none") {
     if (target == hover) {exit}
+    
+    //Toggle Info-box
+    if (hover.type == "toggle_box") {
+    hover.image_index++
+    if (hover.image_index &gt; 1) {hover.image_index = 0}
+    if (hover.image_index == 0) {info_toggle = true}
+    if (hover.image_index == 1) {info_toggle = false}
+    }
             
     //If Flower / Rock / Anything on the space-object
     if (hover.type == "flower" || hover.type == "rock" || hover.type == "stump") &amp;&amp; point_distance(hover.x,hover.y,home_x,home_y) &lt;= owner.reach+8 { 
@@ -187,6 +197,56 @@ if (hover != "none") {
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="obj_action_parent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Mouse Collision
+
+hover = other.id
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="spr_toggle_info">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Mouse Collision
+
+hover = other.id
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="obj_orderbox">
       <action>
         <libid>1</libid>
@@ -281,7 +341,57 @@ hover = other.id
             <kind>1</kind>
             <string>/// Mouse Collision
 
-//hover = other.id
+hover = other.id
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_buyworker">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Mouse Collision
+
+hover = other.id
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_buydrone">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Mouse Collision
+
+hover = other.id
 </string>
           </argument>
         </arguments>
@@ -337,8 +447,20 @@ draw_text(x,y-48,view_hview)
             <kind>1</kind>
             <string>///Draw Info
 
-if (hover != "none") {
-    draw_text(hover.x-32,hover.y-32,hover.info)
+if (hover != "none" &amp;&amp; info_toggle) {
+
+if (hover.info == "") {exit}
+
+draw_set_halign(fa_left)
+draw_set_valign(fa_top)
+draw_set_font(fnt_info)
+
+var offset = 0
+
+if (y &gt; room_height-100) {offset = 75}
+
+    draw_sprite(spr_infobox,0,x+75,y+50-offset)
+    draw_text(x+28,y-offset,hover.info)
 }
 </string>
           </argument>

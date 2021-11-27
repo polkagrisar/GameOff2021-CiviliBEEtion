@@ -32,6 +32,7 @@ cost = 2
 
 p_id = obj_admin.player
 
+type = ""
 info = "Produce a worker."
 </string>
           </argument>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>obj_action_parent</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,6 +26,35 @@
           <argument>
             <kind>1</kind>
             <string>image_speed = 0
+
+type = ""
+info = "Heal your queen."
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set info
+if (image_index == 0) {info = ""}
+else
+info = "Heal your queen."
 </string>
           </argument>
         </arguments>
@@ -50,6 +79,7 @@
             <kind>1</kind>
             <string>if image_index == 1 &amp;&amp; obj_admin.res_honey &gt;= 5 {
     with obj_hive {
+    if (hp == max_hp) {exit}
         if p_id == obj_admin.player {
             hp += 5
             if hp &gt; max_hp {hp = max_hp}

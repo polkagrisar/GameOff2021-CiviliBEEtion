@@ -238,9 +238,13 @@
     </sprites>
     <sprite>sprites\spr_infobox</sprite>
     <sprite>sprites\spr_info_toggle</sprite>
+    <sprite>sprites\spr_menu_buttons</sprite>
+    <sprite>sprites\spr_lobby_ready</sprite>
+    <sprite>sprites\spr_bot_button</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_map</background>
+    <background>background\bg_menu</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -595,6 +599,7 @@
     <objects name="Menu">
       <object>objects\obj_menu_create</object>
       <object>objects\obj_menu_join</object>
+      <object>objects\obj_menu_credits</object>
       <object>objects\obj_menu_connecting</object>
       <objects name="Lobby">
         <object>objects\obj_ready</object>

@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-46</xoffset>
-    <yoffset>1329</yoffset>
+    <xoffset>-62</xoffset>
+    <yoffset>-58</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="bg_map" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -67,14 +67,12 @@
     <instance objName="obj_upgrade_honeyfocus" x="132" y="678" name="inst_D7BCB30A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_actheal" x="32" y="618" name="inst_4D8D80C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_upgrade_actroyal" x="82" y="588" name="inst_A07B9F4A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_upgrade_actattack" x="132" y="618" name="inst_45328334" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_focus_pollen" x="4" y="176" name="inst_DA5D5FAD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_focus_nectar" x="4" y="200" name="inst_1AF7CE5B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_focus_honey" x="4" y="224" name="inst_DD1E0B87" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_focus_bloom" x="4" y="248" name="inst_49F55234" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_action_heal" x="6" y="280" name="inst_E02D752D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_action_royal" x="56" y="310" name="inst_9EA967D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_action_combat" x="6" y="340" name="inst_474DA7B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="htme_obj_menu" x="232" y="120" name="inst_A5F7E909" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="spr_toggle_info" x="916" y="720" name="inst_2C34C70E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>

@@ -28,7 +28,7 @@
             <string>image_speed = 0
 
 type = ""
-info = "Heal your queen."
+info = "Heal your queen #5 HP."
 </string>
           </argument>
         </arguments>
@@ -54,7 +54,7 @@ info = "Heal your queen."
             <string>///Set info
 if (image_index == 0) {info = ""}
 else
-info = "Heal your queen."
+info = "Heal your queen #5 HP."
 </string>
           </argument>
         </arguments>
@@ -77,7 +77,7 @@ info = "Heal your queen."
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if image_index == 1 &amp;&amp; obj_admin.res_honey &gt;= 5 {
+            <string>if image_index == 1 &amp;&amp; obj_admin.res_honey &gt;= 5 &amp;&amp; obj_endturn.locked == false {
     with obj_hive {
     if (hp == max_hp) {exit}
         if p_id == obj_admin.player {

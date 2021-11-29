@@ -37,11 +37,11 @@ if obj_admin.player4 == true {player_amount++}
 if obj_admin.player5 == true {player_amount++}
 if obj_admin.player6 == true {player_amount++}
 if obj_admin.bot1 == true {player_amount++ instance_create(300,32,obj_bot1)}
-if obj_admin.bot2 == true {player_amount++}
-if obj_admin.bot3 == true {player_amount++}
-if obj_admin.bot4 == true {player_amount++}
-if obj_admin.bot5 == true {player_amount++}
-if obj_admin.bot6 == true {player_amount++}
+if obj_admin.bot2 == true {player_amount++ instance_create(300,32,obj_bot2)}
+if obj_admin.bot3 == true {player_amount++ instance_create(300,32,obj_bot3)}
+if obj_admin.bot4 == true {player_amount++ instance_create(300,32,obj_bot4)}
+if obj_admin.bot5 == true {player_amount++ instance_create(300,32,obj_bot5)}
+if obj_admin.bot6 == true {player_amount++ instance_create(300,32,obj_bot6)}
 </string>
           </argument>
         </arguments>
@@ -200,9 +200,9 @@ ds_list_destroy(list_hives)
 with instance_create(room_width/2,room_height/2,obj_space) {
     type = "flower"
     sub_type = "superflower"
-    pollen = 2.5
-    nectar = 2.5
-    honey = 2.5
+    pollen = 2
+    nectar = 2
+    honey = 2
 }
 
 // Spread stuff, circle 1
@@ -380,11 +380,11 @@ ds_list_destroy(list_stuff)
             <string>/// Set bot seeds
 
 with obj_bot1 {event_user(0)}
-//with obj_bot2 {event_user(0)}
-//with obj_bot3 {event_user(0)}
-//with obj_bot4 {event_user(0)}
-//with obj_bot5 {event_user(0)}
-//with obj_bot6 {event_user(0)}
+with obj_bot2 {event_user(0)}
+with obj_bot3 {event_user(0)}
+with obj_bot4 {event_user(0)}
+with obj_bot5 {event_user(0)}
+with obj_bot6 {event_user(0)}
 </string>
           </argument>
         </arguments>

@@ -205,47 +205,47 @@ if focus == "none" &amp;&amp; focus_pollination == true {focus = "bloom"}
 if pollen &gt;= upgrade_cost {
     pollen -= upgrade_cost
     if need_research == "speed" {
-        obj_admin.bot1_upgrade_speed++
+        obj_admin.bot2_upgrade_speed++
         upgrade_speed_cost += 2
     }
-    if need_research == "distance" {obj_admin.bot1_upgrade_distance++}
+    if need_research == "distance" {obj_admin.bot2_upgrade_distance++}
     if need_research == "queen" {
-        obj_admin.bot1_upgrade_queen++
+        obj_admin.bot2_upgrade_queen++
         with obj_hive {
             if p_id == 101 {hp += 5}
         }
     }
     if need_research == "attack" {
-        obj_admin.bot1_upgrade_attack++
+        obj_admin.bot2_upgrade_attack++
         upgrade_attack_cost += 5
     }
-    if need_research == "patrol" {obj_admin.bot1_upgrade_patrol++}
+    if need_research == "patrol" {obj_admin.bot2_upgrade_patrol++}
     if need_research == "pollenfocus" {
-        obj_admin.bot1_upgrade_focus_pollen = true
+        obj_admin.bot2_upgrade_focus_pollen = true
         focus_pollen = true
     }
     if need_research == "nectarfocus" {
-        obj_admin.bot1_upgrade_focus_nectar = true
+        obj_admin.bot2_upgrade_focus_nectar = true
         focus_nectar = true
     }
     if need_research == "honeyfocus" {
-        obj_admin.bot1_upgrade_focus_honey = true
+        obj_admin.bot2_upgrade_focus_honey = true
         focus_honey = true
     }
     if need_research == "pollinationfocus" {
-        obj_admin.bot1_upgrade_focus_pollination = true
+        obj_admin.bot2_upgrade_focus_pollination = true
         focus_pollen = true
     }
     if need_research == "actheal" {
-        obj_admin.bot1_upgrade_action_heal = true
+        obj_admin.bot2_upgrade_action_heal = true
         can_heal = true
     }
     if need_research == "actroyal" {
-        obj_admin.bot1_upgrade_action_royal = true
+        obj_admin.bot2_upgrade_action_royal = true
         can_royal = true
     }
 //    if need_research == "actattack" {
-//        obj_admin.bot1_upgrade_action_attack = true
+//        obj_admin.bot2_upgrade_action_attack = true
 //        can_attack = true
 //    }
     
@@ -253,9 +253,9 @@ if pollen &gt;= upgrade_cost {
     list_research = ds_list_create()
     
     ds_list_add(list_research,"speed")
-    if obj_admin.bot1_upgrade_distance &lt; 16 {ds_list_add(list_research,"distance")}
-    if obj_admin.bot1_upgrade_distance &lt; 11 {ds_list_add(list_research,"distance")}
-    if obj_admin.bot1_upgrade_distance &lt; 6 {ds_list_add(list_research,"distance")}
+    if obj_admin.bot2_upgrade_distance &lt; 16 {ds_list_add(list_research,"distance")}
+    if obj_admin.bot2_upgrade_distance &lt; 11 {ds_list_add(list_research,"distance")}
+    if obj_admin.bot2_upgrade_distance &lt; 6 {ds_list_add(list_research,"distance")}
     ds_list_add(list_research,"distance")
     ds_list_add(list_research,"queen")
     ds_list_add(list_research,"attack")
@@ -360,28 +360,28 @@ list_obstacles = ds_list_create() // Rocks and stumps
 list_hives = ds_list_create()
 
 with obj_space {
-    if type == "flower" &amp;&amp; point_distance(x,y,obj_bot1.hive.x,obj_bot1.hive.y) &lt;= obj_bot1.hive.reach {
+    if type == "flower" &amp;&amp; point_distance(x,y,obj_bot2.hive.x,obj_bot2.hive.y) &lt;= obj_bot2.hive.reach {
         with instance_create(x,y,obj_aiorder) {
-            p_id = 101
+            p_id = 102
             space_owner = other.id
-            ds_list_add(obj_bot1.list_flowers,id)
+            ds_list_add(obj_bot2.list_flowers,id)
         }
     }
-    if (type == "rock" || type == "stump") &amp;&amp; point_distance(x,y,obj_bot1.hive.x,obj_bot1.hive.y) &lt;= obj_bot1.hive.reach {
+    if (type == "rock" || type == "stump") &amp;&amp; point_distance(x,y,obj_bot2.hive.x,obj_bot2.hive.y) &lt;= obj_bot2.hive.reach {
         with instance_create(x,y,obj_aiorder) {
-            p_id = 101
+            p_id = 102
             space_owner = other.id
-            ds_list_add(obj_bot1.list_obstacles,id)
+            ds_list_add(obj_bot2.list_obstacles,id)
         }
     }
 }
 
 with obj_hive {
-    if p_id != 101 &amp;&amp; point_distance(x,y,obj_bot1.hive.x,obj_bot1.hive.y) &lt;= obj_bot1.hive.reach {
+    if p_id != 102 &amp;&amp; point_distance(x,y,obj_bot2.hive.x,obj_bot2.hive.y) &lt;= obj_bot2.hive.reach {
         with instance_create(x,y,obj_aiorder) {
-            p_id = 101
+            p_id = 102
             space_owner = other.id
-            ds_list_add(obj_bot1.list_hives,id)
+            ds_list_add(obj_bot2.list_hives,id)
         }
     }
 }
@@ -450,9 +450,9 @@ if ease_in &gt; 0 {ease_in--}
             <kind>1</kind>
             <string>/// Be done
 
-show_debug_message("BOT 1 DONE")
+show_debug_message("BOT 2 DONE")
 
-obj_admin.bot1_focus = focus
+obj_admin.bot2_focus = focus
 
 ds_list_destroy(list_decision)
 ds_list_destroy(list_flowers)
@@ -501,7 +501,7 @@ tendency_nectar = irandom_range(1,10)
 tendency_honey = irandom_range(1,10)
 
 with obj_hive {
-    if p_id = 101 {other.hive = id}
+    if p_id = 102 {other.hive = id}
 }
 
 ease_in = 10+irandom(4)

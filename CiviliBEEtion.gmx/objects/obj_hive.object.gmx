@@ -546,7 +546,7 @@ draw_text(165,70,obj_admin.res_honey)
             <string>// Draw the rest
 
 draw_self()
-
+/*
 draw_set_font(font0)
 
 draw_text(x-32,y-32,"W: " + string(idle_workers) + "/" + string(workers))
@@ -558,7 +558,7 @@ var min_x = x-24
 var max_x = min_x+(48*missing_hp)
 
 draw_line_colour(x-24,y-32,max_x,y-32,c_red,c_red)
-
+*/
 if p_id != obj_admin.player {exit}
 
 draw_set_colour(c_white)

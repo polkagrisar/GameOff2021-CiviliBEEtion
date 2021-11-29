@@ -63,7 +63,7 @@ if bot_tracker == 1 {
     bot_tracker++
     exit
 }
-/*
+
 if bot_tracker == 2 {
     if instance_exists(obj_bot2) {
         with obj_bot2 {event_user(1)}
@@ -73,7 +73,7 @@ if bot_tracker == 2 {
     exit
 }
 
-/*
+
 if bot_tracker == 3 {
     if instance_exists(obj_bot3) {
         with obj_bot3 {event_user(1)}
@@ -83,7 +83,7 @@ if bot_tracker == 3 {
     exit
 }
 
-/*
+
 if bot_tracker == 4 {
     if instance_exists(obj_bot4) {
         with obj_bot4 {event_user(1)}
@@ -93,7 +93,7 @@ if bot_tracker == 4 {
     exit
 }
 
-/*
+
 if bot_tracker == 5 {
     if instance_exists(obj_bot5) {
         with obj_bot5 {event_user(1)}
@@ -103,7 +103,7 @@ if bot_tracker == 5 {
     exit
 }
 
-/*
+
 if bot_tracker == 6 {
     if instance_exists(obj_bot6) {
         with obj_bot6 {event_user(1)}

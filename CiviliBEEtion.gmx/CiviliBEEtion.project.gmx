@@ -550,6 +550,7 @@
       <script>scripts\scr_ai_work.gml</script>
       <script>scripts\scr_ai_makeworker.gml</script>
       <script>scripts\scr_ai_research.gml</script>
+      <script>scripts\scr_ai_attack.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -595,6 +596,11 @@
     </objects>
     <objects name="Bots">
       <object>objects\obj_bot1</object>
+      <object>objects\obj_bot2</object>
+      <object>objects\obj_bot3</object>
+      <object>objects\obj_bot4</object>
+      <object>objects\obj_bot5</object>
+      <object>objects\obj_bot6</object>
     </objects>
     <objects name="Menu">
       <object>objects\obj_menu_create</object>

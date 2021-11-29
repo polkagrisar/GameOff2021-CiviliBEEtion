@@ -454,6 +454,7 @@ if (hover.info == "") {exit}
 draw_set_halign(fa_left)
 draw_set_valign(fa_top)
 draw_set_font(fnt_info)
+draw_set_colour(c_black)
 
 var offset = 0
 

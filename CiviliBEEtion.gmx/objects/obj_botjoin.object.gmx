@@ -148,7 +148,7 @@ if (!active) {image_index = 1}
 
 
 
-if (active) {draw_sprite(spr_hive,0,x-184,y)}
+if (active){draw_sprite(spr_hive,6+botno,x,y-66)}
 </string>
           </argument>
         </arguments>

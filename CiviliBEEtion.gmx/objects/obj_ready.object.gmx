@@ -225,7 +225,7 @@ if instance_exists(obj_p1) &amp;&amp; p2_ready == true &amp;&amp; p3_ready == tr
             <kind>1</kind>
             <string>/// Draw players
 
-
+/*
 
 if obj_admin.player2 == true {
     if p2_ready == false {draw_set_colour(c_red)} else {draw_set_colour(c_green)}
@@ -237,7 +237,97 @@ if obj_admin.player2 == true {
 if obj_admin.player3 == true {
     if p3_ready == false {draw_set_colour(c_red)} else {draw_set_colour(c_green)}
     draw_text(16,300,"P3")
+}*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw Stuff
+draw_self()
+
+draw_set_halign(fa_center)
+draw_set_valign(fa_middle)
+
+
+draw_sprite(spr_hive,1,96,288)
+draw_set_colour(c_green)
+draw_text(94,244,"P1")
+
+if obj_admin.player2 == true {
+draw_sprite(spr_hive,2,160,288)
+
+    if p2_ready == false {    
+    draw_set_colour(c_red)
+    } else {draw_set_colour(c_green)}
+    draw_text(158,244,"P2")
+    
 }
+
+if obj_admin.player3 == true {
+draw_sprite(spr_hive,3,256,288)
+
+    if p2_ready == false {    
+    draw_set_colour(c_red)
+    } else {draw_set_colour(c_green)}
+    draw_text(256,244,"P3")
+    
+}
+
+if obj_admin.player4 == true {
+draw_sprite(spr_hive,4,320,288)
+
+    if p2_ready == false {    
+    draw_set_colour(c_red)
+    } else {draw_set_colour(c_green)}
+    draw_text(318,244,"P4")
+    
+}
+
+if obj_admin.player5 == true {
+draw_sprite(spr_hive,5,384,288)
+
+    if p2_ready == false {    
+    draw_set_colour(c_red)
+    } else {draw_set_colour(c_green)}
+    draw_text(382,244,"P5")
+    
+}
+
+if obj_admin.player6 == true {
+draw_sprite(spr_hive,6,448,288)
+
+    if p2_ready == false {    
+    draw_set_colour(c_red)
+    } else {draw_set_colour(c_green)}
+    draw_text(446,244,"P6")
+    
+}
+
+draw_set_colour(c_black)
+if instance_exists(obj_p1) {draw_text(94,326,"You")}
+if instance_exists(obj_p2) {draw_text(158,326,"You")}
+if instance_exists(obj_p3) {draw_text(256,326,"You")}
+if instance_exists(obj_p4) {draw_text(318,326,"You")}
+if instance_exists(obj_p5) {draw_text(382,326,"You")}
+if instance_exists(obj_p6) {draw_text(446,326,"You")}
 </string>
           </argument>
         </arguments>

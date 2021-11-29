@@ -487,11 +487,6 @@ if p_id != obj_admin.player {exit}
 // Draw health
 
 draw_set_colour(c_black)
-draw_set_font(font0)
-draw_set_halign(fa_center)
-draw_set_valign(fa_middle)
-draw_text(x,y+32,"YOU")
-
 draw_rectangle(0,0,200,24,false)
 draw_set_colour(c_maroon)
 draw_rectangle(2,2,(2+(hp/max_hp)*196),22,false)
@@ -548,32 +543,14 @@ draw_text(165,70,obj_admin.res_honey)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Draw the rest
-
+            <string>///Set color
 draw_self()
-/*
-draw_set_font(font0)
 
-draw_text(x-32,y-32,"W: " + string(idle_workers) + "/" + string(workers))
-draw_text(x-32,y-16,"ID: "+ string (p_id))
-draw_text(x-32,y+32,"DRONES: "+ string (drones))
+var color_index = p_id
+if (color_index &gt; 100) {
+color_index -= 94}
 
-var missing_hp = hp/max_hp
-var min_x = x-24
-var max_x = min_x+(48*missing_hp)
-
-draw_line_colour(x-24,y-32,max_x,y-32,c_red,c_red)
-*/
-if p_id != obj_admin.player {exit}
-
-draw_set_colour(c_white)
-draw_set_halign(fa_left)
-draw_set_valign(fa_middle)
-
-draw_sprite(spr_drone,0,16,152)
-draw_text(28,152,drones)
-draw_sprite(spr_bee,0,64,152)
-draw_text(76,152,string(idle_workers) + "/" + string(workers))
+image_index = color_index
 </string>
           </argument>
         </arguments>
@@ -624,12 +601,22 @@ draw_text(x,y-32,attackers)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set color
-var color_index = p_id
-if (color_index &gt; 100) {
-color_index -= 94}
+            <string>// Draw the rest
 
-image_index = color_index
+if p_id != obj_admin.player {exit}
+
+draw_set_colour(c_white)
+draw_set_halign(fa_center)
+draw_set_valign(fa_middle)
+
+draw_text(x,y+36,"YOU")
+
+draw_set_halign(fa_left)
+
+draw_sprite(spr_drone,0,16,152)
+draw_text(28,152,drones)
+draw_sprite(spr_bee,0,64,152)
+draw_text(76,152,string(idle_workers) + "/" + string(workers))
 </string>
           </argument>
         </arguments>

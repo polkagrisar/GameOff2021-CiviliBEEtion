@@ -122,9 +122,7 @@ if botno == 6 {image_index = htme_globalGet("bot6")}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
-
-
+            <string>if (instance_exists(obj_p1)) {draw_self()}
 
 if (image_index == 1){draw_sprite(spr_hive,6+botno,x,y-66)}
 </string>

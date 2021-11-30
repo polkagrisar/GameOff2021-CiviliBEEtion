@@ -282,52 +282,52 @@ draw_sprite(spr_hive,2,160,288)
 }
 
 if obj_admin.player3 == true {
-draw_sprite(spr_hive,3,256,288)
+draw_sprite(spr_hive,3,224,288)
 
-    if p2_ready == false {    
+    if p3_ready == false {    
     draw_set_colour(c_red)
     } else {draw_set_colour(c_green)}
-    draw_text(256,244,"P3")
+    draw_text(222,244,"P3")
     
 }
 
 if obj_admin.player4 == true {
-draw_sprite(spr_hive,4,320,288)
+draw_sprite(spr_hive,4,288,288)
 
-    if p2_ready == false {    
+    if p3_ready == false {    
     draw_set_colour(c_red)
     } else {draw_set_colour(c_green)}
-    draw_text(318,244,"P4")
+    draw_text(286,244,"P4")
     
 }
 
 if obj_admin.player5 == true {
-draw_sprite(spr_hive,5,384,288)
+draw_sprite(spr_hive,5,352,288)
 
-    if p2_ready == false {    
+    if p3_ready == false {    
     draw_set_colour(c_red)
     } else {draw_set_colour(c_green)}
-    draw_text(382,244,"P5")
+    draw_text(350,244,"P5")
     
 }
 
 if obj_admin.player6 == true {
-draw_sprite(spr_hive,6,448,288)
+draw_sprite(spr_hive,6,416,288)
 
-    if p2_ready == false {    
+    if p3_ready == false {    
     draw_set_colour(c_red)
     } else {draw_set_colour(c_green)}
-    draw_text(446,244,"P6")
+    draw_text(414,244,"P6")
     
 }
 
 draw_set_colour(c_black)
 if instance_exists(obj_p1) {draw_text(94,326,"You")}
 if instance_exists(obj_p2) {draw_text(158,326,"You")}
-if instance_exists(obj_p3) {draw_text(256,326,"You")}
-if instance_exists(obj_p4) {draw_text(318,326,"You")}
-if instance_exists(obj_p5) {draw_text(382,326,"You")}
-if instance_exists(obj_p6) {draw_text(446,326,"You")}
+if instance_exists(obj_p3) {draw_text(222,326,"You")}
+if instance_exists(obj_p4) {draw_text(286,326,"You")}
+if instance_exists(obj_p5) {draw_text(350,326,"You")}
+if instance_exists(obj_p6) {draw_text(414,326,"You")}
 </string>
           </argument>
         </arguments>

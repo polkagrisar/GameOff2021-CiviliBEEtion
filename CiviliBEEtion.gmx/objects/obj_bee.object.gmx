@@ -576,6 +576,11 @@ if (state == "attack" &amp;&amp; other.hp &gt; 1) {
         
     }
 }
+
+if (state == "attack" &amp;&amp; other.hp &lt; 2) {
+state = "return"
+order_state = "return"
+}
 </string>
           </argument>
         </arguments>

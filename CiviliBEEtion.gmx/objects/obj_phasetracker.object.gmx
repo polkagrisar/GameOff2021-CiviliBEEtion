@@ -142,7 +142,7 @@ players_ready = 0
 bots_ready = 0
 
 with obj_hive {
-    if workers == 0 {workers++}
+    if workers &lt; 5 {workers++}
     idle_workers = workers
 }
 

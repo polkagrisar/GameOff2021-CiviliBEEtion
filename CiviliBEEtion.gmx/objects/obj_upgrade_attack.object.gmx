@@ -29,7 +29,7 @@
 image_index = 1
 
 upgrades = 0
-cost = 10
+cost = 8
 
 p_id = obj_admin.player
 
@@ -59,7 +59,7 @@ type = "upgrade"
             <kind>1</kind>
             <string>if obj_endturn.locked == false &amp;&amp; obj_admin.res_pollen &gt;= cost {
     obj_admin.res_pollen -= cost
-    cost += 5
+    cost += 2
     upgrades++
 
     // send data

@@ -333,6 +333,10 @@ if (x == home_x &amp;&amp; y == home_y &amp;&amp; state == "return") {
 
 // Patrol chase bees
 
+if state == "chase" &amp;&amp; !instance_exists(target) {
+    state = order_state
+}
+
 if (state == "chase") {
     if point_distance(x,y,target.x,target.y) &lt;= move_speed {
         x = target.x

@@ -60,6 +60,7 @@ info = "Produce a drone. #Drones protect the #hive and heal the #queen. #(Drones
     with obj_hive {
         if p_id == other.p_id {drones++}
     }
+    audio_play_sound(snd_buy,10,0)
 }
 </string>
           </argument>

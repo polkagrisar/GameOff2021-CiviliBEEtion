@@ -60,6 +60,7 @@ type = "upgrade"
             <string>if obj_endturn.locked == false &amp;&amp; obj_admin.res_pollen &gt;= cost {
     obj_admin.res_pollen -= cost
     upgrades++
+    audio_play_sound(snd_upgrade,10,0)
 
     // send data
     self.rpc_id = htme_hash()

@@ -65,6 +65,7 @@ type = "upgrade"
             <string>if obj_endturn.locked == false &amp;&amp; obj_admin.res_pollen &gt;= cost {
     obj_admin.res_pollen -= cost
     upgrades++
+    audio_play_sound(snd_upgrade,10,0)
     with obj_hive {
         if p_id == other.p_id {hp += 5}
     }

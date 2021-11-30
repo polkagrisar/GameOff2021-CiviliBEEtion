@@ -266,11 +266,10 @@ if (units[i] != "none") {
     if (temp_index &gt; 100) {temp_index -= 94}
     
     draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-32)
-    draw_text(x+(32*i)-(16*(units_total-1)+4),y-32,string(units[i].bees))
+    draw_text(x+(32*i)-(16*(units_total-1)+4),y+4,string(units[i].bees+units[i].escort))
     
     if (units[i].escort &gt; 0) {temp_sprite = spr_escort_icon
-    draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-48)
-    draw_text(x+(32*i)-(16*(units_total-1)+4),y-48,string(units[i].escort))}
+    draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-48)}
     
     
 }

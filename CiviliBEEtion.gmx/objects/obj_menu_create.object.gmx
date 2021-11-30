@@ -63,6 +63,8 @@ if (htme_serverStart(port,4)) {
 } else {
     htme_error_message_handler("Could not start server! Check your network configuration!")
 }
+
+audio_play_sound(snd_menuPress,10,0)
 </string>
           </argument>
         </arguments>

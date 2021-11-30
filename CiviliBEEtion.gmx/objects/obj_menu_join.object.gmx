@@ -61,6 +61,8 @@ if (htme_clientStart(ip, port)) {
 } else {
     htme_error_message_handler("Could not start client! Check your network configuration!")
 }
+
+audio_play_sound(snd_menuPress,10,0)
 </string>
           </argument>
         </arguments>

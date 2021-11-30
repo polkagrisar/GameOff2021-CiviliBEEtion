@@ -60,6 +60,7 @@ type = "upgrade"
             <string>if obj_endturn.locked == false &amp;&amp; obj_admin.res_pollen &gt;= cost &amp;&amp; upgrades == false {
     obj_admin.res_pollen -= cost
     upgrades = true
+    audio_play_sound(snd_upgrade,10,0)
     // Create honey focus box
     obj_action_royal.image_index = 2
     // send data

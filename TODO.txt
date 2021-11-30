@@ -1,12 +1,6 @@
 MARTIN ======================================================================
 
-*The rest of the upgrades
-	*Make sure they have an effect in game
-		*Still needs action buttons
-*Bot AI (that's going to take effort)
-
 MARCUS ======================================================================
 
 WHOEVER =====================================================================
 *Show how much Royal Jelly each player has
-*Make so attack upgrade works. (Increase base by 2 for a turn?)

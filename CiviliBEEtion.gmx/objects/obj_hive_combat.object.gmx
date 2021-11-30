@@ -280,9 +280,6 @@ if (state == "attack") {
           <argument>
             <kind>1</kind>
             <string>///Combat things
-//draw_self()
-
-//if (position_meeting(x,y,obj_mouse)) { //Show combat if hovering over combat
 
 var temp_sprite = spr_patrol_icon
 var temp_index = 0
@@ -303,29 +300,26 @@ if (units[i] != "none") {
         
     if (i == 0) {
     draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-32)
+    
     if (units[i].drones &gt; 0) { temp_sprite = spr_drone_icon
-    draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-48) }
+    draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-48)
+    draw_text(x+(32*i)-(16*(units_total-1)+4),y+4,string(units[i].drones)) }
     
     }
     
     if (i &gt; 0) {
     draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-32)
-    draw_text(x+(32*i)-(16*(units_total-1)+4),y-32,string(units[i].bees))
+    draw_text(x+(32*i)-(16*(units_total-1)+4),y+4,string(units[i].bees+units[i].escort))
     
     if (units[i].escort &gt; 0) {temp_sprite = spr_escort_icon
-    draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-48)
-    draw_text(x+(32*i)-(16*(units_total-1)+4),y-48,string(units[i].escort))}
+    draw_sprite(temp_sprite,temp_index,x+(32*i)-(16*(units_total-1)),y-48)}
     
     }
     
     
 }
 
-//if (units[i] == "none") {draw_sprite(spr_order_icon,temp_spriteindex,x+(32*i)-(16*(units_total-1)),y-32)}
-
 }  
-
-//}
 
 
 </string>

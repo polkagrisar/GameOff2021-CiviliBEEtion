@@ -102,6 +102,7 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; hover != "none") {
     //Toggle Info-box
     if (hover.type == "toggle_box") {
     hover.image_index++
+    audio_play_sound(snd_space,10,0)
     if (hover.image_index &gt; 1) {hover.image_index = 0}
     if (hover.image_index == 0) {info_toggle = true}
     if (hover.image_index == 1) {info_toggle = false}
@@ -111,6 +112,7 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; hover != "none") {
     if (hover.type == "flower" || hover.type == "rock" || hover.type == "stump") &amp;&amp; point_distance(hover.x,hover.y,home_x,home_y) &lt;= owner.reach+8 { 
         target = hover
         state = "orders"
+        audio_play_sound(snd_space,10,0)
         if hover.type == "flower" {with hover {available_actions = 3}} else {with hover {available_actions = 1}}
         with hover {scr_create_objectboxes()}
     }
@@ -119,6 +121,7 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; hover != "none") {
     if (hover.type == "hive" &amp;&amp; hover.p_id != p_id &amp;&amp; point_distance(hover.x,hover.y,home_x,home_y) &lt;= owner.reach+16) {
         target = hover
         state = "orders"
+        audio_play_sound(snd_space,10,0)
         with hover {scr_create_objectboxes()}
     }
 }
@@ -439,12 +442,14 @@ draw_set_valign(fa_top)
 draw_set_font(fnt_info)
 draw_set_colour(c_black)
 
-var offset = 0
+var y_offset = 0
+var x_offset = 0
 
-if (y &gt; room_height-100) {offset = 75}
+if (y &gt; room_height-100) {y_offset = 75}
+if (x &gt; room_width-120) {x_offset = 155}
 
-    draw_sprite(spr_infobox,0,x+75,y+50-offset)
-    draw_text(x+28,y-offset,hover.info)
+    draw_sprite(spr_infobox,0,x+75-x_offset,y+50-y_offset)
+    draw_text(x+28-x_offset,y-y_offset,hover.info)
 }
 
 //Draw patrol range

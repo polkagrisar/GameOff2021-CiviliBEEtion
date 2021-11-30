@@ -61,6 +61,7 @@ type = "upgrade"
     obj_admin.res_pollen -= cost
     cost += 2
     upgrades++
+    audio_play_sound(snd_upgrade,10,0)
 
     // send data
     self.rpc_id = htme_hash()

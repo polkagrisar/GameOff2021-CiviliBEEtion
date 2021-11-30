@@ -64,6 +64,7 @@ info = "Produce a worker."
             idle_workers++
         }
     }
+    audio_play_sound(snd_buy,10,0)
 }
 </string>
           </argument>

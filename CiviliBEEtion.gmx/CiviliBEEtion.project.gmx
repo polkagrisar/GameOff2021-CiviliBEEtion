@@ -186,6 +186,11 @@
   </NewExtensions>
   <sounds name="sound">
     <sound>sound\snd_menu</sound>
+    <sound>sound\snd_menuPress</sound>
+    <sound>sound\snd_lobbyJoin</sound>
+    <sound>sound\snd_buy</sound>
+    <sound>sound\snd_space</sound>
+    <sound>sound\snd_upgrade</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="htme_demo">

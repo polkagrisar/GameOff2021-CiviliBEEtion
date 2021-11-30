@@ -1,4 +1,4 @@
 *A patrol bee targeting a bee that enters a hive will stop where he was
 and not return to the pre-chase state. (Will not return when gatherers
 are gone, soft-locking the game)
-	*Probably fixed.
+	*Probably fixed. (Seemed to work)

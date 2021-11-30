@@ -512,6 +512,7 @@ show_debug_message(no_players)
 show_debug_message(no_bots)
 
 audio_stop_sound(snd_menu)
+audio_play_sound(snd_lobbyJoin,10,0)
 </string>
           </argument>
         </arguments>

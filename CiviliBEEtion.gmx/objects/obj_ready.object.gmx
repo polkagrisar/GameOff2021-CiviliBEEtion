@@ -35,12 +35,6 @@ p3_ready = true
 p4_ready = true
 p5_ready = true
 p6_ready = true
-
-{htme_globalSet("p2_ready",1,buffer_bool)}
-{htme_globalSet("p3_ready",1,buffer_bool)}
-{htme_globalSet("p4_ready",1,buffer_bool)}
-{htme_globalSet("p5_ready",1,buffer_bool)}
-{htme_globalSet("p6_ready",1,buffer_bool)}
 </string>
           </argument>
         </arguments>
@@ -294,7 +288,7 @@ draw_sprite(spr_hive,3,224,288)
 if obj_admin.player4 == true {
 draw_sprite(spr_hive,4,288,288)
 
-    if p3_ready == false {    
+    if p4_ready == false {    
     draw_set_colour(c_red)
     } else {draw_set_colour(c_green)}
     draw_text(286,244,"P4")
@@ -304,7 +298,7 @@ draw_sprite(spr_hive,4,288,288)
 if obj_admin.player5 == true {
 draw_sprite(spr_hive,5,352,288)
 
-    if p3_ready == false {    
+    if p5_ready == false {    
     draw_set_colour(c_red)
     } else {draw_set_colour(c_green)}
     draw_text(350,244,"P5")
@@ -314,7 +308,7 @@ draw_sprite(spr_hive,5,352,288)
 if obj_admin.player6 == true {
 draw_sprite(spr_hive,6,416,288)
 
-    if p3_ready == false {    
+    if p6_ready == false {    
     draw_set_colour(c_red)
     } else {draw_set_colour(c_green)}
     draw_text(414,244,"P6")

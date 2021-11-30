@@ -55,6 +55,11 @@
             <string>if htme_getPlayerNumber(global.htme_object.playerhash) == 1 {
     instance_create(x,y,obj_p1)
     obj_admin.player = 1
+    htme_globalSet("p2_ready",1,buffer_bool)
+    htme_globalSet("p3_ready",1,buffer_bool)
+    htme_globalSet("p4_ready",1,buffer_bool)
+    htme_globalSet("p5_ready",1,buffer_bool)
+    htme_globalSet("p6_ready",1,buffer_bool)
 }
 
 if htme_getPlayerNumber(global.htme_object.playerhash) == 2 {

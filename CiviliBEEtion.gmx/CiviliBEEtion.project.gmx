@@ -184,7 +184,9 @@
     <extension index="1">extensions\WinDev</extension>
     <extension index="2">extensions\Steamworks.gml</extension>
   </NewExtensions>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_menu</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="htme_demo">
       <sprite>sprites\htme_spr_wall</sprite>

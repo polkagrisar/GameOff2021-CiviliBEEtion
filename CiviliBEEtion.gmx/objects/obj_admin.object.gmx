@@ -510,6 +510,8 @@ if bot6 == true {no_bots++}
 
 show_debug_message(no_players)
 show_debug_message(no_bots)
+
+audio_stop_sound(snd_menu)
 </string>
           </argument>
         </arguments>

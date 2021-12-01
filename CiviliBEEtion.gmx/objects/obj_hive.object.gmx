@@ -408,6 +408,42 @@ if p_id == 6 &amp;&amp; obj_admin.player == 6 {
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Win
+
+if p_id == 1 &amp;&amp; obj_admin.p1_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 2 &amp;&amp; obj_admin.p2_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 3 &amp;&amp; obj_admin.p3_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 4 &amp;&amp; obj_admin.p4_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 5 &amp;&amp; obj_admin.p5_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 6 &amp;&amp; obj_admin.p6_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 101 &amp;&amp; obj_admin.bot1_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 102 &amp;&amp; obj_admin.bot2_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 103 &amp;&amp; obj_admin.bot3_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 104 &amp;&amp; obj_admin.bot4_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 105 &amp;&amp; obj_admin.bot5_royal &gt; 11 {instance_create(x,y,obj_winner)}
+if p_id == 106 &amp;&amp; obj_admin.bot6_royal &gt; 11 {instance_create(x,y,obj_winner)}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="10">
       <action>
         <libid>1</libid>
@@ -484,6 +520,8 @@ if jelly_progress &gt;= 100 {
 
 if p_id != obj_admin.player {exit}
 
+draw_set_font(font0)
+
 // Draw health
 
 draw_set_colour(c_black)
@@ -510,17 +548,17 @@ draw_text(4,36,string(floor(jelly_progress))+"%")
 
 // Draw resources
 
-draw_set_colour(c_orange)
+draw_set_colour(c_black)
 draw_set_halign(fa_center)
 draw_set_valign(fa_top)
-draw_set_font(font0)
+draw_set_font(fnt_resources)
 
 draw_sprite(spr_resource_box,0,33,60)
 draw_sprite(spr_resource_box,1,99,60)
 draw_sprite(spr_resource_box,2,165,60)
-draw_text(33,70,obj_admin.res_pollen)
-draw_text(99,70,obj_admin.res_nectar)
-draw_text(165,70,obj_admin.res_honey)
+draw_text(33,70,floor(obj_admin.res_pollen))
+draw_text(99,70,floor(obj_admin.res_nectar))
+draw_text(165,70,floor(obj_admin.res_honey))
 </string>
           </argument>
         </arguments>
@@ -603,20 +641,34 @@ draw_text(x,y-32,attackers)
             <kind>1</kind>
             <string>// Draw the rest
 
-if p_id != obj_admin.player {exit}
+draw_set_colour(c_teal)
+draw_set_font(fnt_resources)
 
-draw_set_colour(c_white)
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
 
-draw_text(x,y+36,"YOU")
+if p_id == 1 {draw_text(x,y+34,obj_admin.p1_royal)}
+if p_id == 2 {draw_text(x,y+34,obj_admin.p2_royal)}
+if p_id == 3 {draw_text(x,y+34,obj_admin.p3_royal)}
+if p_id == 4 {draw_text(x,y+34,obj_admin.p4_royal)}
+if p_id == 5 {draw_text(x,y+34,obj_admin.p5_royal)}
+if p_id == 6 {draw_text(x,y+34,obj_admin.p6_royal)}
+if p_id == 101 {draw_text(x,y+34,obj_admin.bot1_royal)}
+if p_id == 102 {draw_text(x,y+34,obj_admin.bot2_royal)}
+if p_id == 103 {draw_text(x,y+34,obj_admin.bot3_royal)}
+if p_id == 104 {draw_text(x,y+34,obj_admin.bot4_royal)}
+if p_id == 105 {draw_text(x,y+34,obj_admin.bot5_royal)}
+if p_id == 106 {draw_text(x,y+34,obj_admin.bot6_royal)}
 
+if p_id != obj_admin.player {exit}
+
+draw_set_colour(c_black)
 draw_set_halign(fa_left)
 
 draw_sprite(spr_drone,0,16,152)
-draw_text(28,152,drones)
+draw_text(28,154,drones)
 draw_sprite(spr_bee,0,64,152)
-draw_text(76,152,string(idle_workers) + "/" + string(workers))
+draw_text(76,154,string(idle_workers) + "/" + string(workers))
 </string>
           </argument>
         </arguments>

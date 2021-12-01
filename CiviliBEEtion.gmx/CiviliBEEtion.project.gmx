@@ -243,6 +243,7 @@
       <sprite>sprites\spr_upgrades</sprite>
       <sprite>sprites\spr_action</sprite>
     </sprites>
+    <sprite>sprites\spr_star</sprite>
     <sprite>sprites\spr_infobox</sprite>
     <sprite>sprites\spr_info_toggle</sprite>
     <sprite>sprites\spr_menu_buttons</sprite>
@@ -565,6 +566,7 @@
     <font>fonts\font0</font>
     <font>fonts\fnt_info</font>
     <font>fonts\fnt_cost</font>
+    <font>fonts\fnt_resources</font>
     <font>fonts\fnt_upgrade</font>
   </fonts>
   <objects name="objects">
@@ -721,6 +723,11 @@
       <object>objects\obj_queen_fx</object>
       <object>objects\spr_toggle_info</object>
       <object>objects\obj_drone_fx</object>
+    </objects>
+    <objects name="Winner">
+      <object>objects\obj_winner</object>
+      <object>objects\obj_star</object>
+      <object>objects\obj_win_bee</object>
     </objects>
   </objects>
   <rooms name="rooms">

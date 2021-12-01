@@ -193,6 +193,43 @@ alarm[4] = 1*60
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// End game if there is a winner
+
+if obj_admin.p1_royal &gt; 11 ||
+obj_admin.p2_royal &gt; 11 ||
+obj_admin.p3_royal &gt; 11 ||
+obj_admin.p4_royal &gt; 11 ||
+obj_admin.p5_royal &gt; 11 ||
+obj_admin.p6_royal &gt; 11 ||
+obj_admin.bot1_royal &gt; 11 ||
+obj_admin.bot2_royal &gt; 11 ||
+obj_admin.bot3_royal &gt; 11 ||
+obj_admin.bot4_royal &gt; 11 ||
+obj_admin.bot5_royal &gt; 11 ||
+obj_admin.bot6_royal &gt; 11 {
+    alarm[4] = -1
+    with obj_hive {event_user(1)}
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="2">
       <action>
